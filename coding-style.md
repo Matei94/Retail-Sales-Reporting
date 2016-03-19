@@ -9,10 +9,12 @@ class ClasaMea{ <br/>
 };
 </pre>
 ##Pentru fisiere tip Header
+<pre>
 ###Nume.h
 <pre>
 #ifndef__Nume_H
 #define__Nume_H
 ..............
 #endif /*__Nume_h 
+</pre>
 </pre>
