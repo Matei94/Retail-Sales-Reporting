@@ -1,6 +1,5 @@
-#Declararea unei clase
+##Declararea unei clase
 <pre>
-```
 class ClasaMea{ <br/>
 	int variabilaMea;
 	...
@@ -8,5 +7,4 @@ class ClasaMea{ <br/>
 	...
 	}
 };
-```
 </pre>
