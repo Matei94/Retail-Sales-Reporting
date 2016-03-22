@@ -1,4 +1,4 @@
-#include "bon.h"
+#include "Bon.h"
 #include <string.h>	
 
 Bon::Bon( std::string idBon, std::int id_prdus ){
@@ -16,14 +16,6 @@ Bon::void operator=( const Bon& b ){
 }
 
 Bon::~Bon{}
-
-void setIdBon( std::string idBon ){
-	this->idBon = idBon;
-}
-
-void setIdProdus( std::int idProdus ){
-	this->idProdus = idProdus;
-}
 
 int getIdBon( std::string idBon ){
 	return idBon;

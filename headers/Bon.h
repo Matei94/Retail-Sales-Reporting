@@ -15,10 +15,6 @@ public:
 
 	~Bon();
 
-	void setIdBon( std::string idBon );
-
-	void setIdProdus( std::int idProdus );
-
 	string getIdBon( std::string idBon );
 
 	int getIdProdus( std::int idProdus );
