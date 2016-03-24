@@ -1,7 +1,7 @@
 #include "Bon.h"
 #include <string.h>	
 
-Bon::Bon( std::string idBon, std::int id_prdus ){
+Bon::Bon( std::string idBon, int id_prdus ){
 	this->idBon = idBon;
 	this->idProdus = idProdus;
 }
@@ -21,7 +21,7 @@ int getIdBon( std::string idBon ){
 	return idBon;
 }
 
-int getIdProdus( std::int idProdus ){
+int getIdProdus( int idProdus ){
 	return idProdus;
 }
 

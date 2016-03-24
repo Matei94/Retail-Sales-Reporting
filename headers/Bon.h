@@ -1,5 +1,5 @@
-#ifndef __bon_h__
-#define __bon_h__
+#ifndef __BON_H__
+#define __BON_H__
 
 #include <string.h>
 
@@ -7,7 +7,7 @@ class Bon{
 
 public:
 
-	Bon( std::string idBon, std::int idProdus );
+	Bon( std::string idBon, int idProdus );
 
 	Bon( const Bon& b );
 
@@ -17,7 +17,7 @@ public:
 
 	string getIdBon( std::string idBon );
 
-	int getIdProdus( std::int idProdus );
+	int getIdProdus( int idProdus );
 
 friend:
 	
@@ -27,8 +27,8 @@ friend:
 private:
 
 	std::string idBon;
-	std::int idProdus;
+	int idProdus;
 
 };
 
-#endif __bon_h__
+#endif __BON_H__
