@@ -22,7 +22,7 @@ public:
 friend:
 	
 	std::ostream& operator<< ( std::ostream& out, const Bon& b );
-	std::istream& operator<< ( std::istream& in, Bon& b );
+	std::istream& operator>> ( std::istream& in, Bon& b );
 
 private:
 
