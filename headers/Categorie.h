@@ -12,6 +12,8 @@ class Categorie {
 	Categorie(int id, string nume);
 	int getId();
 	string getNume();
+	void setId(int id);
+	void setNume(string nume);
 };
 #endif /*__Categorie_H_
 	
