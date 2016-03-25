@@ -1,38 +1,30 @@
-#ifndef __BON_H__
-#define __BON_H__
+#ifndef __BON__
+#define __BON__
 
-#include <string.h>
-
-class Bon{
-
-public:
-
-	Bon( std::string idBon, int idProdus );
-
-	Bon( const Bon& b );
-
-	void operator= ( const Bon& b );
-
-	~Bon();
-
-	string getIdBon( std::string idBon );
-
-	int getIdProdus( int idProdus );
-
-friend:
-	
-	std::ostream& operator<< ( std::ostream& out, const Bon& b );
-	std::istream& operator>> ( std::istream& in, Bon& b );
-
-private:
-
-	std::string idBon;
+class Bon {
+  private:
+	long long idBon;
 	int idProdus;
+	
+  public:
+	// Constructor
+	Bon( long long idBon, int idProdus );
+
+	// Destructor
+	~Bon( );
+
+	// Copy-Constructor
+	Bon( Bon& obiectulBon );
+
+	// Suprascrierea operatorului de atribuire
+	void operator= ( const Bon& obiectulBon );
+
+	// Extragere idBon
+	long long getIdBon( );
+
+	// Extragerea idProdus
+	int getIdProdus( );
 
 };
 
-<<<<<<< HEAD
-#endif __BON_H__
-=======
-#endif __bon_h__
->>>>>>> 30bf737a3307d4121843e0a190adc67ca019dcbb
+#endif //__BON_H__

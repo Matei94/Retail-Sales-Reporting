@@ -1,18 +1,36 @@
-#ifndef __paleti_H_
-#define __paleti_H_
-#include<string.h>
-using namespace std;
+#ifndef __PALET__
+#define __PALET__
 
 class Palet {
-	string id_palet;
-	int prod_type, n_items, slot;
-	public:
-		string get_id_palet ();
-		int get_prod_type ();
-		int get_n_items ();
-		int get_slot ();
-	//	~Palet (); //destructor
-	//	Palet (string id_palet, int prod_type, int n_items, int slot);    //constructor
-	//	Palet (const Palet& palet); //copy-constructor
+  private:
+	string idPalet;
+	int prodType, numberOfItems, idSlot;
+
+  public:
+	// Constructor
+	Palet( string idPalet, int prodType, int numberOfItems, int idSlot );
+
+	// Destructor
+	~Palet( );
+
+	// Copy-Constructor
+	Palet( Palet& obiectulPalet );
+
+	// Suprascrierea operatorului de atribuire
+	void operator= ( const Palet& obiectulPalet );
+
+	// Extragere idPalet
+	string getIdPalet( );
+
+	// Extragere prodType
+	int getProdType( );
+
+	// Extragere numberOfItems
+	int getNumberOfItems( );
+
+	// Extragere idSlot
+	int getIdSlot( );
+
 };
-#endif
+
+#endif //__PALET__
