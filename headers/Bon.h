@@ -22,7 +22,7 @@ public:
 friend:
 	
 	std::ostream& operator<< ( std::ostream& out, const Bon& b );
-	std::istream& operator<< ( std::istream& in, Bon& b );
+	std::istream& operator>> ( std::istream& in, Bon& b );
 
 private:
 
@@ -31,4 +31,8 @@ private:
 
 };
 
+<<<<<<< HEAD
 #endif __BON_H__
+=======
+#endif __bon_h__
+>>>>>>> 30bf737a3307d4121843e0a190adc67ca019dcbb
