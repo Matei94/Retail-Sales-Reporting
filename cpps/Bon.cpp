@@ -1,4 +1,4 @@
-#include "Bon.h"
+#include "../headers/Bon.h"
 #include <string.h>	
 
 Bon::Bon( std::string idBon, int id_prdus ){

@@ -1,4 +1,4 @@
-#include<Categorie.h>
+#include "../headers/Categorie.h"
 
 Categorie::Categorie (int id, string nume){
   this->id = id;

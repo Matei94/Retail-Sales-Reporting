@@ -1,6 +1,5 @@
-#ifndef __Tranzactii__
-
-#define __Tranzactii__
+#ifndef __TRANZACTII_H_
+#define __TRANZACTII_H_
 
 class Tranzactii {
 	private:
@@ -29,4 +28,4 @@ class Tranzactii {
 
 };
 
-#endif //__Tranzactii__
+#endif /* __TRANZACTII_H_ */

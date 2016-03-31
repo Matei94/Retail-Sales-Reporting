@@ -15,5 +15,5 @@ class Categorie {
 	void setId(int id);
 	void setNume(string nume);
 };
-#endif /*__Categorie_H_
+#endif /*__Categorie_H_*/
 	

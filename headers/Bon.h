@@ -1,5 +1,5 @@
-#ifndef __BON_H__
-#define __BON_H__
+#ifndef __BON_H_
+#define __BON_H_
 
 #include <string.h>
 
@@ -31,8 +31,5 @@ private:
 
 };
 
-<<<<<<< HEAD
-#endif __BON_H__
-=======
-#endif __bon_h__
->>>>>>> 30bf737a3307d4121843e0a190adc67ca019dcbb
+#endif /* __BON_H_ */
+

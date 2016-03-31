@@ -1,6 +1,6 @@
-#ifndef __paleti_H_
-#define __paleti_H_
-#include<string.h>
+#ifndef __PALET_H_
+#define __PALET_H_
+#include <string.h>
 using namespace std;
 
 class Palet {
@@ -15,4 +15,4 @@ class Palet {
 	//	Palet (string id_palet, int prod_type, int n_items, int slot);    //constructor
 	//	Palet (const Palet& palet); //copy-constructor
 };
-#endif
+#endif /* __PALET_H_ */
