@@ -16,6 +16,7 @@ class Categorie {
 	void setNume(string nume);
 	Categorie (const Categorie& c);
 	void operator=(const Categorie& c);
+	Categorie(string line);
 };
 #endif /*__Categorie_H_*/
 	

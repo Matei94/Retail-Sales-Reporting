@@ -30,3 +30,9 @@ void Categorie::operator=(const Categorie& c){
   id = c.id;
   nume = c.nume;
 }
+
+Categorie::Categorie(string line){
+  int firstComma = line.find_first_of(',');
+  this->id = stoi(line.substr(0, firstComma));
+  this->nume = line.substr(firstComma + 1, line.length() - firstComma - 1);
+}
