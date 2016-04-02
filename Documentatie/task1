@@ -1,0 +1,18 @@
+Directorii executivi ai companiei doresc urmatoarele rapoarte:
+
+* o lista cu toate magazinele si vanzarile totale facute de acestea
+	Parcurgem tranzactii.csv si retinem id_mag si id_bon. Cu id_bon mergem in bonuri.csv , 	luam id_produs, cu id_produs mergem in produse.csv si luam pretul. Acest pret il adunam la 	suma[id_mag]. HASHTABLE
+
+* o lista cu toate produsele si vanzarile totale facute de acestea
+	Parcurgem tranzactii.csv si retinem id_bon. Cu id_bon mergem in bonuri.csv, luam 	id_produs, cu id_produs mergem in produse.csv de unde luam pretul pentru id_produs si il 	adunam.
+
+* valoarea cosului mediu
+	Se aduna sumele de la pct a si se imparte la numarul de linii – 1 din fisierul tranzactii.csv
+
+* care sunt categoriile cele mai bine vandute pentru fiecare magazin
+	Se ia o matrice care are pe linii magazinele si pe coloana categoriile, si se initializeaza cu 0. 	Se parcurge tranzactii.csv, retinem id_mag si id_bon. Cu id_bon mergem in bonuri.csv de 	unde luam id_produs cu care mergem in produse de unde luam categoria si adunam la linia 	magazin si coloana categorie
+
+* care sunt perechile de produse care se vand cel mai bine impreuna
+	Alocam dinamic triunghiul superior de la o matrice care are pe linii si pe coloane produse. 
+	Cum id_produs nu sunt crescatoare consecutive trebuie sa codificam fiecare id_produs cu un 	index crescator: bagam intr-un vector ids_produse, un fel de legenda. Din bonuri.csv vedem 	ce produse sunt pe acelasi bon, si pentru fiecare pereche de cate 2 produse formata din 	produsele de pe bonul respectiv, incrementam in matrice. Apoi vedem maximele si le afisam, 	folosindu-ne de legenda.
+
