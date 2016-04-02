@@ -12,9 +12,9 @@ class ClasaMea{ <br/>
 
 ###_Nume.h_
 <pre>
-#ifndef__Nume_H
-#define__Nume_H
+#ifndef__NUME_H_
+#define__NUME_H_
 ..............
-#endif /*__Nume_h 
+#endif /*__NUME_H_ 
 </pre>
 

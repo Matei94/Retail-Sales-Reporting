@@ -1,37 +1,36 @@
-#ifndef __Tranzactie__
-#define __Tranzactie__
+#ifndef __Tranzactie_H_
+#define __Tranzactie_H_
 
 class Tranzactie {
   private:
 	int idTranzactie, idMagazin;  
-	string timeStamp;
-	long long idBon;
+	string timeStamp, idBon;
 
   public:
-	// Constructor
-	Tranzactie( int idTranzactie, string timeStamp, long long idBon, int idMagazin );
+	/* Constructor */
+	Tranzactie( int idTranzactie, string timeStamp, string idBon, int idMagazin );
 
-	// Destructor
+	/* Destructor */
 	~Tranzactie( );
 
-	// Copy-Constructor
-	Tranzactie( Tranzactie& obiectulTranzactie );
+	/* Copy-Constructor */
+	Tranzactie( const Tranzactie& obiectulTranzactie );
 
-	// Suprascrierea operatorului de atribuire
+	/* Suprascrierea operatorului de atribuire */
 	void operator= ( const Tranzactie& obiectulTranzactie );
 
-	// Extragere idTranzactie
+	/* Extragere idTranzactie */
 	int getIdTranzactie( );
 
-	// Extragere idMagazin
+	/* Extragere idMagazin */
 	int getIdMagazin( );
 		
-	// Extragere timeStamp
+	/* Extragere timeStamp */
 	string getTimeStamp( );
 
-	// Extragere idBon
-	long long getIdBon( );
+	/* Extragere idBon */
+	string getIdBon( );
 
 };
 
-#endif //__Tranzactie__
+#endif //__Tranzactie_H_

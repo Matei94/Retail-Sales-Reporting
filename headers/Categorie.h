@@ -1,5 +1,5 @@
-#ifndef __Categorie___
-#define __Categorie___
+#ifndef __Categorie_H_
+#define __Categorie_H_
 
 class Categorie {
   private:
@@ -7,25 +7,25 @@ class Categorie {
 	string numeCategorie;
 
   public:
-	// Constructor	
+	/* Constructor */
 	Categorie( int idCategorie, string numeCategorie );
 
-	// Destructor
+	/* Destructor */
 	~Categorie( );
 
-	// Copy-Constructor
-	Categorie( Categorie& obiectulCategorie );
+	/* Copy-Constructor */
+	Categorie( const Categorie& obiectulCategorie );
 
-	// Suprascrierea operatorului de atribuire
+	/* Suprascrierea operatorului de atribuire */
 	void operator= ( const Categorie& obiectulCategorie );
 
-	// Extrage idCategorie 
+	/* Extrage idCategorie */
 	getIdCategorie( );
 
-	// Extrage numeCategorie
+	/* Extrage numeCategorie */
 	getNumeCategorie( );
 
 };
 
-#endif //__Categorie___
+#endif //__Categorie_H_
 	

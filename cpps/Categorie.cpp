@@ -1,14 +1,35 @@
-#include<Categorie.h>
+#include <string>
 
-Categorie::Categorie (int id, string nume){
-  this->id = id;
-  this->nume = nume;
+#include "Categorie.h"
+
+Categorie::Categorie () {
+	this->idCategorie = 0;
+	this->numeCategorie = "";
 }
 
-int Categorie::getId(){
-  return id;
+Categorie::Categorie ( int idCategorie, string numeCategorie ) {
+  	this->idCategorie = idCategorie;
+  	this->numeCategorie = numeCategorie;
 }
 
-string Categorie::getNume(){
-  return nume;
+Categorie::~Categorie () {
+	/* Do nothing */
+}
+
+Categorie::Categorie ( const Categorie& obiectulCategorie ) {
+	idCategorie = obiectulCategorie.idCategorie;
+	numeCategorie = obiectulCategorie.numeCategorie;	
+}
+
+void Categorie::operator= ( const Categorie& obiectulCategorie ) {
+	idCategorie = obiectulCategorie.idCategorie;
+	numeCategorie = obiectulCategorie.numeCategorie;
+}
+
+int Categorie::getIdCategorie () {
+  return idCategorie;
+}
+
+string Categorie::getNumeCategorie () {
+  return numeCategorie;
 }

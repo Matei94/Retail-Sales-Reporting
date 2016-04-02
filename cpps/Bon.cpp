@@ -1,36 +1,49 @@
-#include "Bon.h"
-#include <string.h>	
+#include <string>
 
-Bon::Bon( std::string idBon, int id_prdus ){
+#include "Bon.h"	
+
+//using namespace std;
+
+Bon::Bon( ) {
+	this->idBon = "";
+	this->idProdus = 0;
+}
+
+Bon::Bon( string idBon, int idProdus ) {
 	this->idBon = idBon;
 	this->idProdus = idProdus;
 }
 
-Bon::Bon( const Bon& b ){
-	this->b = b;
-
+Bon::~Bon( ) {
+	/* Do nothing */
 }
 
-Bon::void operator=( const Bon& b ){
-	this->b = b;
+Bon::Bon( const Bon& obiectulBon ){
+	idBon = obiectulBon.idBon;
+	idProdus = obiectulBon.isProdus;
 }
 
-Bon::~Bon{}
+void Bon::operator=( const Bon& obiectulBon ){
+	idBon = obiectulBon.idBon;
+	idProdus = obiectulBon.isProdus;	
+}
 
-int getIdBon( std::string idBon ){
+int getIdBon( ) {
 	return idBon;
 }
 
-int getIdProdus( int idProdus ){
+int getIdProdus( ){
 	return idProdus;
 }
 
-std::ostream& operator<< ( std::ostream& out, const Bon& b ){
+/*
+ostream& operator<< ( std::ostream& out, const Bon& b ){
 	out << b.idBon << ' ' << b.idProdus << std::endl;
 	return out;
 }
 
-std::istream& operator>> ( std::ostream& is, Bon& b ){
+istream& operator>> ( std::ostream& is, Bon& b ){
 	is >> b.idBon >> b.idProdus;
 	return is;
+*/
 }

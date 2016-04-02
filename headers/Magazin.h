@@ -1,5 +1,5 @@
-#ifndef __MAGAZIN__
-#define __MAGAZIN__
+#ifndef __MAGAZIN_H_
+#define __MAGAZIN_H_
 
 class Magazin {
   private:
@@ -7,24 +7,24 @@ class Magazin {
 	string locatieMagazin;
 		
   public: 
-	// Constructor
+	/* Constructor */
 	Magazin( int idMagazin, string locatieMagazin );
 
-	// Destructor
+	/* Destructor */
 	~Magazin( );
 
-	// Copy-Constructor
-	Magazin( Magazin& obiectMagazin );
+	/* Copy-Constructor */
+	Magazin( const Magazin& obiectMagazin );
 
-	// Suprascrierea operatorului de atribuire
+	/* Suprascrierea operatorului de atribuire */
 	void operator= ( const Magazin& obiectMagazin );
 
-	// Extragere idMagazin
+	/* Extragere idMagazin */
 	int getIdMagazin( );
 
-	// Extragere locatieMagazin
+	/* Extragere locatieMagazin */
 	string getLocatieMagazin( );
 
 };
 
-#endif // __MAGAZIN__
+#endif // __MAGAZIN_H_

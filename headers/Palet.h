@@ -1,5 +1,5 @@
-#ifndef __PALET__
-#define __PALET__
+#ifndef __PALET_H_
+#define __PALET_H_
 
 class Palet {
   private:
@@ -7,30 +7,30 @@ class Palet {
 	int prodType, numberOfItems, idSlot;
 
   public:
-	// Constructor
+	/* Constructor */
 	Palet( string idPalet, int prodType, int numberOfItems, int idSlot );
 
-	// Destructor
+	/* Destructor */
 	~Palet( );
 
-	// Copy-Constructor
-	Palet( Palet& obiectulPalet );
+	/* Copy-Constructor */
+	Palet( const Palet& obiectulPalet );
 
-	// Suprascrierea operatorului de atribuire
+	/* Suprascrierea operatorului de atribuire */
 	void operator= ( const Palet& obiectulPalet );
 
-	// Extragere idPalet
+	/* Extragere idPalet */
 	string getIdPalet( );
 
-	// Extragere prodType
+	/* Extragere prodType */
 	int getProdType( );
 
-	// Extragere numberOfItems
+	/* Extragere numberOfItems */
 	int getNumberOfItems( );
 
-	// Extragere idSlot
+	/* Extragere idSlot */
 	int getIdSlot( );
 
 };
 
-#endif //__PALET__
+#endif //__PALET_H_

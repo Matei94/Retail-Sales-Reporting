@@ -1,30 +1,30 @@
-#ifndef __BON__
-#define __BON__
+#ifndef __BON_H_
+#define __BON_H_
 
 class Bon {
   private:
-	long long idBon;
+	string idBon;
 	int idProdus;
 	
   public:
-	// Constructor
-	Bon( long long idBon, int idProdus );
+	/* Constructor */
+	Bon( string idBon, int idProdus );
 
-	// Destructor
+	/* Destructor */
 	~Bon( );
 
-	// Copy-Constructor
-	Bon( Bon& obiectulBon );
+	/* Copy-Constructor */
+	Bon( const Bon& obiectulBon );
 
-	// Suprascrierea operatorului de atribuire
+	/* Suprascrierea operatorului de atribuire */
 	void operator= ( const Bon& obiectulBon );
 
-	// Extragere idBon
+	/* Extragere idBon */
 	long long getIdBon( );
 
-	// Extragerea idProdus
+	/* Extragerea idProdus */
 	int getIdProdus( );
 
 };
 
-#endif //__BON_H__
+#endif //__BON_H_

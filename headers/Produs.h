@@ -1,5 +1,5 @@
-#ifndef __PRODUS__
-#define __PRODUS__
+#ifndef __PRODUS_H_
+#define __PRODUS_H_
 
 class Produs {
   private: 
@@ -7,30 +7,30 @@ class Produs {
 	string numeProdus;
 
   public:
-	// Constructor
+	/* Constructor */
 	Produs( int idProdus, int idCategorie, int price, string numeProdus );
 
-	// Destructor
+	/* Destructor */
 	~Produs( );
 
-	// Copy-Constructor
-	Produs( Produs& obiectProdus );
+	/* Copy-Constructor */
+	Produs( const Produs& obiectProdus );
 
-	// Suprascrierea operatorului de atribuire
+	/* Suprascrierea operatorului de atribuire */
 	void operator= ( const Produs& obiectProdus );
 
-	// Extragere idProdus
+	/* Extragere idProdus */
 	int getIdProdus( );
 
-	// Extragere idCategorie
+	/* Extragere idCategorie */
 	int getIdCategorie( );
 
-	// Extragere price
+	/* Extragere price */
 	int getPrice( );
 
-	// Extragere numeProdus
+	/* Extragere numeProdus */
 	string getNumeProdus( );
 
 };
 
-#endif // __PRODUS__
+#endif // __PRODUS_H_

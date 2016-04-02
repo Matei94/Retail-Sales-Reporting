@@ -1,37 +1,51 @@
-#include "../headers/Palet.h"
+#include <string>
 
-string Palet::get_id_palet () {
-	return id_palet;
+#include "Palet.h"
+
+Palet::Palet( ) {
+	this->idPalet = "";
+	this->prodType = 0;
+	this->numberOfItems = 0;
+	this->idSlot = 0;	
 }
 
-int Palet::get_n_items () {
-	return n_items;
+Palet::Palet( string idPalet, int prodType, int numberOfItems, int idSlot ) {
+	this->idPalet = idPalet;
+	this->prodType = prodType;
+	this->numberOfItems = numberOfItems;
+	this->idSlot = idSlot;
 }
 
-int Palet::get_slot () {
-	return get_slot;
+Palet::~Palet( ) {
+	/* Do nothing */
 }
 
-int Palet::get_prod_type () {
-	return prod_type;
+Palet::Palet( const Palet& obiectulPalet ) {
+	idPalet = obiectulPalet.idPalet;
+	prodType = obiectulPalet.prodType;
+	numberOfItems = obiectulPalet.numberOfItems;
+	idSlot = obiectulPalet.idSlot;
 }
-/*Palet::~Palet () {
-};
 
-Palet::Palet (char *id_palet, int prod_type, int n_items, int slot) {
-	strcpy (this->id_palet, id_palet);
-	this->prod_type = prod_type;
-	this->n_items = n_items;
-	this->slot = slot;
+void Palet::operator=( const Palet& obiectulPalet ) {
+	idPalet = obiectulPalet.idPalet;
+	prodType = obiectulPalet.prodType;
+	numberOfItems = obiectulPalet.numberOfItems;
+	idSlot = obiectulPalet.idSlot;
 }
-Palet::Palet (const Palet & palet) {
-	strcpy (this->id_palet, palet.id_palet);
-	this->prod_type = palet.id_palet;
-	this->n_items = palet.n_items;
-	this->slot = palet.slot;
-}*/
 
+string Palet::getIdPalet( ) {
+	return idPalet;
+}
 
+int Palet::getProdType( ) {
+	return prodType;
+}
 
+int Palet::getNumberOfItems( ) {
+	return numberOfItems;
+}
 
-	
+int Palet::getIdSlot( ) {
+	return idSlot;
+}
