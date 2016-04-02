@@ -1,38 +1,35 @@
-#include "../headers/Categorie.h"
+#include <string>
 
-Categorie::Categorie(int id, string nume){
-  this->id = id;
-  this->nume = nume;
+#include "Categorie.h"
+
+Categorie::Categorie () {
+  this->idCategorie = 0;
+  this->numeCategorie = "";
 }
 
-int Categorie::getId(){
-  return id;
+Categorie::Categorie ( int idCategorie, string numeCategorie ) {
+    this->idCategorie = idCategorie;
+    this->numeCategorie = numeCategorie;
 }
 
-string Categorie::getNume(){
-  return nume;
+Categorie::~Categorie () {
+  /* Do nothing */
 }
 
-void Categorie::setId(int id){
-  this->id = id;
+Categorie::Categorie ( const Categorie& obiectulCategorie ) {
+  idCategorie = obiectulCategorie.idCategorie;
+  numeCategorie = obiectulCategorie.numeCategorie;  
 }
 
-void Categorie::setNume(string nume){
-  this->nume = nume;
+void Categorie::operator= ( const Categorie& obiectulCategorie ) {
+  idCategorie = obiectulCategorie.idCategorie;
+  numeCategorie = obiectulCategorie.numeCategorie;
 }
 
-Categorie::Categorie(const Categorie& c){
-  id = c.id;
-  nume = c.nume;
+int Categorie::getIdCategorie () {
+  return idCategorie;
 }
 
-void Categorie::operator=(const Categorie& c){
-  id = c.id;
-  nume = c.nume;
-}
-
-Categorie::Categorie(string line){
-  int firstComma = line.find_first_of(',');
-  this->id = stoi(line.substr(0, firstComma));
-  this->nume = line.substr(firstComma + 1, line.length() - firstComma - 1);
+string Categorie::getNumeCategorie () {
+  return numeCategorie;
 }
