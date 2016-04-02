@@ -1,22 +1,30 @@
 #ifndef __Categorie_H_
 #define __Categorie_H_
-#include<string>
-using namespace std;
 
 class Categorie {
-	private:
-	int id;
-	string nume;
+  private:
+	int idCategorie;
+	string numeCategorie;
 
-	public:
-	Categorie(int id, string nume);
-	int getId();
-	string getNume();
-	void setId(int id);
-	void setNume(string nume);
-	Categorie (const Categorie& c);
-	void operator=(const Categorie& c);
-	Categorie(string line);
+  public:
+	/* Constructor */
+	Categorie( int idCategorie, string numeCategorie );
+
+	/* Destructor */
+	~Categorie( );
+
+	/* Copy-Constructor */
+	Categorie( const Categorie& obiectulCategorie );
+
+	/* Suprascrierea operatorului de atribuire */
+	void operator= ( const Categorie& obiectulCategorie );
+
+	/* Extrage idCategorie */
+	getIdCategorie( );
+
+	/* Extrage numeCategorie */
+	getNumeCategorie( );
+
 };
-#endif /*__Categorie_H_*/
-	
+
+#endif //__Categorie_H_
