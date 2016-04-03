@@ -49,3 +49,15 @@ string Tranzactie::getTimeStamp( ) {
 string Tranzactie::getIdBon( ) {
 	return idBon;
 }
+
+Tranzactie::Tranzactie( string linieFisier ){
+	int firstComma = linieFisier.find_first_of( ',' );
+	this->idTranzactie = stoi( linieFisier.substr( 0, firstComma ) );
+	string sirulDeProcesat = linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 );
+	firstComma = sirulDeProcesat.find_first_of( ',' );
+	this->timeStamp = sirulDeProcesat.substr( 0, firstComma );
+	sirulDeProcesat = sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 );
+	firstComma = sirulDeProcesat.find_first_of( ',' );
+	this->idBon = sirulDeProcesat.substr( 0, firstComma );
+	this->idMagazin = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
+}

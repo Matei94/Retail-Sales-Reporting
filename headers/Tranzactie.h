@@ -31,6 +31,9 @@ class Tranzactie {
 	/* Extragere idBon */
 	string getIdBon( );
 
+	/* Constructor pentru citire din fisier */
+	Tranzactie( string linieFisier );
+
 };
 
 #endif //__Tranzactie_H_
