@@ -4,6 +4,8 @@
 
 #include <fstream>
 
+#include "../headers/citireTranzactii.h";
+
 using namespace std;
 
 int main(int argc, char **argv)
@@ -14,7 +16,9 @@ int main(int argc, char **argv)
 	ifstream magazine;
 	ifstream paleti;
 	ifstream produse;
-	ifstream tranzactii;
+	ifstream tranzactii ( "tranzactii.csv" );
+	listaTranzactii = LinkedList<Tranzactie>();
+	citireTranzactii( listaTranzactii );
 
 
 
