@@ -1,8 +1,23 @@
 #include <cstddef>
 
-#include "../headers/Stack.h"
+#include "Stack.h"
 
+#include "Node.h"
 using namespace std;
+
+template<typename T>
+Stack<T>::Stack() {
+	first = NULL;
+}
+
+template<typename T>
+Stack<T>::~Stack() {
+	while (first != NULL) {
+		Node<T> *del = first;
+		first = first->getNext();
+		delete del;
+	}
+}
 
 template <typename T>
 void Stack<T>::push (T value) {
