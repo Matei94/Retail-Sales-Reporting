@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	ifstream magazine;
 	ifstream paleti;
 	ifstream produse;
-	ifstream tranzactii ( "tranzactii.csv" );
+
 	listaTranzactii = LinkedList<Tranzactie>();
 	citireTranzactii( listaTranzactii );
 
