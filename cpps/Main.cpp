@@ -6,6 +6,8 @@
 
 #include "../headers/citireTranzactii.h";
 
+#include "../headers/citirePaleti.h";
+
 using namespace std;
 
 int main(int argc, char **argv)
@@ -20,7 +22,8 @@ int main(int argc, char **argv)
 	listaTranzactii = LinkedList<Tranzactie>();
 	citireTranzactii( listaTranzactii );
 
-
+	listaPaleti = LinkedList<Palet>();
+	citirePaleti( listaPaleti );	
 
 	// TODO 1: Cerinta 1
 	// TODO 2: Cerinta 2
