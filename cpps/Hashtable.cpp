@@ -4,6 +4,8 @@
 #include "../headers/Hashtable.h"
 
 
+using namespace std;
+
 /*  */
 #define VMAX 1000
 
@@ -12,7 +14,7 @@ template<class Tkey, class Tvalue>
 Hashtable<Tkey, Tvalue>::Hashtable(int hmax, int (*h) (Tkey)) {
   HMAX = hmax;
   hash = h;
-  H = new LinkedList<struct elem_info<Tkey, Tvalue> > [HMAX];
+  H = new LinkedList<struct elemInfo<Tkey, Tvalue> > [HMAX];
 }
 
 /* Destructorul care dezaloca memoria pentru hashtable, parcurgand fiecare bucket in parte
@@ -27,32 +29,50 @@ Hashtable<Tkey, Tvalue>::~Hashtable() {
   delete[] H;
 }
 
+
 template<typename Tkey, typename Tvalue> 
 void Hashtable<Tkey, Tvalue>::put(Tkey key, Tvalue value) {
-  struct Node<struct elem_info<Tkey, Tvalue> > *p;   //Asa era cu un struct node
-  //Node<struct elem_info<Tkey, Tvalue> > *p = new Node<struct elem_info<Tkey, Tvalue> >(value); //cu un class node *******
-  struct elem_info<Tkey, Tvalue> aux;
+  //struct Node<struct elemInfo<Tkey, Tvalue> > *p;   //Asa era cu un struct node
+  Node<struct elemInfo<Tkey, Tvalue> > *p = new Node<struct elemInfo<Tkey, Tvalue> >(); //cu un class node *******
+  struct elemInfo<Tkey, Tvalue> aux;
 
+  
+  /* hkey = indexul bucketului din hashtable */
   int hkey = hash(key);
+  
+  /* p = primul element din bucket */
   p = H[hkey].front(); //functie din lista
 
+  
+  /* Se parcurge bucketul si se cauta cheia "key". La gasirea acesteia se abandoneaza cautare. 
+    p = pointer la elementul cautat sau NULL daca nu se gaseste elementul cu cheia "key" */
   while (p != NULL) {  // operator == must be meaningful
-      if (p->getValue().key == key) break;
+      if (p->getValue().key == key) 
+          break;
       p = p->getNext();
   }
+
+  /* aux este un element auxiliar ce va fi inserat in hashtable */
   aux.key = key;
   aux.value = value;
+
+
+  /* Daca elemntul cu cheia respectiva exista deja in lista, trebuie actualizat, asa ca ii
+    schimbam doar valoarea, fara sa pierdem legatura la urmatorul nod. */
   if (p != NULL) {
-     //p->info.value = value;
-    p->Node(aux);   
-  }
-  else {
+     //p->value(de la Node).value(de la elemInfo) = value(valoarea care este);
+    p->setValue(aux);
+  } else {
+    /* Daca nu exista un element cu cheia respectiva in lista, facem un element nou si il punem 
+      la sfarsitul listei din bucketul aferent cheii. */
     H[hkey].addLast(aux);  //functie din lista
   }
 }
+
+
 template<typename Tkey, typename Tvalue> 
 Tvalue Hashtable<Tkey, Tvalue>::get(Tkey key) {
-  struct Node<struct elem_info<Tkey, Tvalue> > *p;
+  struct Node<struct elemInfo<Tkey, Tvalue> > *p;
 
   int hkey = hash(key);
   p = H[hkey].front(); //functie din lista
@@ -73,7 +93,7 @@ Tvalue Hashtable<Tkey, Tvalue>::get(Tkey key) {
 
 template<typename Tkey, typename Tvalue> 
 int Hashtable<Tkey, Tvalue>::hasKey(Tkey key) {
-  struct Node<struct elem_info<Tkey, Tvalue> > *p;
+  struct Node<struct elemInfo<Tkey, Tvalue> > *p;
 
   int hkey = hash(key);
   p = H[hkey].front(); //functie din lista
@@ -111,7 +131,8 @@ int Hashtable<Tkey, Tvalue>::getMaxCollisions() {
   return maxCollisions;
 }
 */
-template class Hashtable<std::string,int>;
+template class Hashtable<string,int>;
+template class Hashtable<int,int>;
 
 int Hash(std::string key) {
     int hkey = 0;

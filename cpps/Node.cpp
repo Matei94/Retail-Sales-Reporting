@@ -2,6 +2,8 @@
 
 #include "../headers/Node.h"
 
+using namespace std;
+
 template <typename T>
 Node<T>::Node() {
   this->value = 0;
@@ -15,15 +17,15 @@ Node<T>::Node(T value) {
 }
 
 template <typename T>
-Node<T>::Node(const Node<T>& n) {
-  this->value = n.value;
-  this->next  = n.next;
+Node<T>::Node(const Node<T>& nod) {
+  this->value = nod.value;
+  this->next  = nod.next;
 }
 
 template <typename T>
-void Node<T>::operator=(const Node<T>& n) {
-  this->value = n.value;
-  this->next  = n.next;
+void Node<T>::operator=(const Node<T>& nod) {
+  this->value = nod.value;
+  this->next  = nod.next;
 }
 
 template <typename T>
@@ -42,8 +44,13 @@ Node<T> *Node<T>::getNext() {
 }
 
 template <typename T>
-void Node<T>::setNext(Node<T>* n) {
-  this->next = n;
+void Node<T>::setNext(T newValue) {
+  this->value = newValue;
+}
+
+template <typename T>
+void Node<T>::setNext(Node<T>* nod) {
+  this->next = nod;
 }
 
 
@@ -52,3 +59,4 @@ void Node<T>::setNext(Node<T>* n) {
 
 template class Node<int>;
 template class Node<float>;
+template class Node<struct <string, int>>;
