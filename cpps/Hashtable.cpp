@@ -4,8 +4,10 @@
 #include "../headers/Hashtable.h"
 
 
+/*  */
 #define VMAX 1000
 
+/* Constructorul care aloca memoria pentru hashtable */
 template<class Tkey, class Tvalue> 
 Hashtable<Tkey, Tvalue>::Hashtable(int hmax, int (*h) (Tkey)) {
   HMAX = hmax;
@@ -13,11 +15,13 @@ Hashtable<Tkey, Tvalue>::Hashtable(int hmax, int (*h) (Tkey)) {
   H = new LinkedList<struct elem_info<Tkey, Tvalue> > [HMAX];
 }
 
+/* Destructorul care dezaloca memoria pentru hashtable, parcurgand fiecare bucket in parte
+   si eliminand pe rand fiecare element din continutul lui */
 template<typename Tkey, typename Tvalue> 
 Hashtable<Tkey, Tvalue>::~Hashtable() {
   for (int i = 0; i < HMAX; i++) {
-      while (!H[i].isEmpty()) //functie din lista
-        H[i].removeFirst();   //functie din lista
+      while ( !H[i].isEmpty() ) /* functie din lista */
+        H[i].removeFirst();   /* functie din lista */
   }
 
   delete[] H;
@@ -114,10 +118,6 @@ int Hash(std::string key) {
     for (int i = 0; i < key.length(); i++)
         hkey = (hkey * 31 + key[i]) % VMAX;
     return hkey;
-}
-
-int main(){
-
 }
 
 // Chestiile alea cu template, exemplu:
