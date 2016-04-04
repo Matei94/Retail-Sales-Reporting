@@ -25,6 +25,9 @@ class Magazin {
 	/* Extragere locatieMagazin */
 	string getLocatieMagazin( );
 
+	/* Constructor pentru citire din fisier */
+	Tranzactie( string linieFisier );
+
 };
 
 #endif // __MAGAZIN_H_

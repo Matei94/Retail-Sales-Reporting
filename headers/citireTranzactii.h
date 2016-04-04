@@ -1,6 +1,9 @@
 #include<fstream>
 #include<sstream>
 
+#include "Tranzactie.h"
+#include "LinkedList.h"
+
 using namespace std;
 
 void citireTranzactii( LinkedList<Tranzactie>& listaTranzactii ){

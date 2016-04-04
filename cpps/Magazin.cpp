@@ -33,3 +33,9 @@ int Magazin::getIdMagazin( ) {
 string Magazin::getLocatieMagazin( ) {
 	return locatieMagazin;
 }
+
+Magazin::Magazin( string linieFisier ){
+	int firstComma = linieFisier.find_first_of( ',' );
+	this->idMagazin	= stoi( linieFisier.substr( 0, firstComma ) );
+	this->locatieMagazin = stoi( linieFisier.substr( firstComma, NULL ) );
+}
