@@ -1,8 +1,9 @@
 #include <cstddef>
 
-#include "Stack.h"
-
 #include "Node.h"
+
+#include "../headers/Stack.h"
+
 using namespace std;
 
 template<typename T>

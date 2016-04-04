@@ -2,7 +2,7 @@
 #define __STACK_H_
 
 #include "Node.h"
-#include "LinkedList.h"
+
 using namespace std;
 
 
@@ -10,7 +10,7 @@ using namespace std;
 template <typename T>
 class Stack {
 private:
-	LinkedList<T> *list;
+	
 	Node<T> *first;
 
 public:
