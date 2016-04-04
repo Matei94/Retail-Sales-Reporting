@@ -33,3 +33,9 @@ int Categorie::getIdCategorie () {
 string Categorie::getNumeCategorie () {
   return numeCategorie;
 }
+
+Categorie::Categorie( string linieFisier ){
+  int firstComma = linieFisier.find_first_of( ',' );
+  this->idCategorie = stoi( linieFisier.substr( 0, firstComma ) );
+  this->numeCategorie = stoi ( linieFisier.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
+}
