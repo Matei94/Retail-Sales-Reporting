@@ -104,3 +104,4 @@ Node<T>* LinkedList<T>::front() {
     }
 
 template class LinkedList<int>;
+// template class LinkedList< Node<int> >;

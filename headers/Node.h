@@ -1,6 +1,8 @@
 #ifndef __NODE_H_
 #define __NODE_H_
 
+#include "Hashtable.h"
+
 template <typename T>
 class Node {
   private:

@@ -2,7 +2,6 @@
 #define __HASHTABLE_H_
 
 #include "LinkedList.h"     //Verificare nume cu headerul listei + Guard
-#include "Node.h"
 
 
 /* elemInfo -> perechea( cheie, valoare ) din hashtable */
@@ -37,7 +36,7 @@ class Hashtable {
         /* Functia de extragere a valorii de la o anumita cheie */
         Tvalue get(Tkey key);
 
-        /* Functia de verificare a existentei cheii "hey" in hashtable */
+        /* Functia de verificare a existentei cheii "key" in hashtable */
         int hasKey(Tkey key);
 
 //      int getCollisions();

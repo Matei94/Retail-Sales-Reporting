@@ -70,44 +70,69 @@ void Hashtable<Tkey, Tvalue>::put(Tkey key, Tvalue value) {
 }
 
 
+/* Returneaza valoarea cheii data ca parametru */
 template<typename Tkey, typename Tvalue> 
 Tvalue Hashtable<Tkey, Tvalue>::get(Tkey key) {
-  struct Node<struct elemInfo<Tkey, Tvalue> > *p;
+  //struct Node<struct elemInfo<Tkey, Tvalue> > *p;
+  Node<struct elemInfo<Tkey, Tvalue> > *p = new Node<struct elemInfo<Tkey, Tvalue> >(); //cu un class node *******
 
+  /* hkey = indexul bucketului din hashtable */
   int hkey = hash(key);
+
+  /* p = primul element din bucket */
   p = H[hkey].front(); //functie din lista
 
-  while (p != NULL) {
-      if (p->getValue().key == key) break;
+  
+  /* Se parcurge bucketul si se cauta cheia "key". La gasirea acesteia se abandoneaza cautare. 
+    p = pointer la elementul cautat sau NULL daca nu se gaseste elementul cu cheia "key" */
+  while (p != NULL) {  // operator == must be meaningful
+      if (p->getValue().key == key) 
+          break;
       p = p->getNext();
   } 
 
+  /* Daca gaseste in lista elementul cautat, returneaza valoarea */
   if (p != NULL)
-      return p->getValue().value;
+      return p->getValue().value; /* Node::getValue */
+  /* Daca nu gaseste in lista elementul cautat, printeaza o valoare */
   else {
       fprintf(stderr, "Error 101 - The key does not exist\n");
+      /* Returnam ceva de-a-mpulea? Nici noi nu stim... */
       Tvalue x;
       return x;
   }
 }
 
+
+/* Functia de verificare a existentei cheii "key" in hashtable */
 template<typename Tkey, typename Tvalue> 
 int Hashtable<Tkey, Tvalue>::hasKey(Tkey key) {
-  struct Node<struct elemInfo<Tkey, Tvalue> > *p;
+  //struct Node<struct elemInfo<Tkey, Tvalue> > *p;
+  Node<struct elemInfo<Tkey, Tvalue> > *p = new Node<struct elemInfo<Tkey, Tvalue> >(); //cu un class node *******
 
+  /* hkey = indexul bucketului din hashtable */
   int hkey = hash(key);
+
+  /* p = primul element din bucket */
   p = H[hkey].front(); //functie din lista
 
-  while (p != NULL) {
-      if (p->getValue().key == key) break;
+
+  /* Se parcurge bucketul si se cauta cheia "key". La gasirea acesteia se abandoneaza cautare. 
+    p = pointer la elementul cautat sau NULL daca nu se gaseste elementul cu cheia "key" */
+  while (p != NULL) {  // operator == must be meaningful
+      if (p->getValue().key == key) 
+          break;
       p = p->getNext();
   }
 
+  /* Daca se gaseste cheia, returnam 1, daca nu returnam 0 */
   if (p != NULL)
       return 1;
   else
       return 0;
 }
+
+
 /*
 template<typename Tkey, typename Tvalue> 
 int Hashtable<Tkey, Tvalue>::getCollisions() {
@@ -131,10 +156,11 @@ int Hashtable<Tkey, Tvalue>::getMaxCollisions() {
   return maxCollisions;
 }
 */
+
 template class Hashtable<string,int>;
 template class Hashtable<int,int>;
 
-int Hash(std::string key) {
+int Hash(string key) {
     int hkey = 0;
     for (int i = 0; i < key.length(); i++)
         hkey = (hkey * 31 + key[i]) % VMAX;

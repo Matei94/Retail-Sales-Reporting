@@ -44,7 +44,7 @@ Node<T> *Node<T>::getNext() {
 }
 
 template <typename T>
-void Node<T>::setNext(T newValue) {
+void Node<T>::setValue(T newValue) {
   this->value = newValue;
 }
 
@@ -57,6 +57,6 @@ void Node<T>::setNext(Node<T>* nod) {
 
 //!!!!! AICI TREBUIE ADAUGAT CE O SA FOLOSIM, CE TIPURI DE DATE
 
-template class Node<int>;
-template class Node<float>;
-template class Node<struct <string, int>>;
+template class Node< int >;
+template class Node< float >;
+template class Node< struct elemInfo<string, int> >;

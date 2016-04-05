@@ -1,6 +1,6 @@
 #include <string>
 
-#include "Tranzactie.h"
+#include "../headers/Tranzactie.h"
 
 Tranzactie::Tranzactie( ) {
 	this->idTranzactie = 0;
