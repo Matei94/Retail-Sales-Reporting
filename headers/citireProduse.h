@@ -13,5 +13,5 @@ void citireTranzactii( LinkedList<Tranzactie>& listaTranzactii ){
 	while ( getline( produse, linieFisier ) ){
 		listaProduse.addLast ( Produs ( linieFisier ) );
 	}
-	tranzactii.close();
+	produse.close();
 }
