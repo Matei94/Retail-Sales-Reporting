@@ -31,6 +31,9 @@ class Palet {
 	/* Extragere idSlot */
 	int getIdSlot( );
 
+	/* Constructor pentru citirea din fisier */
+	Palet( string linieFisier );
+
 };
 
 #endif //__PALET_H_

@@ -1,5 +1,8 @@
 #include<fstream>
-#include<<sstream>
+#include<sstream>
+
+#include "Bon.h"
+#include "LinkedList.h"
 
 using namespace std;
 
@@ -9,13 +12,13 @@ void citireBonuri( LinkedList<Bon>& listaBonuri ){
 	
 	string linieFisier;
     
-    getline( bonuri, linieFisier );
+    	getline( bonuri, linieFisier );
     
-    while ( getline( bonuri, linieFisier ) ){
+    	while ( getline( bonuri, linieFisier ) ){
     	
-    	listaBonuri.addLast ( Bon ( linieFisier ) );
-    }
+    		listaBonuri.addLast ( Bon ( linieFisier ) );
+    	}
     
-    bonuri.close();
+    	bonuri.close();
 	
 }

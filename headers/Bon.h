@@ -20,10 +20,13 @@ class Bon {
 	void operator= ( const Bon& obiectulBon );
 
 	/* Extragere idBon */
-	long long getIdBon( );
+	string getIdBon( );
 
 	/* Extragerea idProdus */
 	int getIdProdus( );
+
+	/* Constructor pentru citirea din fisier */
+	Bon( string linieFisier );
 
 };
 

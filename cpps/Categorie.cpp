@@ -37,5 +37,5 @@ string Categorie::getNumeCategorie () {
 Categorie::Categorie( string linieFisier ){
   int firstComma = linieFisier.find_first_of( ',' );
   this->idCategorie = stoi( linieFisier.substr( 0, firstComma ) );
-  this->numeCategorie = stoi ( linieFisier.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
+  this->numeCategorie = linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 );
 }
