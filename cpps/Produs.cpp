@@ -55,9 +55,9 @@ Produs::Produs( string linieFisier ) {
 	this->idProdus = stoi( linieFisier.substr( 0, firstComma ) );
 	string sirulDeProcesat = linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 );
 	firstComma = sirulDeProcesat.find_first_of( ',' );
-	this->idCategorie = sirulDeProcesat.substr( 0, firstComma );
+	this->numeProdus = sirulDeProcesat.substr( 0, firstComma );
 	sirulDeProcesat = sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 );
 	firstComma = sirulDeProcesat.find_first_of( ',' );
-	this->price = sirulDeProcesat.substr( 0, firstComma );
-	this->numeProdus = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
+	this->idCategorie = stoi( sirulDeProcesat.substr( 0, firstComma ) );
+	this->price = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
 }
