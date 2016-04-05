@@ -31,6 +31,9 @@ class Produs {
 	/* Extragere numeProdus */
 	string getNumeProdus( );
 
+	/* Constructor pentru citire din fisier */
+	Produs( string linieFisier );
+
 };
 
 #endif // __PRODUS_H_

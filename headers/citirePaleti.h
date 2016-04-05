@@ -1,6 +1,9 @@
 #include<fstream>
 #include<sstream>
 
+#include "Palet.h"
+#include "LinkedList.h"
+
 using namespace std;
 
 void citirePaleti( LinkedList<Palet>& listaPaleti ){

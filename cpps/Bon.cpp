@@ -28,12 +28,18 @@ void Bon::operator=( const Bon& obiectulBon ){
 	idProdus = obiectulBon.isProdus;	
 }
 
-int getIdBon( ) {
+string Bon::getIdBon( ) {
 	return idBon;
 }
 
-int getIdProdus( ){
+int Bon::getIdProdus( ){
 	return idProdus;
+}
+
+Bon::Bon( string linieFisier ){
+	int firstComma = linieFisier.find_first_of( ',' );
+  	this->idBon = linieFisier.substr( 0, firstComma );
+  	this->idProdus = stoi( linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 ) );
 }
 
 /*

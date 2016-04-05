@@ -25,6 +25,8 @@ class Categorie {
 	/* Extrage numeCategorie */
 	getNumeCategorie( );
 
+	/* Constructor pentru citirea din fisier */
+	Categorie( string linieFisier );
 };
 
 #endif //__Categorie_H_
