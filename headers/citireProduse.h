@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void citireTranzactii( LinkedList<Tranzactie>& listaTranzactii ){
+void citireProduse( LinkedList<Produs>& listaProduse ){
 	ifstream produse ( "produse.csv" );
 	string linieFisier;
 	getline( produse, linieFisier );
