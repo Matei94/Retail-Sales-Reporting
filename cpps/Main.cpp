@@ -5,25 +5,34 @@
 #include <fstream>
 
 #include "../headers/citireTranzactii.h";
-
+#include "../headers/citire.Bonurih";
 #include "../headers/citirePaleti.h";
+#include "../headers/citireCategorie.h";
+#include "../headers/citireMagazine.h";
+#include "../headers/citireProduse.h";
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-	/* Fisierele de input */
-	ifstream bonuri;
-	ifstream categorii;
-	ifstream magazine;
-	ifstream paleti;
-	ifstream produse;
-
+	/* Parsare fisiere de input */
 	listaTranzactii = LinkedList<Tranzactie>();
 	citireTranzactii( listaTranzactii );
 
 	listaPaleti = LinkedList<Palet>();
-	citirePaleti( listaPaleti );	
+	citirePaleti( listaPaleti );
+
+	listaBonuri = LinkedList<Bon>();
+	citireBonuri( listaBonuri );
+
+	listaCategorii = LinkedList<Categorie>();
+	citireCategorii( listaCategorii );
+
+	listaMagazine = LinkedList<Magazin>();
+	citireMagazine( listaMagazine );
+
+	listaProduse = LinkedList<Produs>();
+	citireProduse( listaProduse );	
 
 	// TODO 1: Cerinta 1
 	// TODO 2: Cerinta 2
