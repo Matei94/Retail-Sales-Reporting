@@ -7,13 +7,15 @@ Palet::Palet( ) {
 	this->prodType = 0;
 	this->numberOfItems = 0;
 	this->idSlot = 0;	
+	this->indexSlot = 0;
 }
 
-Palet::Palet( string idPalet, int prodType, int numberOfItems, int idSlot ) {
+Palet::Palet( string idPalet, int prodType, int numberOfItems, int idSlot, int indexSlot ) {
 	this->idPalet = idPalet;
 	this->prodType = prodType;
 	this->numberOfItems = numberOfItems;
 	this->idSlot = idSlot;
+	this->indexSlot = indexSlot;
 }
 
 Palet::~Palet( ) {
@@ -25,6 +27,7 @@ Palet::Palet( const Palet& obiectulPalet ) {
 	prodType = obiectulPalet.prodType;
 	numberOfItems = obiectulPalet.numberOfItems;
 	idSlot = obiectulPalet.idSlot;
+	indexSlot = obiectulPalet.indexSlot;
 }
 
 void Palet::operator=( const Palet& obiectulPalet ) {
@@ -32,6 +35,7 @@ void Palet::operator=( const Palet& obiectulPalet ) {
 	prodType = obiectulPalet.prodType;
 	numberOfItems = obiectulPalet.numberOfItems;
 	idSlot = obiectulPalet.idSlot;
+	indexSlot = obiectulPalet.indexSlot;
 }
 
 string Palet::getIdPalet( ) {
@@ -48,4 +52,8 @@ int Palet::getNumberOfItems( ) {
 
 int Palet::getIdSlot( ) {
 	return idSlot;
+}
+
+int Palet::getIndexSlot( ) {
+	return indexSlot;
 }
