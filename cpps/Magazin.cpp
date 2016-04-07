@@ -17,13 +17,13 @@ Magazin::~Magazin( ) {
 }
 
 Magazin::Magazin( const Magazin& obiectulMagazin ) {
-	idMagazin = obiectulMagazin.idMagazin;
-	locatieMagazin = obiectulMagazin.locatieMagazin;
+	this->idMagazin = obiectulMagazin.idMagazin;
+	this->locatieMagazin = obiectulMagazin.locatieMagazin;
 }
 
 void Magazin::operator=( const Magazin& obiectulMagazin ) {
-	idMagazin = obiectulMagazin.idMagazin;
-	locatieMagazin = obiectulMagazin.locatieMagazin;
+	this->idMagazin = obiectulMagazin.idMagazin;
+	this->locatieMagazin = obiectulMagazin.locatieMagazin;
 }
 
 int Magazin::getIdMagazin( ) {

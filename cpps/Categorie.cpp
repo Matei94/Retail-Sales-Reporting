@@ -2,7 +2,7 @@
 
 #include "Categorie.h"
 
-Categorie::Categorie () {
+Categorie::Categorie( ) {
   this->idCategorie = 0;
   this->numeCategorie = "";
 }
@@ -12,25 +12,25 @@ Categorie::Categorie ( int idCategorie, string numeCategorie ) {
     this->numeCategorie = numeCategorie;
 }
 
-Categorie::~Categorie () {
+Categorie::~Categorie( ) {
   /* Do nothing */
 }
 
 Categorie::Categorie ( const Categorie& obiectulCategorie ) {
-  idCategorie = obiectulCategorie.idCategorie;
-  numeCategorie = obiectulCategorie.numeCategorie;  
+  this->idCategorie = obiectulCategorie.idCategorie;
+  this->numeCategorie = obiectulCategorie.numeCategorie;  
 }
 
 void Categorie::operator= ( const Categorie& obiectulCategorie ) {
-  idCategorie = obiectulCategorie.idCategorie;
-  numeCategorie = obiectulCategorie.numeCategorie;
+  this->idCategorie = obiectulCategorie.idCategorie;
+  this->numeCategorie = obiectulCategorie.numeCategorie;
 }
 
-int Categorie::getIdCategorie () {
+int Categorie::getIdCategorie( ) {
   return idCategorie;
 }
 
-string Categorie::getNumeCategorie () {
+string Categorie::getNumeCategorie( ) {
   return numeCategorie;
 }
 

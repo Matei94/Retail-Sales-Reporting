@@ -21,17 +21,17 @@ Produs::~Produs( ) {
 }
 
 Produs::Produs( const Produs& obiectulProdus ) {
-	idProdus = obiectulProdus.idProdus;
-	idCategorie = obiectulProdus.idCategorie;
-	price = obiectulProdus.price;
-	numeProdus = obiectulProdus.numeProdus;
+	this->idProdus = obiectulProdus.idProdus;
+	this->idCategorie = obiectulProdus.idCategorie;
+	this->price = obiectulProdus.price;
+	this->numeProdus = obiectulProdus.numeProdus;
 }
 
 void Produs::operator=( const Produs& obiectulProdus ) {
-	idProdus = obiectulProdus.idProdus;
-	idCategorie = obiectulProdus.idCategorie;
-	price = obiectulProdus.price;
-	numeProdus = obiectulProdus.numeProdus;
+	this->idProdus = obiectulProdus.idProdus;
+	this->idCategorie = obiectulProdus.idCategorie;
+	this->price = obiectulProdus.price;
+	this->numeProdus = obiectulProdus.numeProdus;
 }
 
 int Produs::getIdProdus( ) {

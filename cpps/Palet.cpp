@@ -23,19 +23,19 @@ Palet::~Palet( ) {
 }
 
 Palet::Palet( const Palet& obiectulPalet ) {
-	idPalet = obiectulPalet.idPalet;
-	prodType = obiectulPalet.prodType;
-	numberOfItems = obiectulPalet.numberOfItems;
-	idSlot = obiectulPalet.idSlot;
-	indexSlot = obiectulPalet.indexSlot;
+	this->idPalet = obiectulPalet.idPalet;
+	this->prodType = obiectulPalet.prodType;
+	this->numberOfItems = obiectulPalet.numberOfItems;
+	this->idSlot = obiectulPalet.idSlot;
+	this->indexSlot = obiectulPalet.indexSlot;
 }
 
 void Palet::operator=( const Palet& obiectulPalet ) {
-	idPalet = obiectulPalet.idPalet;
-	prodType = obiectulPalet.prodType;
-	numberOfItems = obiectulPalet.numberOfItems;
-	idSlot = obiectulPalet.idSlot;
-	indexSlot = obiectulPalet.indexSlot;
+	this->idPalet = obiectulPalet.idPalet;
+	this->prodType = obiectulPalet.prodType;
+	this->numberOfItems = obiectulPalet.numberOfItems;
+	this->idSlot = obiectulPalet.idSlot;
+	this->indexSlot = obiectulPalet.indexSlot;
 }
 
 string Palet::getIdPalet( ) {

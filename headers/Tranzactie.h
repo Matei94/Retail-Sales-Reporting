@@ -7,6 +7,9 @@ class Tranzactie {
 	string timeStamp, idBon;
 
   public:
+	/* Constructor default */
+	Tranzactie( );
+
 	/* Constructor */
 	Tranzactie( int idTranzactie, string timeStamp, string idBon, int idMagazin );
 

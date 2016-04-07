@@ -19,13 +19,13 @@ Bon::~Bon( ) {
 }
 
 Bon::Bon( const Bon& obiectulBon ){
-	idBon = obiectulBon.idBon;
-	idProdus = obiectulBon.isProdus;
+	this->idBon = obiectulBon.idBon;
+	this->idProdus = obiectulBon.isProdus;
 }
 
 void Bon::operator=( const Bon& obiectulBon ){
-	idBon = obiectulBon.idBon;
-	idProdus = obiectulBon.isProdus;	
+	this->idBon = obiectulBon.idBon;
+	this->idProdus = obiectulBon.isProdus;	
 }
 
 string Bon::getIdBon( ) {

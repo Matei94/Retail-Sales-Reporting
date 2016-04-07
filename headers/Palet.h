@@ -10,6 +10,9 @@ class Palet {
 	int indexSlot;
 
   public:
+  	/* Constrcutor default */
+  	Palet( );
+  	
 	/* Constructor */
 	Palet( string idPalet, int prodType, int numberOfItems, int idSlot, int indexSlot );
 

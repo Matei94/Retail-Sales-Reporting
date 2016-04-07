@@ -7,6 +7,9 @@ class Bon {
 	int idProdus;
 	
   public:
+  	/* Constructor default */
+  	Bon( );
+
 	/* Constructor */
 	Bon( string idBon, int idProdus );
 
