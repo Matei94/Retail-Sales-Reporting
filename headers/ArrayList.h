@@ -1,5 +1,5 @@
-#ifndef __ARRAYLIST_H_
-#define __ARRAYLIST_H_
+#ifndef __ARRAYLIST_H__
+#define __ARRAYLIST_H__
 
 template <typename T>
 class ArrayList {
@@ -28,4 +28,4 @@ class ArrayList {
 		void add( T value, int index );
 };
 
-#endif	__ARRAYLIST__
+#endif	/* __ARRAYLIST_H__ */
