@@ -103,5 +103,18 @@ Node<T>* LinkedList<T>::front() {
         return pFirst;
     }
 
+template <typename T>
+int LinkedList<T>::numberOfNodes() {
+  int count = 0;
+  Node<T> *aux = pFirst;
+  if (isEmpty()) {
+    return 0;    
+  }
+  while ( aux != NULL) {
+    count++;
+    aux = aux->getNext();
+  }
+  return count;
+}
 template class LinkedList<int>;
 // template class LinkedList< Node<int> >;
