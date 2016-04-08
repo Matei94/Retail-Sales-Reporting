@@ -54,6 +54,7 @@ int Palet::getIdSlot( ) {
 	return idSlot;
 }
 
+<<<<<<< HEAD
 Palet::Palet( string linieFisier ){
 	int firstComma = linieFisier.find_first_of( ',' );
 	this->idPalet = linieFisier.substr( 0, firstComma );
@@ -65,7 +66,8 @@ Palet::Palet( string linieFisier ){
 	this->numberOfItems = stoi( sirulDeProcesat.substr( 0, firstComma ) );
 	this->idSlot = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
 }
-
+=======
 int Palet::getIndexSlot( ) {
 	return indexSlot;
 }
+>>>>>>> 46a21382bb191c99d114b4e19fce9f5c294df7cb

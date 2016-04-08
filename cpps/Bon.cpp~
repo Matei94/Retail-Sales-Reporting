@@ -19,13 +19,13 @@ Bon::~Bon( ) {
 }
 
 Bon::Bon( const Bon& obiectulBon ){
-	this->idBon = obiectulBon.idBon;
-	this->idProdus = obiectulBon.isProdus;
+	idBon = obiectulBon.idBon;
+	idProdus = obiectulBon.isProdus;
 }
 
 void Bon::operator=( const Bon& obiectulBon ){
-	this->idBon = obiectulBon.idBon;
-	this->idProdus = obiectulBon.isProdus;	
+	idBon = obiectulBon.idBon;
+	idProdus = obiectulBon.isProdus;	
 }
 
 string Bon::getIdBon( ) {
@@ -39,7 +39,7 @@ int Bon::getIdProdus( ){
 Bon::Bon( string linieFisier ){
 	int firstComma = linieFisier.find_first_of( ',' );
   	this->idBon = linieFisier.substr( 0, firstComma );
-  	this->idProdus = stoi( linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 ) );
+  	this->numeCategorie = stoi( linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 ) );
 }
 
 /*

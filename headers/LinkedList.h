@@ -52,6 +52,9 @@ public:
 
   /* Returneaza primul element */
   Node<T>* front();
+
+  /* Calculeaza numarul de noduri din lista. */
+  int numberOfNodes();
 };
 
 #endif /* __LINKEDLIST_H_ */

@@ -1,7 +1,6 @@
 #include <cstddef>
 
-#include "Node.h"
-
+#include "../headers/Node.h"
 #include "../headers/Stack.h"
 
 using namespace std;

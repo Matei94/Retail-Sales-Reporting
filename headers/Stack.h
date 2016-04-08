@@ -15,10 +15,15 @@ private:
 
 public:
 	Stack();
+	
 	~Stack();
+
 	void push(T value);
+	
 	T pop();
+	
 	T peek();
+	
 	bool isEmpty();
 
 };

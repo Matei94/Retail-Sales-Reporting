@@ -5,17 +5,10 @@ class Palet {
   private:
 	string idPalet;
 	int prodType, numberOfItems, idSlot;
-	/* indexSlot -> retine indexul paletului curent in slot. Astfel, putem calcula in O(1)
-	numarul de mutari necesare extragerii unui palet dintr-un slot. E posibil sa nu fie 
-	necesara variabila asta. De analizat ulterior!! */
-	int indexSlot;
 
   public:
-  	/* Constrcutor default */
-  	Palet( );
-  	
 	/* Constructor */
-	Palet( string idPalet, int prodType, int numberOfItems, int idSlot, int indexSlot );
+	Palet( string idPalet, int prodType, int numberOfItems, int idSlot );
 
 	/* Destructor */
 	~Palet( );
@@ -37,12 +30,6 @@ class Palet {
 
 	/* Extragere idSlot */
 	int getIdSlot( );
-
-	/* Extragere indexSlot */
-	int getIndexSlot( );
-
-	/* Constructor pentru citirea din fisier */
-	Palet( string linieFisier );
 
 };
 
