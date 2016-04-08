@@ -6,7 +6,8 @@ class Palet {
 	string idPalet;
 	int prodType, numberOfItems, idSlot;
 	/* indexSlot -> retine indexul paletului curent in slot. Astfel, putem calcula in O(1)
-	numarul de mutari necesare extragerii unui palet dintr-un slot */
+	numarul de mutari necesare extragerii unui palet dintr-un slot. E posibil sa nu fie 
+	necesara variabila asta. De analizat ulterior!! */
 	int indexSlot;
 
   public:

@@ -1,0 +1,28 @@
+Task3
+Fiecare slot va fi interpretat drept o stiva, folosind listele inlantuite, iar sloturile vor fi retinute in ordine, ca un vector. Asta e benefic pentru accesarea rapida a slotului, dar si a paletilor din fiecare slot.
+Abordarea noastra consta in utilizarea unui hashtable in vederea rezolvarii primelor doua taskuri: cheie = prodType, iar valoarea va fi o multime de perechi de tipul ( idSlot, indexSlot ).
+ 
+Șeful depozitului dorește următoarele rapoarte:
+‐ să afle rapid în care slot se găsește un anumit tip de produs
+Se apeleaza HASH[ prodType ] si se parcurge lista aferenta bucketului respectiv, extragandu-se doar primul element al perechii, respective idSlot. 
+Clarificare: Este probabil ca tipul respective de produs sa se afle in paleti distribuiti pe mai multe sloturi, de aceea este nevoie de o lista pentru retinerea lor.
+ 
+‐ atunci când i se cere din partea unui magazin un palet cu un anumit tip de produs, care este succesiunea de mutări de paleți ce trebuie făcute pentru a obține paletul solicitat
+ 
+Se apeleaza HASH[ prodType ] si se parcurge lista aferenta bucketului respectiv. Ne vom folosi de indexSlot de data aceasta pentru a calcula numarul de mutari necesare scoaterii unui palet.
+Formula: 2 * ( capacitateaSlotuluiRespectiv - indexSlot ) + 1;
+
+‐ considerând că la începutul anului fiecare magazin a pornit cu 1 palet din fiecare tip, și solicită depozitului un nou palet când ajung săaibă10% dintr‐un anumit produs, care este prima comandăpe care nu o poate onora din deposit
+Sortam lista de bonuri dupa data. O vom parcurge ulterior, contorizand numarul de produse aflate in magazine si numarul de paleti ramasi in deposit. La fiecare pas al iteratiei, la fiecare produs aflat pe bonul current, verificam daca magazinul are nevoie de o reaprovizionare sau nu. Daca da, vom importa din depozit un palet nou, pe care il vom scoate din hashtableul 
+
+
+
+
+
+Intrebari pentru Matei: 
+
+1.      Care e metoda de verificare a fiecarei functionalitati/ a fiecarui task?
+
+2.      Pentru taskul 3, ultimul subpunct: Se presupune ca s-a trimis deja cate un palet fiecarui magazine sau incepem prin trimiterea primului set de paleti?
+
+3.      Modificarile survenite in urma aplicarii functionalitatilor trebuie sa se regaseasca fizic in structurile noastre de date, sau ele nu trebuie sa fie alterate, iar operatiile pe care le facem asupra lor sa fie applicate doar virtual. 
