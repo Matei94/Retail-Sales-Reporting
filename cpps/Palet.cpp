@@ -49,3 +49,15 @@ int Palet::getNumberOfItems( ) {
 int Palet::getIdSlot( ) {
 	return idSlot;
 }
+
+Palet::Palet( string linieFisier ){
+	int firstComma = linieFisier.find_first_of( ',' );
+	this->idPalet = linieFisier.substr( 0, firstComma );
+	string sirulDeProcesat = linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 );
+	firstComma = sirulDeProcesat.find_first_of( ',' );
+	this->prodType = stoi( sirulDeProcesat.substr( 0, firstComma ) );
+	sirulDeProcesat = sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 );
+	firstComma = sirulDeProcesat.find_first_of( ',' );
+	this->numberOfItems = stoi( sirulDeProcesat.substr( 0, firstComma ) );
+	this->idSlot = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
+}
