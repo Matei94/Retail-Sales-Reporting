@@ -4,12 +4,14 @@
 
 #include <fstream>
 
-#include "../headers/citireTranzactii.h";
-#include "../headers/citire.Bonurih";
-#include "../headers/citirePaleti.h";
-#include "../headers/citireCategorie.h";
-#include "../headers/citireMagazine.h";
-#include "../headers/citireProduse.h";
+#include "../headers/citireTranzactii.h"
+#include "../headers/citireBonuri.h"
+#include "../headers/citirePaleti.h"
+#include "../headers/citireCategorie.h"
+#include "../headers/citireMagazine.h"
+#include "../headers/citireProduse.h"
+#include "../taskuri/Task2_2.h"
+#include "../taskuri/Task2_3.h"
 
 using namespace std;
 
@@ -33,6 +35,7 @@ int main(int argc, char **argv)
 
 	listaProduse = LinkedList<Produs>();
 	citireProduse( listaProduse );	
+
 
 	// TODO 1: Cerinta 1
 	// TODO 2: Cerinta 2
