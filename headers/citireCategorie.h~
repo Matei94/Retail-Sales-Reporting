@@ -1,9 +1,6 @@
 #include<fstream>
 #include<sstream>
 
-#include"Categorie.h"
-#include"LinkedList.h"
-
 using namespace std;
 
 void citireCategorii( LinkedList<Categorie>& listaCategorii ){

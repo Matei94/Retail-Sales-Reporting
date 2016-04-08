@@ -7,6 +7,9 @@ class Categorie {
 	string numeCategorie;
 
   public:
+  	/* Constructor default */
+  	Categorie( );
+  	
 	/* Constructor */
 	Categorie( int idCategorie, string numeCategorie );
 

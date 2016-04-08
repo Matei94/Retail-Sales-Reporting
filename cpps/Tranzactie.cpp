@@ -21,17 +21,17 @@ Tranzactie::~Tranzactie( ) {
 }
 
 Tranzactie::Tranzactie( const Tranzactie& obiectulTranzactie ) {
-	idTranzactie = obiectulTranzactie.idTranzactie;
-	idMagazin = obiectulTranzactie.idMagazin;
-	timeStamp = obiectulTranzactie.timeStamp;
-	idBon = obiectulTranzactie.idBon;
+	this->idTranzactie = obiectulTranzactie.idTranzactie;
+	this->idMagazin = obiectulTranzactie.idMagazin;
+	this->timeStamp = obiectulTranzactie.timeStamp;
+	this->idBon = obiectulTranzactie.idBon;
 }
 
 void Tranzactie::operator=( const Tranzactie& obiectulTranzactie ) {
-	idTranzactie = obiectulTranzactie.idTranzactie;
-	idMagazin = obiectulTranzactie.idMagazin;
-	timeStamp = obiectulTranzactie.timeStamp;
-	idBon = obiectulTranzactie.idBon;
+	this->idTranzactie = obiectulTranzactie.idTranzactie;
+	this->idMagazin = obiectulTranzactie.idMagazin;
+	this->timeStamp = obiectulTranzactie.timeStamp;
+	this->idBon = obiectulTranzactie.idBon;
 }
 
 int Tranzactie::getIdTranzactie( ) {

@@ -21,17 +21,17 @@ Produs::~Produs( ) {
 }
 
 Produs::Produs( const Produs& obiectulProdus ) {
-	this->idProdus = obiectulProdus.idProdus;
-	this->idCategorie = obiectulProdus.idCategorie;
-	this->price = obiectulProdus.price;
-	this->numeProdus = obiectulProdus.numeProdus;
+	idProdus = obiectulProdus.idProdus;
+	idCategorie = obiectulProdus.idCategorie;
+	price = obiectulProdus.price;
+	numeProdus = obiectulProdus.numeProdus;
 }
 
 void Produs::operator=( const Produs& obiectulProdus ) {
-	this->idProdus = obiectulProdus.idProdus;
-	this->idCategorie = obiectulProdus.idCategorie;
-	this->price = obiectulProdus.price;
-	this->numeProdus = obiectulProdus.numeProdus;
+	idProdus = obiectulProdus.idProdus;
+	idCategorie = obiectulProdus.idCategorie;
+	price = obiectulProdus.price;
+	numeProdus = obiectulProdus.numeProdus;
 }
 
 int Produs::getIdProdus( ) {
@@ -55,9 +55,9 @@ Produs::Produs( string linieFisier ) {
 	this->idProdus = stoi( linieFisier.substr( 0, firstComma ) );
 	string sirulDeProcesat = linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 );
 	firstComma = sirulDeProcesat.find_first_of( ',' );
-	this->numeProdus = sirulDeProcesat.substr( 0, firstComma );
+	this->idCategorie = sirulDeProcesat.substr( 0, firstComma );
 	sirulDeProcesat = sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 );
 	firstComma = sirulDeProcesat.find_first_of( ',' );
-	this->idCategorie = stoi( sirulDeProcesat.substr( 0, firstComma ) );
-	this->price = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
+	this->price = sirulDeProcesat.substr( 0, firstComma );
+	this->numeProdus = stoi( sirulDeProcesat.substr( firstComma + 1, sirulDeProcesat.length( ) - firstComma - 1 ) );
 }

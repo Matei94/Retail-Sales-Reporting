@@ -7,6 +7,9 @@ class Magazin {
 	string locatieMagazin;
 		
   public: 
+  	/* Constructor default */
+  	Magazin( );
+  	
 	/* Constructor */
 	Magazin( int idMagazin, string locatieMagazin );
 

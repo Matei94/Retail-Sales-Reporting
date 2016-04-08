@@ -7,9 +7,6 @@ class Bon {
 	int idProdus;
 	
   public:
-  	/* Constructor default */
-  	Bon( );
-
 	/* Constructor */
 	Bon( string idBon, int idProdus );
 
@@ -27,9 +24,6 @@ class Bon {
 
 	/* Extragerea idProdus */
 	int getIdProdus( );
-
-	/* Constructor pentru citirea din fisier */
-	Bon( string linieFisier );
 
 };
 
