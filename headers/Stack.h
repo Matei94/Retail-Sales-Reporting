@@ -26,6 +26,8 @@ public:
 	
 	bool isEmpty();
 
+	T getFirst();
+
 };
 
 #endif /* __STACK_H_ */
