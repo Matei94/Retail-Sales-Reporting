@@ -1,6 +1,8 @@
 #include <string>
 
-#include "Palet.h"
+#include "../headers/Palet.h"
+
+using namespace std;
 
 Palet::Palet( ) {
 	this->idPalet = "";

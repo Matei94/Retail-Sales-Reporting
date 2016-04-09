@@ -1,6 +1,8 @@
 #include <string>
 
-#include "Magazin.h"
+#include "../headers/Magazin.h"
+
+using namespace std;
 
 Magazin::Magazin( ) {
 	this->idMagazin = 0;

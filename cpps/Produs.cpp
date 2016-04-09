@@ -1,7 +1,8 @@
 #include <string>
 
-#include "Produs.h"
+#include "../headers/Produs.h"
 
+using namespace std;
 Produs::Produs( ) {
 	this->idProdus = 0;
 	this->idCategorie = 0;

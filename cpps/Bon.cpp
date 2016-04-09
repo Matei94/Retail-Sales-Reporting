@@ -1,8 +1,8 @@
 #include <string>
 
-#include "Bon.h"	
+#include "../headers/Bon.h"	
 
-//using namespace std;
+using namespace std;
 
 Bon::Bon( ) {
 	this->idBon = "";

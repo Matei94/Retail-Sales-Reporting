@@ -2,6 +2,8 @@
 
 #include "../headers/Tranzactie.h"
 
+using namespace std;
+
 Tranzactie::Tranzactie( ) {
 	this->idTranzactie = 0;
 	this->idMagazin = 0;

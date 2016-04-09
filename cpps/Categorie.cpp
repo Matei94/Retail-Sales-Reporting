@@ -1,6 +1,8 @@
 #include <string>
 
-#include "Categorie.h"
+#include "../headers/Categorie.h"
+
+using namespace std;
 
 Categorie::Categorie( ) {
   this->idCategorie = 0;
