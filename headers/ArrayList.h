@@ -1,31 +1,44 @@
 #ifndef __ARRAYLIST_H__
 #define __ARRAYLIST_H__
 
+#include "Stack.h"
+
 template <typename T>
 class ArrayList {
 	private:
-		T *array;
+
+		Stack<T> *array;
 		int size;
 
 	public:
-		/*Constructor*/	
-		ArrayList( ) ;
 
-		/*Destrucot*/
+		/*Cosntructor default*/
+		ArrayList( );
+
+		/*Constructor*/
+		ArrayList( int size );
+
+		/*Destructor*/
 		~ArrayList( ) ;
 
 		/*Assignment operator*/
 		void operator=( const ArrayList<T>& v );
 
 		/*Assigment operator for using arrays*/
-		T operator[]( int index );
+		//Stack<T> operator[]( int index );
 
-		/*Initializare vector*/
-		void Init( int size ) ;
+		/*Pune in stiva, din vectorul de pe pozitia index, valoarea value*/
+		void push( int index, T value );
 
+		/*Arata prima pozitie din stiva, din vectorul de pe pozitia index*/
+		T peek( int index );
 
-		/*Adauga un nod la indexeul cerut*/
-		void add( T value, int index );
+		/*Scoate din stiva de pe pozitia index a vectorului*/
+		T pop( int index );
+
+		/*Verifica daca stiva, din vectorul de pe pozitia index, este goala*/
+		bool isEmpty( int index );
+
 };
 
 #endif	/* __ARRAYLIST_H__ */
