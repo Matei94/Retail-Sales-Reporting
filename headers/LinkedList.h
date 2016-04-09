@@ -55,6 +55,14 @@ public:
 
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();
+
+
+  /* Asta nu cred ca ramane */
+  void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
+  void SortedMerge( Node<T>* left, Node<T>* right );
+  Node<T>* MergeSort( );
+
+
 };
 
 #endif /* __LINKEDLIST_H_ */

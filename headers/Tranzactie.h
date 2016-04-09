@@ -1,6 +1,8 @@
 #ifndef __Tranzactie_H_
 #define __Tranzactie_H_
 
+using namespace std;
+
 class Tranzactie {
   private:
 	int idTranzactie, idMagazin;  
