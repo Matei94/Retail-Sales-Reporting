@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+
 #include "task1.1.h"
 #include "citireTranzactii.h"
 #include "citireBonuri.h"
@@ -30,5 +31,5 @@ int main ( ) {
 	
 	task1_2 ( listaTranzactii, listaProduse, listaBonuri);
 	
-
+	return 0;
 }

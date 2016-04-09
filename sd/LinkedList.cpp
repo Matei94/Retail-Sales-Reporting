@@ -28,10 +28,10 @@ void LinkedList<T>::operator=(const LinkedList<T>& l) {
 
 template <typename T>
 LinkedList<T>::~LinkedList() {
-  struct list_elem<T> *aux = pFirst;
+  struct listElem<T> *aux = pFirst;
 
   while (aux != NULL) {
-    struct list_elem<T> *next = aux->next;
+    struct listElem<T> *next = aux->next;
     delete aux;
     aux = next;
   }
@@ -39,7 +39,7 @@ LinkedList<T>::~LinkedList() {
 
 template <typename T>
 void LinkedList<T>::addFirst(T value) {
-  struct list_elem<T> *n;
+  struct listElem<T> *n;
   n->info = value;
 
   if (isEmpty()) {
@@ -53,7 +53,7 @@ void LinkedList<T>::addFirst(T value) {
 
 template <typename T>
 void LinkedList<T>::addLast(T value) {
-  struct list_elem<T> *n;
+  struct listElem<T> *n;
   n->info = value;
 
   if (isEmpty()) {
@@ -67,7 +67,7 @@ void LinkedList<T>::addLast(T value) {
 
 template <typename T>
 T LinkedList<T>::removeFirst(){
-  struct list_elem<T> *paux;
+  struct listElem<T> *paux;
 
   if (pFirst != NULL) {
     paux = pFirst->next;
@@ -94,14 +94,14 @@ bool LinkedList<T>::isEmpty() {
 }
 
 template <typename T>
-list_elem<T>* LinkedList<T>::front() {
+listElem<T>* LinkedList<T>::front() {
         return pFirst;
     }
 
 template <typename T>
 int LinkedList<T>::numberOfNodes() {
   int count = 0;
-  struct list_elem<T> *aux = pFirst;
+  struct listElem<T> *aux = pFirst;
   if (isEmpty()) {
     return 0;    
   }

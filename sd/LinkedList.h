@@ -8,15 +8,15 @@
 using namespace std;
 
 template <typename T>
-struct list_elem {
+struct listElem {
 	T info;
-	list_elem<T> *next;
+	listElem<T> *next;
 };
 
 template <typename T>
 class LinkedList {
 private:
-  list_elem<T> *pFirst, *pLast;
+  listElem<T> *pFirst, *pLast;
 
 public:
   /* Constructor */
@@ -55,7 +55,7 @@ public:
   bool isEmpty();
 
   /* Returneaza primul element */
-  list_elem<T>* front();
+  listElem<T>* front();
 
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();

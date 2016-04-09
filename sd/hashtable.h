@@ -5,26 +5,61 @@
 using namespace std;
 
 
-template<typename Tkey, typename Tvalue> struct elem_info {
+template<typename Tkey, typename Tvalue> 
+struct elemInfo {
     Tkey key;
-    Tvalue value; };
+    Tvalue value; 
+};
 
-template<typename Tkey, typename Tvalue> class Hashtable {
+template<typename Tkey, typename Tvalue> 
+class Hashtable {
     private:
-        LinkedList<struct elem_info<Tkey, Tvalue> > *H;
+        LinkedList<struct elemInfo<Tkey, Tvalue> > *H;
         int HMAX;
         int (*hash) (Tkey);
 
     public:
+
+        /*
+        class Proxy {
+          private:
+            HashTable* myOwner;
+            Tkey myKey;
+          public:
+            Proxy( HashTable* owner, Tkey const& key ) : myOwner( owner ) , myKey( key ) {
+            }
+
+            operator Tvalue const&() const {
+                Tvalue const* result = myOwner->get( myKey );
+                if ( result == NULL ) {
+                    //  Desired error behavior here...
+                }
+                return *result;
+            }
+
+            Proxy const& operator==( Tvalue const& value ) const {
+                myOwner->put( myKey, value );
+                return *this;
+            }
+        };
+
+        Tvalue* get( Tkey const& key ) const;
+        void put( Tkey const& key, Tvalue const& value );
+
+        Proxy operator[]( Tkey const& key ) {
+            return Proxy( this, key );
+        }
+        */
+
         Hashtable(int hmax, int (*h) (Tkey)) {
             HMAX = hmax;
             hash = h;
-            H = new LinkedList<struct elem_info<Tkey, Tvalue> > [HMAX]; 
+            H = new LinkedList<struct elemInfo<Tkey, Tvalue> > [HMAX]; 
         }
 
         ~Hashtable() {
             for (int i = 0; i < HMAX; i++) {
-                 while (!H[i].isEmpty())
+                 while ( !H[i].isEmpty() )
                     H[i].removeFirst();
             }
 
@@ -32,8 +67,8 @@ template<typename Tkey, typename Tvalue> class Hashtable {
         }
 
         void put(Tkey key, Tvalue value) {
-           struct list_elem<struct elem_info<Tkey, Tvalue> > *p;
-           struct elem_info<Tkey, Tvalue> info;
+           struct listElem<struct elemInfo<Tkey, Tvalue> > *p;
+           struct elemInfo<Tkey, Tvalue> info;
 
            int hkey = hash(key);
            p = H[hkey].front();
@@ -53,7 +88,7 @@ template<typename Tkey, typename Tvalue> class Hashtable {
        }
 
         Tvalue get(Tkey key) {
-            struct list_elem<struct elem_info<Tkey, Tvalue> > *p;
+            struct listElem<struct elemInfo<Tkey, Tvalue> > *p;
 
             int hkey = hash(key);
             p = H[hkey].front();
@@ -73,7 +108,7 @@ template<typename Tkey, typename Tvalue> class Hashtable {
         }
 
         int hasKey(Tkey key) {
-            struct list_elem<struct elem_info<Tkey, Tvalue> > *p;
+            struct listElem<struct elemInfo<Tkey, Tvalue> > *p;
 
             int hkey = hash(key);
             p = H[hkey].front();
@@ -106,14 +141,30 @@ template<typename Tkey, typename Tvalue> class Hashtable {
                 int size = H[i].size();
                 if ((size-1)>maxCollisions)
                   maxCollisions = size-1;
-            }
+            } 
             return maxCollisions;
         }
-        mapped_type& operator[] (const key_type& k) {
+        //mapped_type& operator[] (const key_type& k) {
             
+        //}
+
+        Tvalue operator[]( const Tkey& key ) {
+            int hashKey = hash(key);
+            return H[hashKey].front()->info.value;
         }
 
+  /*      void operator=( const elemInfo< Tkey, Tvalue>& ceva ) {
+            this[ceva.key].front()->info.key = ceva.key;
+            this[ceva.key].front()->value = ceva.value;
+        }
+*/
+        //void
 
+        
+        void operator+=( const elemInfo< Tkey, Tvalue >& ceva ) {
+            this->put( ceva.key, this->get( ceva.key ) + ceva.value );
+        }
+        
 };
 
 
