@@ -75,7 +75,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 			
 			vectorProd[idProd][idMagazin]= ???
 			// la acelasi ProdType exista mai multe valori. nu ar trebui sa fie un numar standard de intrare?
-			// adica ma gandeam ca pentru un ProdType, un palet are X items. 
+			// adica ma gandeam ca pentru un ProdType, un palet are nrProduseMax items. 
 			palet = palet->getNext();
 		}
 
@@ -99,7 +99,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 
 			//verificare daca am ajuns la 10% dintr un produs	
 			if ( vectorProd[idProd][idMagazin] = 0.1 * nrProduseMax ) // acest nrProduseMax ar fi cel de la liniile 76-78 daca rationamentul meu este corect
-					
+
 					//SOLICITARE palet de la DEPOZIT
 					//Poate onora comanda? contoriare, afisare contor cand conditia nu este indeplinita. Contorul reprezinta numarul comenzii ce nu va putea fi onorata
 			
