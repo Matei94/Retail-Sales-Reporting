@@ -14,24 +14,24 @@ void task2_3(LinkedList<Bon> listaBonuri, LinkedList<Produs> listaProduse, strin
 	string numeProdus;
 	while (produs != NULL){
 		nrProduse++;
-		produs = produs->getNext;
+		produs = produs->getNext();
 	}
 	//In produseCumparate[i] retin de cate ori a fost cumparat produsul cu id-ul i pe bonul dat
 	int* produseCumparate = new int[nrProduse + 1];
 	Bon* bon = listaBonuri.front();
 	while (bon != NULL){
-		if (bon.getIdBon == idBon){
+		if (bon.getIdBon() == idBon){
 			produseCumparate[bon.getIdProdus()]++;
 		}
-		bon = bon->getNext;
+		bon = bon->getNext();
 	}
 
 	output << "Pe bonul cu id-ul " << idBon << " au fost cumparate:\n";
 	for (i = 1; i <= nrProduse; i++){
 		if (produseCumparate[i] > 0){
 			produs = listaProduse.front();
-			while (produs.getIdProdus != i){
-				produs = produs->getNext;
+			while (produs.getIdProdus() != i){
+				produs = produs->getNext();
 			}
 			cout << produseCumparate[i] << " X " << produs.getNumeProdus() << "\n";
 		}

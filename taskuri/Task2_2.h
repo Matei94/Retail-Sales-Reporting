@@ -51,7 +51,7 @@ void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 	Magazin* magazin = listaMagazine.front();
 	while (magazin != NULL){
 		nrMagazine++;
-		magazin = magazin->getNext;
+		magazin = magazin->getNext();
 	}
 	int** cumparatori;
 	int i, j, sortat, aux;
@@ -62,8 +62,8 @@ void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 	}
 
 	while (tranzactie != NULL){
-		cumparatori[tranzactie.getIdMagazin][ziuaTranzactiei( tranzactie.getTimeStamp )]++;
-		tranzactie = tranzactie->getNext;
+		cumparatori[tranzactie.getIdMagazin()][ziuaTranzactiei( tranzactie.getTimeStamp() )]++;
+		tranzactie = tranzactie->getNext();
 	}
 
 	//In continuare, trebuie sa sortez fiecare linie din matricea cumparatori, insa trebuie sa tin minte ce elemente am interschimbat.
