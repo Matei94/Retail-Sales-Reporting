@@ -11,7 +11,7 @@ using namespace std;
 //Functia care compara compara data a 2 elemente
 void compareDate(string timp1,string timp2){
 	
-	rezultat = strcmp(timp1, timp2);
+	result = strcmp(timp1, timp2);
 
 	if( result > 0 ){
 		return 1;
@@ -32,7 +32,7 @@ void sortareBonuri(){
 		//Momentan consideram lista sortata
 }
 
-void Task3_3(LinkedList<Bon> listaBonuri, ){
+void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaProduse, LinkedList<Palet> listaPaleti){
 
 		ofstream output ("Task3_3.out");
 
@@ -54,7 +54,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 		}
 
 		// aflare cate magazine avem
-		int idMagazinMax = tranzactie.getIdMadazin;
+		int idMagazinMax = tranzactie.getIdMagazin;
 		while (tranzactie != NULL){
 
 			int idMagazin  = bon.getIdMagazin();
