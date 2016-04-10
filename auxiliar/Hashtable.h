@@ -1,50 +1,49 @@
-#include "../headers/LinkedList.h"
+/*
 
-template<typename Tkey, typename Tvalue> 
-struct elem_info {
-    Tkey key;
-    Tvalue value; };
+Intelegerea pe deplin a hashtable-ului a fost facuta la site-ul acesta: 
+"https://medium.com/@aozturk/simple-hash-map-hash-table-implementation-in-c-931965904250#.1c96qyu6p"
 
-template<typename Tkey, typename Tvalue>
-class Hashtable {
-    private:
-        LinkedList<struct elem_info<Tkey, Tvalue> > *H;
-        int HMAX;
-        int (*hash) (Tkey);
-
-    public:
-        Hashtable(int hmax, int (*h) (Tkey)) ;
-        
-        ~Hashtable() ;
-        
-        void put(Tkey key, Tvalue value) ;
-
-        Tvalue get(Tkey key) ;
-
-        int hasKey(Tkey key) ;
-        
-/*        int getCollisions() {
-            int collisions = 0;
-            for (int i = 0; i < HMAX; i++) {
-                int size = H[i].size();
-                if (size>1)
-                  collisions += size-1;
-            }
-            return collisions;
-        }
-
-        int getMaxCollisions() {
-            int maxCollisions = 0;
-            for (int i = 0; i < HMAX; i++) {
-                int size = H[i].size();
-                if ((size-1)>maxCollisions)
-                  maxCollisions = size-1;
-            }
-            return maxCollisions;
-        }
+Logica Hashtable-ului nostru este in principiu exacta cu cea de la site-ul de sus avand mici modificari.
+(nu s-a dat nicio secunda copy-paste, dar cum s-a zis, implementarea noastra a fost masiv influentata de ideea site-ului de mai sus)
 
 */
 
+#ifndef __Hashtable_H_
+#define __Hashtable_H_
+
+#include "../headers/LinkedList.h"
+
+template<typename Tkey, typename Tvalue>
+struct Hashnode {
+	Tkey key;
+	Tvalue value;
+	Hashnode *next;
 };
 
 
+template<typename Tkey, typename Tvalue>
+class Hashtable {
+	private:
+		int size;
+		Hashnode<Tkey,Tvalue> **Bucket;
+
+	public:
+		Hashtable( int length );
+
+		~Hashtable();
+
+		unsigned int Hash( Tkey key );
+
+		void Insert( Tkey key, Tvalue value );
+
+		Tvalue get ( Tkey key );
+
+		void remove( Tkey key );
+
+		void printTable( );
+
+		int badHash(string key);
+
+};
+
+#endif /* __Hashtable_H_ */
