@@ -35,6 +35,7 @@ LinkedList<T>::~LinkedList() {
     delete aux;
     aux = next;
   }
+  pFirst = NULL;
 }
 
 template <typename T>
