@@ -26,22 +26,22 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	/* Parsare fisiere de input */
-	listaTranzactii = LinkedList<Tranzactie>();
+	LinkedList<Tranzactie> listaTranzactii = LinkedList<Tranzactie>();
 	citireTranzactii( listaTranzactii );
 
-	listaPaleti = LinkedList<Palet>();
+	LinkedList<Palet> listaPaleti = LinkedList<Palet>();
 	citirePaleti( listaPaleti );
 
-	listaBonuri = LinkedList<Bon>();
+	LinkedList<Bon> listaBonuri = LinkedList<Bon>();
 	citireBonuri( listaBonuri );
 
-	listaCategorii = LinkedList<Categorie>();
+	LinkedList<Categorie> listaCategorii = LinkedList<Categorie>();
 	citireCategorii( listaCategorii );
 
-	listaMagazine = LinkedList<Magazin>();
+	LinkedList<Magazin> listaMagazine = LinkedList<Magazin>();
 	citireMagazine( listaMagazine );
 
-	listaProduse = LinkedList<Produs>();
+	LinkedList<Produs> listaProduse = LinkedList<Produs>();
 	citireProduse( listaProduse );
 
 	Hashtable<long,Tranzactie> HTranzactie = Hashtable<long,Tranzactie>(VMAX, Hash_long);
