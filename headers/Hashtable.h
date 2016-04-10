@@ -1,48 +1,52 @@
-#ifndef __HASHTABLE_H_
-#define __HASHTABLE_H_
+/*
 
-#include "LinkedList.h"     //Verificare nume cu headerul listei + Guard
+Intelegerea pe deplin a hashtable-ului a fost facuta la site-ul acesta: 
+"https://medium.com/@aozturk/simple-hash-map-hash-table-implementation-in-c-931965904250#.1c96qyu6p"
 
+Logica Hashtable-ului nostru este in principiu exacta cu cea de la site-ul de sus avand mici modificari.
+(nu s-a dat nicio secunda copy-paste, dar cum s-a zis, implementarea noastra a fost masiv influentata de ideea site-ului de mai sus)
 
-/* elemInfo -> perechea( cheie, valoare ) din hashtable */
-template<typename Tkey, typename Tvalue> 
-struct elemInfo {
-    Tkey key;
-    Tvalue value; 
+*/
+
+#ifndef __Hashtable_H_
+#define __Hashtable_H_
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template<typename Tkey, typename Tvalue>
+struct Hashnode {
+	Tkey key;
+	Tvalue value;
+	Hashnode *next;
 };
 
-template<typename Tkey, typename Tvalue> 
+
+template<typename Tkey, typename Tvalue>
 class Hashtable {
-    private:
-        /* H este lista in care se retine hashtable-ul propriu-zis */
-        LinkedList<struct elemInfo<Tkey, Tvalue> > *H;
-        
-        /* HMAX = numarul de bucketuri ocupate din hashtable/ dimensiunea lui H / sizeof(H) */
-        int HMAX;
+	private:
+		int size;
+		Hashnode<Tkey,Tvalue> **Bucket;
 
-        /* functia de hash */
-        int (*hash) (Tkey);
+	public:
+		Hashtable( int length );
 
-    public:
-        /* Constructor */
-        Hashtable(int hmax, int (*h) (Tkey));
+		~Hashtable();
 
-        /* Destructor */
-        ~Hashtable();
+		unsigned int Hash( Tkey key );
 
-        /* Functia de insertie in hashtable */
-        void put(Tkey key, Tvalue value);
+		void Insert( Tkey key, Tvalue value );
 
-        /* Functia de extragere a valorii de la o anumita cheie */
-        Tvalue get(Tkey key);
+		bool get ( Tkey key, Tvalue& value );
 
-        /* Functia de verificare a existentei cheii "key" in hashtable */
-        int hasKey(Tkey key);
+		void remove( Tkey key );
 
-//      int getCollisions();
+		void printTable( );
 
-//      int getMaxCollisions();
+		int badHash(string key);
 
 };
 
-#endif /* __HASHTABLE_H_ */
+#endif /* __Hashtable_H_ */

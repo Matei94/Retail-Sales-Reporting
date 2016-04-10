@@ -1,3 +1,8 @@
+#include "../headers/Tranzactie.h"
+#include "../headers/LinkedList.h"
+#include "../headers/citireTranzactii.h"
+#include "../headers/Node.h"
+
 /* MergeSort for LinkedList */
 
 /* LeftRightSplit() */
@@ -26,6 +31,7 @@ void LinkedList<T>::LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** rig
   	while ( mid - 1 ) {
   		--mid;
   		*left = head->getNext();
+		mid--;
   	}
   	*left->setNext( NULL );
 }
