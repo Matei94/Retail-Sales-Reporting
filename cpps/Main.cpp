@@ -4,6 +4,14 @@
 
 #include <fstream>
 
+#include "../headers/Tranzactie.h"
+#include "../headers/LinkedList.h"
+#include "../headers/Bon.h"
+#include "../headers/Produs.h"
+#include "../headers/Magazin.h"
+#include "../headers/Hashtable.h"
+#include "../headers/Node.h"
+
 #include "../headers/citireTranzactii.h"
 #include "../headers/citireBonuri.h"
 #include "../headers/citirePaleti.h"
@@ -18,23 +26,27 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	/* Parsare fisiere de input */
-	listaTranzactii = LinkedList<Tranzactie>();
+	LinkedList<Tranzactie> listaTranzactii = LinkedList<Tranzactie>();
 	citireTranzactii( listaTranzactii );
 
-	listaPaleti = LinkedList<Palet>();
+	LinkedList<Palet> listaPaleti = LinkedList<Palet>();
 	citirePaleti( listaPaleti );
 
-	listaBonuri = LinkedList<Bon>();
+	LinkedList<Bon> listaBonuri = LinkedList<Bon>();
 	citireBonuri( listaBonuri );
 
-	listaCategorii = LinkedList<Categorie>();
+	LinkedList<Categorie> listaCategorii = LinkedList<Categorie>();
 	citireCategorii( listaCategorii );
 
-	listaMagazine = LinkedList<Magazin>();
+	LinkedList<Magazin> listaMagazine = LinkedList<Magazin>();
 	citireMagazine( listaMagazine );
 
-	listaProduse = LinkedList<Produs>();
-	citireProduse( listaProduse );	
+	LinkedList<Produs> listaProduse = LinkedList<Produs>();
+	citireProduse( listaProduse );
+
+	Hashtable<long,Tranzactie> HTranzactie = Hashtable<long,Tranzactie>(VMAX, Hash_long);
+	Hashtable<long,Bonuri> HBonuri = Hashtable<long,Bonuri>(VMAX, Hash_long);
+
 
 
 	// TODO 1: Cerinta 1
