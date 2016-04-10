@@ -1,5 +1,5 @@
-#include<fstrem>
-#include<sstrem>
+#include<fstream>
+#include<sstream>
 #include<string>
 
 #include "Magazin.h"
