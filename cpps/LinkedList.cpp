@@ -2,6 +2,8 @@
 #include <stdio.h>
 
 #include "../headers/LinkedList.h"
+#include "../headers/Palet.h"
+#include "../headers/Produs.h"
 
 using namespace std;
 
@@ -229,5 +231,7 @@ LinkedList<T> LinkedList<T>::MergeSort( ) {
 
 
 template class LinkedList<int>;
-template class LinkedList< Tranzactie >;
+template class LinkedList<Palet>;
+template class LinkedList<Produs>;
+//template class LinkedList< Tranzactie >;
 // template class LinkedList< Node<int> >;
