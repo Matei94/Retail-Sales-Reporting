@@ -4,14 +4,19 @@
 #include <iostream>
 #include <ostream>
 
-#include "Node.h"
 
 using namespace std;
 
 template <typename T>
+struct listElem {
+	T info;
+	listElem<T> *next;
+};
+
+template <typename T>
 class LinkedList {
 private:
-  Node<T> *pFirst, *pLast;
+  listElem<T> *pFirst, *pLast;
 
 public:
   /* Constructor */
@@ -45,24 +50,16 @@ public:
  // T removeLastOccurrence(T value);
 
   /* Afiseaza elementele listei pe o singura linie, separate printr-un spatiu. */
-  void printList();
 
   /* Intoarce true daca lista este vida, false altfel. */
   bool isEmpty();
 
   /* Returneaza primul element */
-  Node<T>* front();
+  listElem<T>* front();
 
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();
-
-
-  /* Asta nu cred ca ramane */
-  void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
-  void SortedMerge( Node<T>* left, Node<T>* right );
-  Node<T>* MergeSort( );
-
-
 };
 
 #endif /* __LINKEDLIST_H_ */
+

@@ -1,6 +1,7 @@
 #ifndef __Tranzactie_H_
 #define __Tranzactie_H_
 
+
 using namespace std;
 
 class Tranzactie {
@@ -42,3 +43,4 @@ class Tranzactie {
 };
 
 #endif //__Tranzactie_H_
+
