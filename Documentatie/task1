@@ -10,7 +10,7 @@ Directorii executivi ai companiei doresc urmatoarele rapoarte:
 	Se aduna sumele de la pct a si se imparte la numarul de linii – 1 din fisierul tranzactii.csv
 
 * care sunt categoriile cele mai bine vandute pentru fiecare magazin
-	Se ia o matrice care are pe linii magazinele si pe coloana categoriile, si se initializeaza cu 0. 	Se parcurge tranzactii.csv, retinem id_mag si id_bon. Cu id_bon mergem in bonuri.csv de 	unde luam id_produs cu care mergem in produse de unde luam categoria si adunam la linia 	magazin si coloana categorie
+	Se ia o matrice care are pe linii magazinele si pe coloana categoriile, si se initializeaza cu 0. 	Se parcurge tranzactii.csv, retinem id_mag si id_bon. Cu id_bon mergem in bonuri.csv de 	unde luam id_produs cu care mergem in produse de unde luam categoria si adunam la linia 	magazin si coloana categorie. Apoi cu categorile maxime pentru fiecare magazin mergem in categorii.csv de unde luam numele categoriei
 
 * care sunt perechile de produse care se vand cel mai bine impreuna
 	Alocam dinamic triunghiul superior de la o matrice care are pe linii si pe coloane produse. 

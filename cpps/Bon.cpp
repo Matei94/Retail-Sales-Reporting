@@ -20,12 +20,12 @@ Bon::~Bon( ) {
 
 Bon::Bon( const Bon& obiectulBon ){
 	this->idBon = obiectulBon.idBon;
-	this->idProdus = obiectulBon.isProdus;
+	this->idProdus = obiectulBon.idProdus;
 }
 
 void Bon::operator=( const Bon& obiectulBon ){
 	this->idBon = obiectulBon.idBon;
-	this->idProdus = obiectulBon.isProdus;	
+	this->idProdus = obiectulBon.idProdus;	
 }
 
 string Bon::getIdBon( ) {
@@ -49,6 +49,6 @@ ostream& operator<< ( std::ostream& out, const Bon& b ){
 }
 istream& operator>> ( std::ostream& is, Bon& b ){
 	is >> b.idBon >> b.idProdus;
-	return is;
-*/
+	return id;
 }
+*/

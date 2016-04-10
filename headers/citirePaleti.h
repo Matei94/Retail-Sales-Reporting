@@ -1,5 +1,6 @@
 #include<fstream>
 #include<sstream>
+#include<string>
 
 #include "Palet.h"
 #include "LinkedList.h"
