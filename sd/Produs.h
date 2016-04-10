@@ -1,6 +1,8 @@
 #ifndef __PRODUS_H_
 #define __PRODUS_H_
 
+#include <string>
+
 using namespace std;
 
 class Produs {

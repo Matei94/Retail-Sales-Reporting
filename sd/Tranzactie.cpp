@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 #include "Tranzactie.h"
 
@@ -55,10 +56,10 @@ string Tranzactie::getIdBon( ) {
 Tranzactie::Tranzactie( string linieFisier ){
 	/* firstComma = pozitia primei virgule din stringul dat ca parametru */
 	int firstComma = linieFisier.find_first_of( ',' );
-	
+
 	/* Se extrage substringul din intervalul [0, firstComma] = idTranzactie*/
 	this->idTranzactie = stoi( linieFisier.substr( 0, firstComma ) );
-	
+
 	/* Se elimina substringul anterior si se va lucra pe stringul nou = sirulDeProcesat */
 	string sirulDeProcesat = linieFisier.substr( firstComma + 1, linieFisier.length( ) - firstComma - 1 );
 
