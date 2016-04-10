@@ -28,9 +28,10 @@ int main ( ) {
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
 
+
 	task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
-	//task1_2 ( listaTranzactii, listaProduse, listaBonuri);
+	task1_2 ( listaTranzactii, listaProduse, listaBonuri);
 
 	return 0;
 }
