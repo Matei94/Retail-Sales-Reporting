@@ -1,5 +1,6 @@
 #include<fstrem>
 #include<sstrem>
+#include<string>
 
 #include "Magazin.h"
 #include "LinkedList.h"
