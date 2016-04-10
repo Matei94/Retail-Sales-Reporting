@@ -125,6 +125,7 @@ void task1_1( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaPr
 
 		p = p->next;
 	}
+
 	cout<<vanzariMagazine.get("Baneasa");
 }
 

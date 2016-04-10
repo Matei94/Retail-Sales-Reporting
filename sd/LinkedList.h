@@ -59,6 +59,12 @@ public:
 
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();
+
+  /* Afiseaza elementele listei */
+  void printList();
+
+  /* Supraincarcarea operatorului << */
+  friend ostream& operator<< ( ostream& out, const LinkedList<T>& obiect );
 };
 
 #endif /* __LINKEDLIST_H_ */

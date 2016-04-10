@@ -17,6 +17,9 @@ int main ( ) {
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
 
+	listaTranzactii.printList();
+
+/*
 	LinkedList<Bon> listaBonuri;
 	citireBonuri( listaBonuri );
 
@@ -31,5 +34,7 @@ int main ( ) {
 	
 	task1_2 ( listaTranzactii, listaProduse, listaBonuri);
 	
+*/
+
 	return 0;
 }

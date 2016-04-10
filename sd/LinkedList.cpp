@@ -1,11 +1,12 @@
 #include <cstddef>
-#include <stdio.h>
+#include <iostream>
 
 #include "LinkedList.h"
 #include "Bon.h"
 #include "Magazin.h"
 #include "Produs.h"
 #include "Tranzactie.h"
+
 using namespace std;
 
 template <typename T>
@@ -111,6 +112,25 @@ int LinkedList<T>::numberOfNodes() {
   }
   return count;
 }
+
+template <typename T>
+void LinkedList<T>::printList() {
+  struct listElem<T> *aux = pFirst;
+
+  while (aux != NULL) {
+    cout << aux->info << ", ";
+    aux = aux->next;
+  }
+  cout << "\n";
+}
+
+
+ostream& operator<< ( ostream& out, const struct listElem<T>& obiect ) {
+  out << obiect.info << '\n';
+  return out;
+}
+
+
 template class LinkedList<int>;
 template class LinkedList<Bon>;
 template class LinkedList<Magazin>;

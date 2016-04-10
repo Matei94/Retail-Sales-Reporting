@@ -1,8 +1,7 @@
 #include "LinkedList.h"
 
-#define Vmax 1000
+#define VMAX 1000
  
- #include<string>
 using namespace std;
 
 
@@ -161,16 +160,9 @@ class Hashtable {
 */
         //void
 
-        /* Functia de Hash */
-int customHash(string key) {
-    int hkey = 0;
-    for (int i = 0; i < key.length(); i++)
-        hkey = (hkey * 31 + key[i]) % Vmax;
-    return hkey;
-}
-
-        void operator+=( const elemInfo<Tkey, Tvalue>& ceva ) {
-            this->put( ceva.key, this->get( ceva.key ) + value );
+        
+        void operator+=( const elemInfo< Tkey, Tvalue >& ceva ) {
+            this->put( ceva.key, this->get( ceva.key ) + ceva.value );
         }
         
 };
