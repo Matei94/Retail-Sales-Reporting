@@ -8,7 +8,7 @@
 #include "Bon.h"
 #include "Produs.h"
 #include "Magazin.h"
-#include "hashtable.h"
+#include "Hashtable.h"
 
 
 using namespace std;
@@ -16,13 +16,13 @@ using namespace std;
 #define Vmax 1000
 
 
-/* Functia de Hash */
+/* Functia de Hash 
 int customHash(string key) {
     int hkey = 0;
     for (int i = 0; i < key.length(); i++)
         hkey = (hkey * 31 + key[i]) % Vmax;
     return hkey;
-}
+}*/
 
 /* Cauta in lista de bonuri un obiect al carui idBon == elem */
 listElem<Bon>* cautareInBonuri( LinkedList<Bon> listaBonuri, string elem ) {
@@ -78,7 +78,7 @@ listElem<Magazin>* cautareInMagazin( LinkedList<Magazin> listaMagazine, int elem
 /* Prima liniuta de la taskul 1 va fi prezentata in limbaj c++ mai jos: */
 void task1_1( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaProduse, LinkedList<Bon> listaBonuri, LinkedList<Magazin> listaMagazine ){
 	/* Hash-ul aferent are cheia = locatia magazinului, iar valoarea = suma vanzarilor magazinului respectiv */
-	Hashtable<string, int> vanzariMagazine = Hashtable<string, int>( Vmax, customHash);
+	Hashtable<string, int> vanzariMagazine = Hashtable<string, int>( Vmax);
 
 	/* p, k = pointer la inceputul listei de tranzactii, respectiv magazin */
 	struct listElem<Tranzactie> *p = listaTranzactii.front( );
@@ -95,7 +95,7 @@ void task1_1( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaPr
 	
 	/* Initializarea hashtable-ului */
 	while( k != NULL ) {
-		vanzariMagazine.put(k->info.getLocatieMagazin( ),'0');
+		vanzariMagazine.Insert(k->info.getLocatieMagazin( ),'0');
 		k = k->next;	
 	}
 
@@ -119,19 +119,20 @@ void task1_1( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaPr
 		pret = gasitProdus->info.getPrice( );
 
 		/* Adaugam pretul curent, pretului de pana acum */
-		vanzariMagazine[ gasitMagazin->info.getLocatieMagazin( ) ] +=pret;
-		//int valoare = vanzariMagazine.get( gasitMagazin->info.getLocatieMagazin( ) );
-		//vanzariMagazine.put( gasitMagazin->info.getLocatieMagazin(), valoare + pret );
+		//vanzariMagazine[ gasitMagazin->info.getLocatieMagazin( ) ] +=pret;
+		int valoare = vanzariMagazine.get( gasitMagazin->info.getLocatieMagazin( ) );
+		vanzariMagazine.Insert( gasitMagazin->info.getLocatieMagazin(), valoare + pret );
 
 		p = p->next;
 	}
+	cout<<vanzariMagazine.get("Baneasa");
 }
 
 
 /* A doua liniuta de la taskul 1 va fi prezentata in limbaj c++ mai jos: */
 void task1_2( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaProduse, LinkedList<Bon> listaBonuri) {
 	/* Hash-ul aferent are cheia = numele produsului, iar valoarea = suma vanzarilor magazinului respectiv */
-	Hashtable<string, int> vanzariProduse = Hashtable<string, int>( Vmax, customHash);
+	Hashtable<string, int> vanzariProduse = Hashtable<string, int>( Vmax);
 
 	/* p, k = pointeri la inceputul listelor de tranzactii, respectiv produse */
 	struct listElem<Tranzactie> *p = listaTranzactii.front( );
@@ -147,7 +148,7 @@ void task1_2( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaPr
 
 	/* Initializam hash-ul */
 	while( k != NULL ) {
-		vanzariProduse.put(k->info.getNumeProdus( ),'0');
+		vanzariProduse.Insert(k->info.getNumeProdus( ),'0');
 		k = k-> next;	
 	}
 
@@ -167,11 +168,13 @@ void task1_2( LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaPr
 
 		/* Extragem pretul din obiectul gasit mai devreme */
 		pret = gasitProdus->info.getPrice( );
-
+		//elemInfo<string, int> ceva;
+		//ceva.key = gasitProdus->info.getNumeProdus( );
+		//ceva.value = pret;
 		/* Adunam la pretul anterior, pretul corent, la produsul care este pe frecventa */
-		vanzariProduse[gasitProdus->info.getNumeProdus( )] +=pret;
-		//int valoare = vanzariProduse.get( gasitProdus->info.getNumeProdus( ) );
-		//vanzariProduse.put( gasitProdus->info.getNumeProdus( ), valoare + pret );
+		//vanzariProduse[ceva.key] +=ceva.value;
+		int valoare = vanzariProduse.get( gasitProdus->info.getNumeProdus( ) );
+		vanzariProduse.Insert( gasitProdus->info.getNumeProdus( ), valoare + pret );
 
 		p = p->next;
 	} 

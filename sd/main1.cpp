@@ -9,7 +9,7 @@
 /*#include "../headers/citireCategorie.h";*/
 #include "citireMagazine.h"
 #include "citireProduse.h"
-
+#include "LinkedList.h"
 using namespace std;
 
 int main ( ) {
