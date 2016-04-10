@@ -1,14 +1,8 @@
 #include <cstddef>
-#include <iostream>
-
-
 #include <stdio.h>
 #include "Tranzactie.h"
 #include "LinkedList.h"
 #include "Produs.h"
-
-#include "Tranzactie.h"
-
 #include "Magazin.h"
 #include "Bon.h"
 
@@ -84,17 +78,14 @@ T LinkedList<T>::removeFirst(){
 /*
 template <typename T>
 T LinkedList<T>::removeLast(){}
-
 template <typename T>
 T LinkedList<T>::removeFirstOccurrence(T value){}
-
 template <typename T>
 T LinkedList<T>::removeLastOccurrence(T value){}
 */
 /*template <typename T>
 void LinkedList<T>::printList() {
   Node<T> *aux = pFirst;
-
   while (aux != NULL) {
     cout << aux->getValue() << ", ";
     aux = aux->getNext();
@@ -131,31 +122,6 @@ int LinkedList<T>::numberOfNodes() {
   return count;
 }
 
-template <typename T>
-void LinkedList<T>::printList() {
-  struct listElem<T> *aux = pFirst;
-
-  while (aux != NULL) {
-    cout << aux->info << ", ";
-    aux = aux->next;
-  }
-  cout << "\n";
-}
-
-
-ostream& operator<< ( ostream& out, const struct listElem<T>& obiect ) {
-  out << obiect.info << '\n';
-  return out;
-}
-
-
-template class LinkedList<int>;
-template class LinkedList<Bon>;
-template class LinkedList<Magazin>;
-template class LinkedList<Produs>;
-template class LinkedList<Tranzactie>;
-// template class LinkedList< Node<int> >;
-
 
 /* MergeSort for LinkedList */
 
@@ -171,35 +137,29 @@ template class LinkedList<Tranzactie>;
       numberOfNodes++;
       aux = aux->getNext();
     }
-
     int mid = numberOfNodes / 2;
-
     aux = head;
     while ( mid ) {
       --mid;
       aux = aux->getNext();
     }
     *right = aux;
-
     *left = head; 
     while ( mid - 1 ) {
       *left = head->getNext();
     }
     *left->setNext( NULL );
 }
-
 */
 /* SortedMerge() */
 /*template <typename T>
 Node<T>* LinkedList<T>::SortedMerge( Node<T>* left, Node<T>* right ) {
   Node<T>* result;
-
   /* Conditiile de oprire: una dintre cele doua subliste este goala */
  /* if ( left == NULL )
     return right;
   else if ( right == NULL )
     return left;
-
   /* Se aplica recurenta vietii mele si se compara timestamp-urile */ 
  /* if ( left->getValue().getTimeStamp() <= right->getValue().getTimeStamp() ) {
     result->setValue( left->getValue() );
@@ -209,19 +169,15 @@ Node<T>* LinkedList<T>::SortedMerge( Node<T>* left, Node<T>* right ) {
     result->setNext( SortedMerge( left, right->getNext() ) );
   }
 }
-
-
 /* MergeSort() */
 /*template <typename T>
 Node<T>* LinkedList<T>::MergeSort( ) {
   Node<T>* head = this->front();
   Node<T>* left;
   Node<T>* right;
-
   /* Conditia de oprire: lista goala sau lista cu un singur element */
  /* if( (head == NULL) || (head->next == NULL) )
     return;
-
   /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( righ ) */
  // LeftRightSplit( head, &left, &right );
 

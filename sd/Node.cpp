@@ -10,7 +10,7 @@ using namespace std;
 
 template <typename T>
 Node<T>::Node() {
-  this->value = 0;
+  this->value = T();
   this->next = NULL;
 }
 

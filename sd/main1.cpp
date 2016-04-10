@@ -2,7 +2,7 @@
 #include<fstream>
 #include<string>
 
-#include "task1.1.h"
+//#include "task1.1.h"
 #include "citireTranzactii.h"
 #include "citireBonuri.h"
 /*#include "../headers/citirePaleti.h";*/
@@ -17,9 +17,8 @@ int main ( ) {
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
 
-	listaTranzactii.printList();
+	//listaTranzactii.printList();
 
-/*
 	LinkedList<Bon> listaBonuri;
 	citireBonuri( listaBonuri );
 
@@ -30,11 +29,10 @@ int main ( ) {
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
 	
-	task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
+	//task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
-	task1_2 ( listaTranzactii, listaProduse, listaBonuri);
+	//task1_2 ( listaTranzactii, listaProduse, listaBonuri);
 	
-*/
 
 	return 0;
 }

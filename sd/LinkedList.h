@@ -56,13 +56,6 @@ public:
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();
 
-<<<<<<< HEAD
-  /* Afiseaza elementele listei */
-  void printList();
-
-  /* Supraincarcarea operatorului << */
-  friend ostream& operator<< ( ostream& out, const LinkedList<T>& obiect );
-=======
 
   /* Asta nu cred ca ramane */
  /* void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
@@ -70,7 +63,6 @@ public:
   Node<T>* MergeSort( );
 */
 
->>>>>>> 6b1f910a66a9fdb1457afaa37a9e7c372e30ff1a
 };
 
 #endif /* __LINKEDLIST_H_ */
