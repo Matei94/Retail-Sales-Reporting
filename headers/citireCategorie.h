@@ -1,5 +1,6 @@
 #include<fstream>
 #include<sstream>
+#include<string>
 
 #include"Categorie.h"
 #include"LinkedList.h"
