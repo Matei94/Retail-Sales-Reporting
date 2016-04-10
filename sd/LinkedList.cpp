@@ -35,10 +35,7 @@ LinkedList<T>::~LinkedList() {
     delete aux;
     aux = next;
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> d2eba2a0a25120714b35b5be9a2f7b74d3dff7ba
   pFirst = NULL;
 }
 
