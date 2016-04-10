@@ -1,6 +1,6 @@
 #ifndef __Tranzactie_H_
 #define __Tranzactie_H_
-
+#include<string>
 
 using namespace std;
 
