@@ -2,7 +2,7 @@
 #include<fstream>
 #include<string>
 
-//#include "task1.1.h"
+#include "task1.1.h"
 #include "citireTranzactii.h"
 #include "citireBonuri.h"
 /*#include "../headers/citirePaleti.h";*/
@@ -16,7 +16,6 @@ int main ( ) {
 	/* Parsare fisiere de input */
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
-	//cout << "PLM\n";
 
 	//listaTranzactii.printList();
 
@@ -26,14 +25,12 @@ int main ( ) {
 	LinkedList<Magazin> listaMagazine;
 	citireMagazine( listaMagazine );
 
-
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
-	
-	//task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
+
+	task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
 	//task1_2 ( listaTranzactii, listaProduse, listaBonuri);
-	
 
 	return 0;
 }

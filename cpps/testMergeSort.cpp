@@ -13,7 +13,7 @@ int main( ) {
 
 	listaTranzactii.MergeSort();
 
-	listaTranzactii.printList();
+	//listaTranzactii.printList();
 
 	return 0;
 }

@@ -127,7 +127,7 @@ int LinkedList<T>::numberOfNodes() {
 
 /* LeftRightSplit() */
 template <typename T>
-void LinkedList<T>::LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right ) {
+void LinkedList<T>::LeftRightSplit( Node<T>* head, LinkedList<T>& left, Node<T>** right ) {
   /* numberOfNodes = numarul de noduri din lista initiala, data prin head */
   int numberOfNodes = 0;
     
@@ -154,49 +154,74 @@ void LinkedList<T>::LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** rig
     *left->setNext( NULL );
 }
 
+template <typename T>
+void LinkedList<T>::reversePop( LinkedList<T>& result ) {
+  if ( this->pFirst == NULL )
+    return;
+
+  T value = this->pFirst->getValue();
+  this->removeFirst();
+  this->reversePop( result );
+  result.addLast( value );
+}
 
 /* SortedMerge() */
 template <typename T>
-Node<T>* LinkedList<T>::SortedMerge( Node<T>* left, Node<T>* right ) {
-  Node<T>* result;
+void LinkedList<T>::SortedMerge( LinkedList<T> left, LinkedList<T> right, LinkedList<T>& result ) {
 
   /* Conditiile de oprire: una dintre cele doua subliste este goala */
-  if ( left == NULL )
-    return right;
-  else if ( right == NULL )
-    return left;
+  if ( left.front() == NULL ) {
+    LinkedList<T> result;
+    right.reversePop( result );
+  }
+  else if ( right.front() == NULL ){
+    LinkedList<T> result;
+    left.reversePop( result );
+  }
 
   /* Se aplica recurenta vietii mele si se compara timestamp-urile */ 
-  if ( left->getValue().getTimeStamp() <= right->getValue().getTimeStamp() ) {
-    result->setValue( left->getValue() );
-    result->setNext( SortedMerge( left->getNext(), right ) );
+  if ( left.front()->getValue().getTimeStamp() >= right.front()->getValue().getTimeStamp() ) {
+    
+    T value = left.front()->getValue();
+    left.removeFirst();
+    SortedMerge( left, right, result );
+    result.addLast( value );
+
+    //result->setValue( left->getValue() );
+    //result->setNext( SortedMerge( left->getNext(), right ) );
   } else {
-    result->setValue( right->getValue() );
-    result->setNext( SortedMerge( left, right->getNext() ) );
+    
+    T value = right.front()->getValue();
+    right.removeFirst();
+    this->SortedMerge( left, right, result );
+    result.addLast( value );
+
+    //result->setValue( right->getValue() );
+    //result->setNext( SortedMerge( left, right->getNext() ) );
   }
 }
 
 
 /* MergeSort() */
 template <typename T>
-Node<T>* LinkedList<T>::MergeSort( ) {
+LinkedList<T> LinkedList<T>::MergeSort( ) {
   Node<T>* head = this->front();
-  Node<T>* left;
-  Node<T>* right;
+  LinkedList<T> left;
+  LinkedList<T> right;
 
   /* Conditia de oprire: lista goala sau lista cu un singur element */
   if( (head == NULL) || (head->next == NULL) )
     return;
 
   /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( righ ) */
-  LeftRightSplit( head, &left, &right );
+  LeftRightSplit( head, left, right );
 
   /* Sortam recursiv cele doua subliste rezultate */
   left.MergeSort( );
   right.MergeSort( );
 
   /* Rezultatul va fi impreunarea celor doua subliste deja sortate */
-  return SortedMerge( left, right );
+  return this->SortedMerge( left, right );
 }
 
 

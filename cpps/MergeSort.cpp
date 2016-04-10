@@ -24,6 +24,7 @@ void LinkedList<T>::LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** rig
 
   	*left = head; 
   	while ( mid - 1 ) {
+  		--mid;
   		*left = head->getNext();
   	}
   	*left->setNext( NULL );

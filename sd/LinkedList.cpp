@@ -28,15 +28,17 @@ void LinkedList<T>::operator=(const LinkedList<T>& l) {
 
 template <typename T>
 LinkedList<T>::~LinkedList() {
-  Node<T> *aux = pFirst;
+  Node<T> *aux;
+  Node<T> *next;
+  aux = pFirst;
 
   while (aux != NULL) {
-    Node<T> *next = aux->getNext();
+    next = aux->getNext();
     delete aux;
     aux = next;
   }
 
-  pFirst = NULL;
+  pFirst = pLast = NULL;
 }
 
 template <typename T>
