@@ -29,7 +29,7 @@ void compareDate(string timp1,string timp2){
 
 // Functia sortareBonuri ordoneaza lista de bonuri dupa data preluata din lista de Tranzactii
 void sortareBonuri(){
-
+		//Momentan consideram lista sortata
 }
 
 void Task3_3(LinkedList<Bon> listaBonuri, ){
@@ -89,7 +89,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 			tranzactie = listaTranzactii.front();
 			while(tranzactie != NULL){
 				
-				if(idBon == tranzactie.getIdBon){
+				if(idBon == tranzactie.getIdBon()){
 					int idMagazin = tranzactie.getIdMagazin();
 				}
 				tranzactie = tranzactie->getNext();
