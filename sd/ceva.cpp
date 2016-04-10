@@ -14,7 +14,6 @@ void citireProduse( LinkedList<Produs>& listaProduse ){
 	ifstream produse ( "produse.csv" );
 	string linieFisier;
 	getline( produse, linieFisier );
-	cout<<linieFisier;
 	while ( getline( produse, linieFisier ) ){
 		listaProduse.addLast ( Produs ( linieFisier ) );
 	}
@@ -30,7 +29,6 @@ void citireTranzactii( LinkedList<Tranzactie>& listaTranzactii ){
 
 	/* Prima linie este inutila, capul de tabel */
 	getline( tranzactii, linieFisier, '\n');
-	cout<<linieFisier;
 
 
 	/* Atat timp cat mai avem linii in fisier, extragem linia si o retinem in stringul aferent */
@@ -48,7 +46,6 @@ void citireMagazine( LinkedList<Magazin>& listaMagazine ){
 	ifstream magazine ( "magazine.csv" );
 	string linieFisier;
 	getline( magazine, linieFisier );
-	cout<<linieFisier;
 	while ( getline ( magazine, linieFisier ) ){
 		listaMagazine.addLast ( Magazin ( linieFisier ) );
 
@@ -65,7 +62,6 @@ void citireBonuri( LinkedList<Bon>& listaBonuri ){
     
     /* Prima linie este inutila, capul de tabel */
 	getline( bonuri, linieFisier );
-	cout<<linieFisier;
 
     /* Atat timp cat mai avem linii in fisier, extragem linia si o retinem in stringul aferent */
 	while ( getline( bonuri, linieFisier ) ){
@@ -77,14 +73,11 @@ void citireBonuri( LinkedList<Bon>& listaBonuri ){
 	bonuri.close();	
 }
 
-
-
-int main (){
-
-	LinkedList<Produs> listaProduse;
+void f( LinkedList<Produs>& listaProduse ) {
 	citireProduse( listaProduse );
+	cout<<"mama"<<endl;
 
-/*	cout<<listaProduse.front()->getValue().getIdProdus()<<endl;
+	cout<<listaProduse.front()->getValue().getIdProdus()<<endl;
 	cout<<listaProduse.front()->getValue().getIdCategorie()<<endl;
 	cout<<listaProduse.front()->getValue().getPrice()<<endl;
 	cout<<listaProduse.front()->getValue().getNumeProdus()<<endl;
@@ -94,27 +87,36 @@ int main (){
 	cout<<listaProduse.front()->getNext()->getValue().getPrice()<<endl;
 	cout<<listaProduse.front()->getNext()->getValue().getNumeProdus()<<endl;
 	cout<<"gheroghe"<<endl;
-*/
+}
+
+
+int main (){
+
+		LinkedList<Produs> listaProduse;
+	f( listaProduse );
+
 	LinkedList<Bon> listaBonuri;
 	citireBonuri( listaBonuri );
-/*
+
+
 	cout<<listaBonuri.front()->getValue().getIdBon()<<endl;
 	cout<<listaBonuri.front()->getValue().getIdProdus( )<<endl;
-*/
+
 	LinkedList<Magazin> listaMagazine;
 	citireMagazine( listaMagazine );
-/*
+
 	cout<<listaMagazine.front()->getValue().getIdMagazin( )<<endl;
 	cout<<listaMagazine.front()->getValue().getLocatieMagazin( )<<endl;
-*/
 
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
-	/*
+	
 	cout<<listaTranzactii.front()->getValue().getIdTranzactie()<<endl;
 	cout<<listaTranzactii.front()->getValue().getIdMagazin( )<<endl;
 	cout<<listaTranzactii.front()->getValue().getTimeStamp( )<<endl;
 	cout<<listaTranzactii.front()->getValue().getIdBon( )<<endl;
-*/
+
+	cout<<"IESTEEEEEEEEEEEEEEEEE"<<endl;
+
 	return 0;
 }

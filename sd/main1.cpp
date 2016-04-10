@@ -16,7 +16,7 @@ int main ( ) {
 	/* Parsare fisiere de input */
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
-	cout << "PLM\n";
+	//cout << "PLM\n";
 
 	//listaTranzactii.printList();
 
@@ -24,11 +24,11 @@ int main ( ) {
 	citireBonuri( listaBonuri );
 
 	LinkedList<Magazin> listaMagazine;
-	//citireMagazine( listaMagazine );
+	citireMagazine( listaMagazine );
 
 
 	LinkedList<Produs> listaProduse;
-	//citireProduse( listaProduse );	
+	citireProduse( listaProduse );	
 	
 	//task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	

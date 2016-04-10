@@ -11,7 +11,10 @@ Logica Hashtable-ului nostru este in principiu exacta cu cea de la site-ul de su
 #ifndef __Hashtable_H_
 #define __Hashtable_H_
 
-#include "../headers/LinkedList.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 template<typename Tkey, typename Tvalue>
 struct Hashnode {
@@ -36,7 +39,7 @@ class Hashtable {
 
 		void Insert( Tkey key, Tvalue value );
 
-		Tvalue get ( Tkey key );
+		bool get ( Tkey key, Tvalue& value );
 
 		void remove( Tkey key );
 
