@@ -160,11 +160,15 @@ int Hashtable<Tkey, Tvalue>::getMaxCollisions() {
 template class Hashtable<string,int>;
 template class Hashtable<int,int>;
 
-int Hash(string key) {
+int Hash_string(string key) {
     int hkey = 0;
     for (int i = 0; i < key.length(); i++)
         hkey = (hkey * 31 + key[i]) % VMAX;
     return hkey;
+}
+
+int Hash_long (long key) {
+  // Trebuie o functie buna de hash :D
 }
 
 // Chestiile alea cu template, exemplu:

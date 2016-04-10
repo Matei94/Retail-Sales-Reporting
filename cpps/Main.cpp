@@ -4,6 +4,14 @@
 
 #include <fstream>
 
+#include "../headers/Tranzactie.h"
+#include "../headers/LinkedList.h"
+#include "../headers/Bon.h"
+#include "../headers/Produs.h"
+#include "../headers/Magazin.h"
+#include "../headers/Hashtable.h"
+#include "../headers/Node.h"
+
 #include "../headers/citireTranzactii.h"
 #include "../headers/citireBonuri.h"
 #include "../headers/citirePaleti.h"
@@ -34,7 +42,11 @@ int main(int argc, char **argv)
 	citireMagazine( listaMagazine );
 
 	listaProduse = LinkedList<Produs>();
-	citireProduse( listaProduse );	
+	citireProduse( listaProduse );
+
+	Hashtable<long,Tranzactie> HTranzactie = Hashtable<long,Tranzactie>(VMAX, Hash_long);
+	Hashtable<long,Bonuri> HBonuri = Hashtable<long,Bonuri>(VMAX, Hash_long);
+
 
 
 	// TODO 1: Cerinta 1
