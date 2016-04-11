@@ -10,6 +10,8 @@ Logica Hashtable-ului nostru este in principiu exacta cu cea de la site-ul de su
 
 #include "Hashtable.h"
 
+using namespace std;
+
 template<typename Tkey, typename Tvalue>
 Hashtable<Tkey,Tvalue>::Hashtable( int length){
 	size = length;
@@ -68,12 +70,14 @@ void Hashtable<Tkey,Tvalue>::Insert( Tkey key, Tvalue value ){
 }
 
 template<typename Tkey, typename Tvalue>
-Tvalue Hashtable<Tkey,Tvalue>::get( Tkey key ) {
+bool Hashtable<Tkey,Tvalue>::get( Tkey key, Tvalue& value ) {
 	unsigned int index = Hash( key );
 	Hashnode<Tkey,Tvalue> *first = Bucket [ index ];
 	while( first != NULL ) {
-		if( first->key == key )
-			return first->value;
+		if( first->key == key ) {
+			value = first->value; 
+			return true;
+		}
 		first = first->next;
 	}
 	cout<<"Nu s-a gasit";
