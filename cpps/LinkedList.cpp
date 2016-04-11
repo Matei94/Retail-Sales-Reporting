@@ -160,6 +160,31 @@ void LinkedList<T>::LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedLi
     right.pFirst = aux;
 }
 
+/* MergeSort() */
+template <typename T>
+void LinkedList<T>::MergeSort( ) {
+  Node<T>* head = this->front();
+  LinkedList<T> left;
+  LinkedList<T> right;
+  LinkedList<T> result;
+
+  /* Conditia de oprire: lista goala sau lista cu un singur element */
+  if( (head == NULL) || (head->getNext() == NULL) )
+    return;
+
+  /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( righ ) */
+  LeftRightSplit( head, left, right );
+
+  /* Sortam recursiv cele doua subliste rezultate */
+  left.MergeSort( );
+  right.MergeSort( );
+
+  /* Rezultatul va fi impreunarea celor doua subliste deja sortate */
+  SortedMerge( left, right, result);
+
+  this->pFirst = result.front();
+}
+
 template class LinkedList<int>;
 //template class LinkedList<Palet>;
 //template class LinkedList<Produs>;

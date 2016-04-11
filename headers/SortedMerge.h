@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "LinkedList.h"
-#include "Node.h"
 
 using namespace std;
 
@@ -19,7 +18,7 @@ LinkedList<T> addNodeToList( T value, LinkedList<T> list ) {
 
 /* SortedMerge() */
 template <typename T>
-void SortedMerge( LinkedList<T> left, LinkedList<T> right, LinkedList<T>& result ) {
+void SortedMerge( LinkedList<T>& left, LinkedList<T>& right, LinkedList<T>& result ) {
 
   /* Conditiile de oprire: una dintre cele doua subliste este goala */
   if ( left.front() == NULL ) {
@@ -54,10 +53,11 @@ void SortedMerge( LinkedList<T> left, LinkedList<T> right, LinkedList<T>& result
     
     T value = left.front()->getValue();
     left.removeFirst();
+    result.addLast( value );
 
     SortedMerge( left, right, result );
 
-    result.addFirst( value );
+    //result.addFirst( value );
 
     cout << "plm_left\n";
 
