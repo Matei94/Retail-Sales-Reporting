@@ -172,7 +172,7 @@ void LinkedList<T>::MergeSort( ) {
   if( (head == NULL) || (head->getNext() == NULL) )
     return;
 
-  /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( righ ) */
+  /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( right ) */
   LeftRightSplit( head, left, right );
 
   /* Sortam recursiv cele doua subliste rezultate */
@@ -182,7 +182,8 @@ void LinkedList<T>::MergeSort( ) {
   /* Rezultatul va fi impreunarea celor doua subliste deja sortate */
   SortedMerge( left, right, result);
 
-  this->pFirst = result.front();
+  this->pFirst = result.pFirst;
+  this->pLast = result.pLast;
 }
 
 template class LinkedList<int>;
