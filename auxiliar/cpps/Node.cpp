@@ -1,8 +1,8 @@
 #include <cstddef>
 #include <string>
+#include <iostream>
 
 #include "../headers/Node.h"
-#include "../headers/Tranzactie.h"
 
 using namespace std;
 
@@ -14,8 +14,7 @@ Node<T>::Node() {
 
 template <typename T>
 Node<T>::Node(T value) {
-  //Node<T>(); NU E BINE! 
-
+  //Node<T>(); mare greaseala, doar in java
   this->value = value;
   this->next = NULL;
 }
@@ -44,7 +43,7 @@ T Node<T>::getValue() {
 
 template <typename T>
 Node<T> *Node<T>::getNext() {
-  return this->next;
+  return next;
 }
 
 template <typename T>
@@ -62,5 +61,7 @@ void Node<T>::setNext(Node<T>* nod) {
 //!!!!! AICI TREBUIE ADAUGAT CE O SA FOLOSIM, CE TIPURI DE DATE
 
 template class Node< int >;
-//template class Node<Tranzactie>;
+template class Node< string >;
+template class Node< Palet >;
+template class Node< Produs >;
 //template class Node< struct elemInfo<string, int> >;

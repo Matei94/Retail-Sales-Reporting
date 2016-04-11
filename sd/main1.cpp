@@ -38,7 +38,7 @@ int main ( ) {
 	int lengthBonuri = listaBonuri.numberOfNodes( );
 	int lengthCategorii = listaCategorii.numberOfNodes( );
 	/* Declar vectorii vanzariMagazine si Vanzari produse de lungimi lengthMagazine respectiv lengthProduse */
-	int vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
+	unsigned long long vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
 
 	/* Taskul 1_1: */
 	task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
@@ -49,7 +49,7 @@ int main ( ) {
 	/* Taskul 1.3 */
 	task1_3 ( suma, lengthTranzactii, listaTranzactii );
 
-	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaCategorii, lengthMagazine, lengthCategorii );
+	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
 
 	return 0;
 }
