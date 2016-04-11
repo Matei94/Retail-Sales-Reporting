@@ -3,7 +3,9 @@
 #include<string>
 #include<sstream>
 
-#include "../headers/LinkedList.h"
+#include "LinkedList.h"
+#include "Tranzactie.h"
+#include "Magazin.h"
 
 using namespace std;
 
@@ -20,7 +22,7 @@ string transformaInString (int ziuaAnului){
 	int zile[13] = {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366};
 	int luna = 1, i, ziua;
 	for (i = 0; i < 12; i++){
-		if (zile[i] < ziuaAnului <= zile[i + 1]){
+		if (zile[i] < ziuaAnului && ziuaAnului <= zile[i + 1]){
 			luna = i + 1;
 			ziua = ziuaAnului - zile[i];
 			break;
@@ -46,9 +48,9 @@ string transformaInString (int ziuaAnului){
 //Parametrul nrZile este citit de la tastatura in momentul rularii programului si arata primele cate zile vor fi afisate
 void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMagazine, int nrZile){
 	ofstream output ("Task2_2.out");
-	Tranzactie* tranzactie = listaTranzactii.front();
+	Node<Tranzactie>* tranzactie = listaTranzactii.front();
 	int nrMagazine = 0;
-	Magazin* magazin = listaMagazine.front();
+	Node<Magazin>* magazin = listaMagazine.front();
 	while (magazin != NULL){
 		nrMagazine++;
 		magazin = magazin->getNext();
@@ -61,8 +63,14 @@ void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 		cumparatori[i] = new int[367];
 	}
 
+	for (i = 0; i <= nrMagazine; i++){
+		for (j = 0; j <=366; j++){
+			cumparatori[i][j] = 0;
+		}
+	}
+
 	while (tranzactie != NULL){
-		cumparatori[tranzactie.getIdMagazin()][ziuaTranzactiei( tranzactie.getTimeStamp() )]++;
+		cumparatori[tranzactie->getValue().getIdMagazin()][ziuaTranzactiei( tranzactie->getValue().getTimeStamp() )]++;
 		tranzactie = tranzactie->getNext();
 	}
 
@@ -104,14 +112,11 @@ void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 		}
 	}
 
-	output << "Primele " << nrZile << " ca numar de cumparatori pentru fiecare magazin in parte sunt:\n\n";
+	output << "id_magazin,data,numar_cumparatori\n";
 	for (i = 1; i <= nrMagazine; i++){
-		output << "Magazinul " << i << ":\n";
 		for (j = 1; j <= nrZile; j++){
-			output << transformaInString(permutare[i][j]) << ", cu " << cumparatori[i][j] << " cumparatori\n\n";
+			output << i << "," << transformaInString(permutare[i][j]) << "," << cumparatori[i][j] << "\n";
 		}
-
-		output << "\n";
 	}
 
 	output.close();

@@ -3,39 +3,39 @@
 #include<sstream>
 #include<string>
 
-#include "../headers/LinkedList.h"
+#include "LinkedList.h"
 
-using namepsace std;
+#include "Magazin.h"
+#include "Tranzactie.h"
+
+using namespace std;
 
 void task2_4(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMagazine){
 	ofstream output ("Task2_4.out");
-	Tranzactie* tranzactie = listaTranzactii.front();
+	Node<Tranzactie>* tranzactie = listaTranzactii.front();
 	int nrMagazine = 0, i;
-	Magazin* magazin = listaMagazine.front();
+	Node<Magazin>* magazin = listaMagazine.front();
 	while (magazin != NULL){
 		nrMagazine++;
 		magazin = magazin->getNext();
 	}
 
 	int* cumparatori;
-	cumparatori = new int*[nrMagazine + 1];
+	cumparatori = new int[nrMagazine + 1];
+
+	for (i = 0; i <= nrMagazine; i++){
+		cumparatori[i] = 0;
+	}
 
 	while (tranzactie != NULL){
-		cumparatori[tranzactie.getIdMagazin()]++;
+		cumparatori[tranzactie->getValue().getIdMagazin()]++;
 		tranzactie = tranzactie->getNext();
 	}
 
-	output << "In anul 2016, numarul mediu de clienti pe zi pentru fiecare magazin a fost:\n";
+	output << "id_magazin,clienti_pe_saptamana,beneficiari_pe_saptamana\n";
 
 	for (i = 1; i <= nrMagazine; i++){
-		output << "Magazinul " << i << ": " << cumparatori[i] / 366 << " clienti pe zi\n";
-	}
-
-	output << "In cazul deschiderii unei noi case, aproximativ jumatate din clienti ar folosi acea casa.\n";
-	output << "Numarul mediu de clienti pe zi care ar folosi a doua casa in fiecare magazin este:\n";
-
-	for (i = 1; i <= nrMagazine; i++){
-		output << "Magazinul " << i << ": " << cumparatori[i] / 366 / 2 << " clienti pe zi\n";
+		output << i << "," << cumparatori[i] / 52 << "," << cumparatori[i] / 52 / 2 << "\n";
 	}
 
 	output.close();
