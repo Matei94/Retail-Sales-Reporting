@@ -1,6 +1,8 @@
 #ifndef __NODE_H_
 #define __NODE_H_
 
+using namespace std;
+
 template <typename T>
 class Node {
   private:

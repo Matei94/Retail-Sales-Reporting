@@ -5,6 +5,7 @@
 #include "Produs.h"
 #include "Magazin.h"
 #include "Bon.h"
+#include "Categorie.h"
 
 using namespace std;
 
@@ -197,5 +198,6 @@ template class LinkedList< Tranzactie >;
 template class LinkedList< Produs >;
 template class LinkedList< Bon >;
 template class LinkedList< Magazin >;
+template class LinkedList<Categorie>;
 
 // template class LinkedList< Node<int> >;

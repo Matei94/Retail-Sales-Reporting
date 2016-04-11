@@ -5,6 +5,7 @@
 #include "Bon.h"
 #include "Produs.h"
 #include "Magazin.h"
+#include "Categorie.h"
 
 using namespace std;
 
@@ -65,5 +66,6 @@ template class Node<Tranzactie>;
 template class Node<Produs>;
 template class Node<Magazin>;
 template class Node<Bon>;
+template class Node<Categorie>;
 
 //template class Node< struct elemInfo<string, int> >;

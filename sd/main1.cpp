@@ -9,6 +9,7 @@
 /*#include "../headers/citireCategorie.h";*/
 #include "citireMagazine.h"
 #include "citireProduse.h"
+#include "citireCategorie.h"
 #include "LinkedList.h"
 using namespace std;
 
@@ -28,10 +29,27 @@ int main ( ) {
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
 
+	LinkedList<Categorie> listaCategorii;
+	citireCategorii( listaCategorii );
+	/* Calculez nr de magazine, tranzactii, produse, bonuri din fiecare lista aferenta */
+	int lengthProduse = listaProduse.numberOfNodes( );
+	int lengthMagazine = listaMagazine.numberOfNodes( );
+	int lengthTranzactii = listaTranzactii.numberOfNodes( );
+	int lengthBonuri = listaBonuri.numberOfNodes( );
+	int lengthCategorii = listaCategorii.numberOfNodes( );
+	/* Declar vectorii vanzariMagazine si Vanzari produse de lungimi lengthMagazine respectiv lengthProduse */
+	int vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
 
-	task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
+	/* Taskul 1_1: */
+	task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
-	task1_2 ( listaTranzactii, listaProduse, listaBonuri);
+	/* Taskul 1.2 */
+	task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
+
+	/* Taskul 1.3 */
+	task1_3 ( suma, lengthTranzactii, listaTranzactii );
+
+	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaCategorii, lengthMagazine, lengthCategorii );
 
 	return 0;
 }

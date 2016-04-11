@@ -1,6 +1,8 @@
 #ifndef __MAGAZIN_H_
 #define __MAGAZIN_H_
 
+using namespace std;
+
 class Magazin {
   private:
 	int idMagazin;
@@ -29,7 +31,7 @@ class Magazin {
 	string getLocatieMagazin( );
 
 	/* Constructor pentru citire din fisier */
-	Tranzactie( string linieFisier );
+	Magazin( string linieFisier );
 
 };
 

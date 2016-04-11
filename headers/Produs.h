@@ -1,6 +1,8 @@
 #ifndef __PRODUS_H_
 #define __PRODUS_H_
 
+using namespace std;
+
 class Produs {
   private: 
 	int idProdus, idCategorie, price;
