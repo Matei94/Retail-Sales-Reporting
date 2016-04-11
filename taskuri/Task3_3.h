@@ -11,7 +11,7 @@ using namespace std;
 //Functia care compara compara data a 2 elemente
 void compareDate(string timp1,string timp2){
 	
-	result = strcmp(timp1, timp2);
+	rezultat = strcmp(timp1, timp2);
 
 	if( result > 0 ){
 		return 1;
@@ -32,7 +32,19 @@ void sortareBonuri(){
 		//Momentan consideram lista sortata
 }
 
-void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaProduse, LinkedList<Palet> listaPaleti){
+
+int cererePalet(int idMagazin,Palet* palet){
+		//cate produse erau la inceput
+		while (palet != NULL){
+			
+			idProd = palet.getProdType;
+			int numarProdusePalet= palet.getNumberOfItems();
+			palet = palet->getNext();
+			return numarProdusePalet;
+		}
+}
+
+void Task3_3(LinkedList<Bon> listaBonuri, ){
 
 		ofstream output ("Task3_3.out");
 
@@ -54,7 +66,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 		}
 
 		// aflare cate magazine avem
-		int idMagazinMax = tranzactie.getIdMagazin;
+		int idMagazinMax = tranzactie.getIdMadazin;
 		while (tranzactie != NULL){
 
 			int idMagazin  = bon.getIdMagazin();
@@ -65,19 +77,21 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 			tranzactie = tranzactie->getNext();
 		}
 
+		
+		
+
+
 		int vectorProd = new int[idProdMax][idMagazinMax];
 
-		//cate produse erau la inceput
-		while (palet != NULL){
-			idProd = palet.getProdType;
+		//cate produse avem la magazin la inceput 
+		vectorProd[idProd][idMagazin] = cererePalet(idMagazin, palet);
 
-			// trebuie sa gasesc idMagazin corespunzator produsului aferent. ceva asemanator liniilor 89-96 dar inca nu m-am prins ce sa pun la conditia de if (linia 92)
-			
-			vectorProd[idProd][idMagazin]= ???
-			// la acelasi ProdType exista mai multe valori. nu ar trebui sa fie un numar standard de intrare?
-			// adica ma gandeam ca pentru un ProdType, un palet are nrProduseMax items. 
-			palet = palet->getNext();
-		}
+		
+
+
+
+
+
 
 		//cate produse din fiecare tip au ramas in fiecare magazin
 		bon = listaBonuri.front();
@@ -98,10 +112,11 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 			vectorProd[idProd][idMagazin] = vectorProd[idProd][idMagazin] - 1;
 
 			//verificare daca am ajuns la 10% dintr un produs	
-			if ( vectorProd[idProd][idMagazin] = 0.1 * nrProduseMax ) // acest nrProduseMax ar fi cel de la liniile 76-78 daca rationamentul meu este corect
+			if ( vectorProd[idProd][idMagazin] = 0.1 * nrProduseMax ) //trebuie lucrat la nrProduseMax
 
-					//SOLICITARE palet de la DEPOZIT
-					//Poate onora comanda? contoriare, afisare contor cand conditia nu este indeplinita. Contorul reprezinta numarul comenzii ce nu va putea fi onorata
+					//daca comanda nu poate fi onorata se afiseaza contorul 
+					cererePalet(idMagazin, palet, nrProduseMax)
+					
 			
 			bon = bon->getNext();
 		}
