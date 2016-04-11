@@ -9,7 +9,12 @@ using namespace std;
 
 int main( ) {
 	
-	LinkedList<int> listaTranzactii, res_ma_ta, left, right, ma_ta;
+	LinkedList<int> listaTranzactii;
+	LinkedList<int> res_ma_ta;
+	LinkedList<int> left;
+	LinkedList<int> right;
+	LinkedList<int> ma_ta;
+
 	//citireTranzactii( listaTranzactii );
 	//listaTranzactii.MergeSort();
 
@@ -21,18 +26,32 @@ int main( ) {
 	listaTranzactii.addLast( 1 );
 	listaTranzactii.addLast( 0 ); 
 
+
+	listaTranzactii.MergeSort();
+
+/*
+	Node<int> *aux = listaTranzactii.front();
+
+	while ( aux != NULL ) {
+		cout << aux->getValue() << " ";
+		aux = aux->getNext();
+	}
+	cout << '\n';
+
+
 	listaTranzactii.reversePop( res_ma_ta );
 
 	cout << res_ma_ta.numberOfNodes() << '\n';
 
-	Node<int> *aux = res_ma_ta.front();
-/*
+	aux = res_ma_ta.front();
+
 	while ( aux != NULL ) {
-		cout << aux->getValue() << " ";	
+		cout << aux->getValue() << ' ';
 		aux = aux->getNext();
 	}
 	cout << '\n';
-*/
+
+
 
 	res_ma_ta.LeftRightSplit( res_ma_ta.front(), left, right );
 
@@ -50,6 +69,8 @@ int main( ) {
 	}
 	cout << '\n';
 
+
+
 	SortedMerge( left, right, ma_ta );
 
 	aux = ma_ta.front();
@@ -58,6 +79,7 @@ int main( ) {
 		aux = aux->getNext();
 	}
 	cout << '\n';	
+*/
 
 	return 0;
 }

@@ -121,9 +121,9 @@ void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 
 //Dezalocare
 	for (int i = 0; i <= nrMagazine; i++) {
-  		delete[] cumparatori[i];
+  		delete[] produse[i];
 	}
-	delete[] cumparatori;
+	delete[] produse;
 
 	for (int i = 0; i <= nrMagazine; i++) {
   		delete[] permutare[i];
