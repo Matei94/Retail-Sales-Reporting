@@ -1,11 +1,13 @@
 #include <cstddef>
 #include <iostream>
 #include <string>
+#include <ostream>
 
 #include "../headers/LinkedList.h"
+#include "../headers/SortedMerge.h"
 //#include "../headers/Palet.h"
 //#include "../headers/Produs.h"
-#include "../headers/Tranzactie.h"
+//#include "../headers/Tranzactie.h"
 
 using namespace std;
 
@@ -68,8 +70,6 @@ template <typename T>
 void LinkedList<T>::removeFirst() {
   struct Node<T>* paux;
 
-  cout << "plm\n";
-
   if (pFirst != NULL) {
     paux = pFirst->getNext();
     if (pFirst == pLast) 
@@ -79,6 +79,7 @@ void LinkedList<T>::removeFirst() {
   }
   else fprintf(stderr, "Error 101 - The list is empty\n"); 
 }
+
 /*
 template <typename T>
 T LinkedList<T>::removeLast(){}
@@ -99,7 +100,7 @@ void LinkedList<T>::printList() {
     cout << aux->getValue() << ", ";
     aux = aux->getNext();
   }
-  cout << endl;
+  cout << '\n';
 }
 */
 
@@ -110,52 +111,57 @@ bool LinkedList<T>::isEmpty() {
 
 template <typename T>
 Node<T>* LinkedList<T>::front() {
-        return pFirst;
-    }
+  return pFirst;
+}
 
 template <typename T>
 int LinkedList<T>::numberOfNodes() {
   int count = 0;
   Node<T> *aux = pFirst;
-  
-  /*
-  If-ul asta-i degeaba. count e deja 0, iar daca nu intra in while, se returneaza count = 0, ceea ce-i super.
-  if (isEmpty()) {
-    return 0;    
-  }
-  */
 
-  while ( aux != NULL) {
+  while ( aux != NULL ) {
     count++;
     aux = aux->getNext();
   }
+
   return count;
 }
 
 
 /* MergeSort for LinkedList */
 
+/* reversePop() -> returneaza in lista result, in ordine inversa, elementele listei curente */
 template <typename T>
 void LinkedList<T>::reversePop( LinkedList<T>& result ) {
-  if ( this->pFirst == NULL )
-    return;
+  Node<T> *aux = pFirst;
 
-  T value = this->pFirst->getValue();
-  this->removeFirst();
+  while ( aux != NULL ) {
+    T val = aux->getValue();
+    aux = aux->getNext();
+    result.addFirst( val );
+  }
 
-  this->reversePop( result );
-  
-  result.addLast( value );
 }
 
+/* LeftRightSplit() -> imparte lista curenta in doua subliste echilibrate: left si right */
+template <typename T>
+void LinkedList<T>::LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedList<T>& right ) {
+    int numberOfNodes = this->numberOfNodes();
+    int mid = numberOfNodes / 2;
 
+    Node<T>* aux;
+    aux = head;
+    while ( mid ) {
+      --mid;
+      left.addLast( aux->getValue() );
+      aux = aux->getNext();
+    }
 
-
-
-
+    right.pFirst = aux;
+}
 
 template class LinkedList<int>;
 //template class LinkedList<Palet>;
 //template class LinkedList<Produs>;
-template class LinkedList<Tranzactie>;
+//template class LinkedList<Tranzactie>;
 // template class LinkedList< Node<int> >;

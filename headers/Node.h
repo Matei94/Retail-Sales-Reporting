@@ -34,6 +34,8 @@ class Node {
 
     /* Functia ce seteaza legatura cu urmatorul nod */
     void setNext(Node<T>* nod);
+
+    //friend ostream
 };
 
 #endif /* __NODE_H_ */

@@ -45,7 +45,7 @@ public:
  // T removeLastOccurrence(T value);
 
   /* Afiseaza elementele listei pe o singura linie, separate printr-un spatiu. */
-  void printList();
+  //void printList();
 
   /* Intoarce true daca lista este vida, false altfel. */
   bool isEmpty();
@@ -56,12 +56,11 @@ public:
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();
 
-
   /* Asta nu cred ca ramane */
   void reversePop( LinkedList<T>& result );
-  //void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
-  //void SortedMerge( Node<T>* left, Node<T>* right );
-  //Node<T>* MergeSort( );
+  void LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedList<T>& right );
+  //LinkedList<T> SortedMerge( LinkedList<T> left, LinkedList<T> right );
+  Node<T>* MergeSort( );
 
 
 };

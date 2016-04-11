@@ -61,5 +61,5 @@ void Node<T>::setNext(Node<T>* nod) {
 
 template class Node< int >;
 template class Node< float >;
-template class Node<Tranzactie>;
+//template class Node<Tranzactie>;
 //template class Node< struct elemInfo<string, int> >;
