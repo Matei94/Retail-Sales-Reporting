@@ -2,6 +2,7 @@
 #include<fstream>
 #include<sstream>
 #include<string>
+#include<cmath>
 
 #include "LinkedList.h"
 
@@ -9,6 +10,13 @@
 #include "Tranzactie.h"
 
 using namespace std;
+
+int rotunjire (float numar){
+	if (numar - floor(numar) < 0.5){
+		return floor(numar);
+	}
+	return floor(numar) + 1;
+}
 
 void task2_4(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMagazine){
 	ofstream output ("Task2_4.out");
@@ -35,7 +43,7 @@ void task2_4(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 	output << "id_magazin,clienti_pe_saptamana,beneficiari_pe_saptamana\n";
 
 	for (i = 1; i <= nrMagazine; i++){
-		output << i << "," << cumparatori[i] / 52 << "," << cumparatori[i] / 52 / 2 << "\n";
+		output << i << "," << rotunjire((float)cumparatori[i] / 52) << "," << rotunjire((float)cumparatori[i] / 52) / 2 << "\n";
 	}
 
 	output.close();
