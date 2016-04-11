@@ -1,12 +1,14 @@
 #include <cstddef>
+#include <string>
 
 #include "../headers/Node.h"
+#include "../headers/Tranzactie.h"
 
 using namespace std;
 
 template <typename T>
 Node<T>::Node() {
-  this->value = 0;
+  this->value = T();
   this->next = NULL;
 }
 
@@ -59,5 +61,5 @@ void Node<T>::setNext(Node<T>* nod) {
 
 template class Node< int >;
 template class Node< float >;
-template class Node< Tranzactie >
+template class Node<Tranzactie>;
 //template class Node< struct elemInfo<string, int> >;

@@ -33,7 +33,7 @@ public:
   void addLast(T value);
 
   /* Elimina elementul de la inceputul listei si intoarce valoarea acestuia. */
-  T removeFirst();
+  void removeFirst();
 
   /* Elimina elementul de la sfarsitul listei listei si intoarce valoarea acestuia. */
 //  T removeLast();
@@ -58,9 +58,10 @@ public:
 
 
   /* Asta nu cred ca ramane */
-  void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
-  void SortedMerge( Node<T>* left, Node<T>* right );
-  Node<T>* MergeSort( );
+  void reversePop( LinkedList<T>& result );
+  //void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
+  //void SortedMerge( Node<T>* left, Node<T>* right );
+  //Node<T>* MergeSort( );
 
 
 };

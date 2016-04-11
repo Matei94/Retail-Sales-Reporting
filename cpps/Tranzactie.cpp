@@ -11,7 +11,7 @@ Tranzactie::Tranzactie( ) {
 	this->idBon = "";
 }
 
-Tranzactie::Tranzactie( int idTranzactie, int idMagazin, string timeStamp, string idBon ) {
+Tranzactie::Tranzactie( int idTranzactie, string timeStamp, string idBon, int idMagazin ) {
 	this->idTranzactie = idTranzactie;
 	this->idMagazin = idMagazin;
 	this->timeStamp = timeStamp;

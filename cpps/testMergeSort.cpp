@@ -8,10 +8,21 @@ using namespace std;
 
 int main( ) {
 	
-	LinkedList<Tranzactie> listaTranzactii;
-	citireTranzactii( listaTranzactii );
+	LinkedList<int> listaTranzactii, result;
+	//citireTranzactii( listaTranzactii );
+	//listaTranzactii.MergeSort();
 
-	listaTranzactii.MergeSort();
+
+	listaTranzactii.addFirst( 3 );
+	listaTranzactii.addFirst( 2 );
+	listaTranzactii.addFirst( 1 );
+
+	listaTranzactii.reversePop( result );
+
+	Node<int> *aux = result.front();
+	while ( aux != NULL ) {
+		cout << aux->getValue() << " ";	
+	}
 
 	//listaTranzactii.printList();
 
