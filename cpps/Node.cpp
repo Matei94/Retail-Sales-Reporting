@@ -62,6 +62,5 @@ void Node<T>::setNext(Node<T>* nod) {
 //!!!!! AICI TREBUIE ADAUGAT CE O SA FOLOSIM, CE TIPURI DE DATE
 
 template class Node< int >;
-template class Node< float >;
 //template class Node<Tranzactie>;
 //template class Node< struct elemInfo<string, int> >;
