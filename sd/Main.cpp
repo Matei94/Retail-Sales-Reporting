@@ -1,29 +1,23 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-
-#include "Tranzactie.h"
+#include<iostream>
+#include<fstream>
+#include<string>
+#define Vmax 10000
+//#include "task1.1.h"
+#include "citireTranzactii.h"
+#include "citireBonuri.h"
+/*#include "../headers/citirePaleti.h";*/
+/*#include "../headers/citireCategorie.h";*/
+#include "citireMagazine.h"
+#include "citireProduse.h"
 #include "LinkedList.h"
-#include "Bon.h"
-#include "Produs.h"
-#include "Magazin.h"
 #include "Node.h"
-
+#include "Bon.h"
+#include "Tranzactie.h"
+#include "Magazin.h"
+#include "Produs.h"
+#include "Hashtable.h"
 using namespace std;
 
-#define Vmax 1000
-
-
-/* Functia de Hash 
-int customHash(string key) {
-    int hkey = 0;
-    for (int i = 0; i < key.length(); i++)
-        hkey = (hkey * 31 + key[i]) % Vmax;
-    return hkey;
-}*/
-
-/* Cauta in lista de bonuri un obiect al carui idBon == elem */
 Node<Bon>* cautareInBonuri( LinkedList<Bon>& listaBonuri, string elem ) {
 	/* p = pointer la inceputul listei de bonuri */
 	Node<Bon> *p = listaBonuri.front( );
@@ -36,7 +30,6 @@ Node<Bon>* cautareInBonuri( LinkedList<Bon>& listaBonuri, string elem ) {
 		}
 		p = p->getNext( );
 	}
-	return NULL;
 }
 
 
@@ -53,7 +46,6 @@ Node<Produs>* cautareInProduse( LinkedList<Produs>& listaProduse, int elem) {
 		}
 		p = p->getNext( );
 	}
-	return NULL;
 }
 
 
@@ -70,18 +62,38 @@ Node<Magazin>* cautareInMagazin( LinkedList<Magazin>& listaMagazine, int elem) {
 		}
 		p = p->getNext( );
 	}
-	return NULL;
 }
 
 
-/* Prima liniuta de la taskul 1 va fi prezentata in limbaj c++ mai jos: */
-void task1_1( int vanzariMagazine[], int length1, LinkedList<Tranzactie>& listaTranzactii, LinkedList<Produs>& listaProduse, LinkedList<Bon>& listaBonuri, LinkedList<Magazin>& listaMagazine ){
+int main ( ) {
+	/* Parsare fisiere de input */
+	LinkedList<Tranzactie> listaTranzactii;
+	citireTranzactii( listaTranzactii );
+	cout << "PLM1\n";
+	//listaTranzactii.printList();
 
-	/* Vectorul vanzariMagazine are nr de elemente cate magazine sunt in lista de magazine */
+	LinkedList<Bon> listaBonuri;
+	citireBonuri( listaBonuri );
+	cout<<listaBonuri.front( )->getValue( ).getIdBon( )<<"\n";
+	cout<<"PLM2\n";
+	LinkedList<Magazin> listaMagazine;
+	citireMagazine( listaMagazine );
+	cout<<"PLM3\n";
+
+	LinkedList<Produs> listaProduse;
+	citireProduse( listaProduse );	
+	cout<<"PLM4\n";	
+	length1 = listaMagazine.numberOfNodes( );
+	length2 = listaProduse.numberOfNodes( ); 
+//task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
+int vanzariMagazine[ length1], vanzariProduse[ length2];
 
 	/* p, k = pointer la inceputul listei de tranzactii, respectiv magazin */
 	Node<Tranzactie> *p = listaTranzactii.front( );
 	Node<Magazin>* k = listaMagazine.front( );
+	cout<<p->getValue().getIdBon()<<endl;
+	cout<<k->getValue().getIdMagazin()<<endl;
+	cout<<"PLM5\n";
 
 	/* gasitBon, gasitProdus, gasitMagazin = obiectul listei pe care il cautam */
 	Node<Bon>* gasitBon;
@@ -92,12 +104,18 @@ void task1_1( int vanzariMagazine[], int length1, LinkedList<Tranzactie>& listaT
 	int idMagazin, idProdus, pret; 
 	string idBon;
 	
-	/* Initializarea vectorului vanzariMagazine */
+	/* Initializarea hashtable-ului */
 	while( k != NULL ) {
-		vanzariMagazine[ k->getValue( ).getIdMagazin( ) - 1 ] = 0;
-	//	cout<<vanzariMagazine[ k->info.getValue( ).getIdMagazin - 1 ]<<endl;
-		k = k->getNext( );	
+		vanzariMagazine.Insert(k->getValue( ).getLocatieMagazin( ),0);
+		//cout<<vanzariMagazine.get(k->getValue().getLocatieMagazin())<<endl;
+		int valuta;
+		cout<<vanzariMagazine.get(k->getValue( ).getLocatieMagazin(), valuta)<<endl;
+		cout<<k->getValue( ).getLocatieMagazin( )<<endl;
+		cout<<valuta<<endl;
+		k = k->getNext( );
+
 	}
+	cout<<"PLM6\n";
 
 	/* Parcurgem lista de tranzactii */
 	while( p != NULL ) {
@@ -119,42 +137,31 @@ void task1_1( int vanzariMagazine[], int length1, LinkedList<Tranzactie>& listaT
 		pret = gasitProdus->getValue( ).getPrice( );
 
 		/* Adaugam pretul curent, pretului de pana acum */
-		vanzariMagazine[ idMagazin - 1 ] += pret;
+		//vanzariMagazine[ gasitMagazin->info.getLocatieMagazin( ) ] +=pret;
+	//	int valoare = vanzariMagazine.get( gasitMagazin->getValue( ).getLocatieMagazin( ) );
+	//	vanzariMagazine.Insert( gasitMagazin->getValue( ).getLocatieMagazin(), valoare + pret );
 
 		p = p->getNext( );
 	}
-
-	/* Afisare vanzariMagazine, parcurgand listaMagazine pornind de la k = pointer la inceputul listei */
-	k = listaMagazine.front( );
-	while( k != NULL ) {
-		cout<<"Magazinul "<<k->getValue( ).getLocatieMagazin( )<<" are totalul "<<vanzariMagazine[ k->getValue( ).getIdMagazin( ) - 1 ]<<" de vanzari\n";
-		k = k->getNext( );
-	}
-}
-
-
-/* A doua liniuta de la taskul 1 va fi prezentata in limbaj c++ mai jos: */
-void task1_2( int vanzariProduse[], int length2, int &suma, LinkedList<Tranzactie>&listaTranzactii, LinkedList<Produs>& listaProduse, LinkedList<Bon> &listaBonuri) {
-
-	/* Vectorul vanzariProduse are nr de elemente cate produse sunt in lista de produse */
-	suma = 0;
+cout<<"PLAAA\n";
+ 
+//task1_2 ( listaTranzactii, listaProduse, listaBonuri);
+	/* Hash-ul aferent are cheia = numele produsului, iar valoarea = suma vanzarilor magazinului respectiv */
+	Hashtable<string, int> vanzariProduse = Hashtable<string, int>( Vmax );
 
 	/* p, k = pointeri la inceputul listelor de tranzactii, respectiv produse */
-	Node<Tranzactie> *p = listaTranzactii.front( );
-	Node<Produs> *k = listaProduse.front( );
+	 p = listaTranzactii.front( );
+	Node<Produs> *m = listaProduse.front( );
 
 	/* gasitBon, gasitProdus = obiectul listei pe care il cautam */
-	Node<Bon>* gasitBon;
-	Node<Produs>* gasitProdus;
-
-	/* Nume de variabile suficient de sugestive. Figure it out yourself */
-	string idBon;
-	int idProdus, pret; //valoare;
-
-	/* Initializam vanzariProduse */
-	while( k != NULL ) {
-		vanzariProduse[k->getValue( ).getIdProdus( ) - 1] = 0;
-		k = k-> getNext( ); 	
+	
+	
+		/* Nume de variabile suficient de sugestive. Figure it out yourself */
+	
+	/* Initializam hash-ul */
+	while( m != NULL ) {
+		//vanzariProduse.Insert(m->getValue( ).getNumeProdus( ),'0');
+		m = m-> getNext( );	
 	}
 
 	/* Parcurgem lista de tranzactii */
@@ -177,29 +184,12 @@ void task1_2( int vanzariProduse[], int length2, int &suma, LinkedList<Tranzacti
 		//ceva.key = gasitProdus->info.getNumeProdus( );
 		//ceva.value = pret;
 		/* Adunam la pretul anterior, pretul corent, la produsul care este pe frecventa */
-		vanzariProduse[ idProdus -1 ] += pret;
+		//vanzariProduse[ceva.key] +=ceva.value;
+		//int valoare = vanzariProduse.get( gasitProdus->getValue( ).getNumeProdus( ) );
+		//vanzariProduse.Insert( gasitProdus->getValue( ).getNumeProdus( ), valoare + pret );
+
 		p = p->getNext( );
 	} 
-	/* Afisare vanzariProduse, parcurgand listaProduse pornind de la k = pointer la inceputul listei */
-	k = listaProduse.front( );
-	while( k != NULL ) {
-		cout<<"Produsul "<<k->getValue( ).getNumeProdus( )<<" are totalul "<<vanzariProduse[ k->getValue( ).getIdProdus( ) - 1 ]<<" de vanzari\n";	
-		suma += vanzariProduse[ k->getValue( ).getIdProdus( ) - 1 ];
-		k = k->getNext( );
 
-	}
-
-
-}
-
-
-/* Taskul 1_3: */
-void task1_3( int suma, int length, LinkedList<Tranzactie> &listaTranzactii ) {
-	double valoare_cos_mediu;
-
-	/* cosul mediu este raportul dintre suma totala aflata de la task 1_2 si numarul de tranzactii */
-	valoare_cos_mediu = double( suma )/double( length );
-
-	/* Afisare valoarea cosului mediu */
-	cout<<valoare_cos_mediu<<endl;
+	return 0;
 }
