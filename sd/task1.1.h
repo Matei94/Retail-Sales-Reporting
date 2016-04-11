@@ -95,7 +95,6 @@ void task1_1( unsigned long long vanzariMagazine[], int length1, LinkedList<Tran
 	/* Vectorul vanzariMagazine are nr de elemente cate magazine sunt in lista de magazine */
 
 	/* p, k = pointer la inceputul listei de tranzactii, respectiv magazin */
-	cout<<length1<<endl;
 	Node<Tranzactie> *p = listaTranzactii.front( );
 	Node<Magazin>* k = listaMagazine.front( );
 
@@ -139,14 +138,11 @@ void task1_1( unsigned long long vanzariMagazine[], int length1, LinkedList<Tran
 				break;
 			}	
 			bonulet = gasitBon->getNext( );
-			cout<<"PLAA\n";
 		}
-		cout<<"PLa";
 		p = p->getNext( );
-		cout<<"PLA\n";
 	}
 
-	/* Afisare vanzariMagazine, parcurgand listaMagazine pornind de la k = pointer la inceputul listei */
+	/* Afisare vanzariMagazine, parcurgand listaMagazine pornind de la magazinas = pointer la inceputul listei */
 	Node<Magazin> *magazinas = listaMagazine.front( );
 	while( magazinas != NULL ) {
 		cout<<"Magazinul "<<magazinas->getValue( ).getLocatieMagazin( )<<" are totalul "<<vanzariMagazine[ magazinas->getValue( ).getIdMagazin( ) - 1 ]<<" de vanzari\n";
@@ -159,6 +155,8 @@ void task1_1( unsigned long long vanzariMagazine[], int length1, LinkedList<Tran
 void task1_2( unsigned long long vanzariProduse[], int length2, unsigned long long &suma, LinkedList<Tranzactie> &listaTranzactii, LinkedList<Produs>& listaProduse, LinkedList<Bon> &listaBonuri) {
 
 	/* Vectorul vanzariProduse are nr de elemente cate produse sunt in lista de produse */
+
+	/* initializare suma vanzarilor total cu 0 */
 	suma = 0;
 
 	/* p, k = pointeri la inceputul listelor de tranzactii, respectiv produse */
@@ -206,7 +204,7 @@ void task1_2( unsigned long long vanzariProduse[], int length2, unsigned long lo
 		p = p->getNext( );
 	}	
 			
-	/* Afisare vanzariProduse, parcurgand listaProduse pornind de la k = pointer la inceputul listei */
+	/* Afisare vanzariProduse, parcurgand listaProduse pornind de la k = pointer la inceputul listei si calcularea sumei */
 	k = listaProduse.front( );
 	while( k != NULL ) {
 		cout<<"Produsul "<<k->getValue( ).getNumeProdus( )<<" are totalul "<<vanzariProduse[ k->getValue( ).getIdProdus( ) - 1 ]<<" de vanzari\n";	
@@ -229,42 +227,49 @@ void task1_3( unsigned long long suma, int length, LinkedList<Tranzactie> &lista
 }
 
 void task1_4( LinkedList<Tranzactie> &listaTranzactii, LinkedList<Bon> &listaBonuri, LinkedList<Produs> &listaProduse,  LinkedList<Magazin> &listaMagazine, LinkedList<Categorie>& listaCategorii, int nrMagazine, int nrCategorii ){
+	/* Formam o matrice a care are nr de linii = numarul de magazine si nr coloane = nr de categorii */
 	Node <Tranzactie> *tranzactie = listaTranzactii.front();
 	Node <Magazin> *gasitMagazin;
 	Node <Categorie> *categorie = listaCategorii.front();
 	Node <Bon> *p, *BonCautat;
 	Node <Categorie> *gasitCategorie;
+
+	/* Initializare matrice */
 	int a[ nrMagazine ][ nrCategorii ] = { 0 };
-/* Conform celorlalte functii create pana acum, noi avem o lista cu fiecare chesie. O lista de produse, o lista 
-de tranzactii, etc*/
 	while( tranzactie != NULL ) {
+
 		//Retinem idMagazin si idBon aferente tranzactiei
 		int idMagazin = tranzactie->getValue().getIdMagazin();
 		string idBon = tranzactie->getValue().getIdBon();
+		
 		/*O sa avem mai multe produse pe un bon...Deci trebuie sa cautam toate aparitiile lui bon 
 		  in bonuri si sa le prelucram*/
 		/* Incepem de la front */
 		p = listaBonuri.front( );
 		while( p != NULL ) {
+			
 			/* BonCautat e un pointer la Bonul cu id-ul idbon */
 			BonCautat = cautareInBonuri( p, listaBonuri, idBon );
 			if( BonCautat != NULL ) {
+			
 				/* IdprodusCautat e id-ul produsului din bonul BonCautat cu care mergem in Produse sa ii vedem categoria*/
 				int IdProdusCautat = BonCautat->getValue().getIdProdus();
 				int IdCategorieProdusCautat = cautareInProduse( listaProduse, IdProdusCautat)->getValue( ).getIdCategorie( );
+			
 				/* Incrementam in matricea a la linia si coloana corespunzatoare, aferenta, cum ne place noua */
 				a[ idMagazin ][ IdCategorieProdusCautat ] ++;
-				/* Il vacem pe p ca fiind BonCautat->Next pentru a afla urmatoarea aparitie a Bon */
 			}
 			else {
 				break;
 			}	
 			p = BonCautat->getNext( );
 		}
+
 		/* Avansam in listaTranzactii */
 		tranzactie = tranzactie->getNext( );
 	}
-	/* Gasim maximul pt fiecare magazin: calculam maximul pe fiecare linie din matricea a*/
+
+	/* Gasim categoria cea mai vanduta pt fiecare magazin: calculam maximul pe fiecare linie din matricea a */
 	int CategorieMaxima, i, j, maxim;
 	for( i = 0; i < nrMagazine; ++i) {
 		CategorieMaxima = 0;
