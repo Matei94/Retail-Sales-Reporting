@@ -46,7 +46,5 @@ void task2_4(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMa
 		output << i << "," << rotunjire((float)cumparatori[i] / 52) << "," << rotunjire((float)cumparatori[i] / 52) / 2 << "\n";
 	}
 
-	delete[] cumparatori;
-
 	output.close();
 }
