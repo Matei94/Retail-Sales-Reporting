@@ -14,8 +14,10 @@ Node<T>::Node() {
 
 template <typename T>
 Node<T>::Node(T value) {
-  Node<T>();
+  //Node<T>(); NU E BINE! 
+
   this->value = value;
+  this->next = NULL;
 }
 
 template <typename T>
