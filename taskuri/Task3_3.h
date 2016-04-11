@@ -11,7 +11,7 @@ using namespace std;
 //Functia care compara compara data a 2 elemente
 void compareDate(string timp1,string timp2){
 	
-	rezultat = strcmp(timp1, timp2);
+	result = strcmp(timp1, timp2);
 
 	if( result > 0 ){
 		return 1;
@@ -44,7 +44,7 @@ int cererePalet(int idMagazin,Palet* palet){
 		}
 }
 
-void Task3_3(LinkedList<Bon> listaBonuri, ){
+void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii, LinkedList<Produs> listaProduse, LinkedList<Palet> listaPaleti){
 
 		ofstream output ("Task3_3.out");
 
@@ -66,7 +66,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 		}
 
 		// aflare cate magazine avem
-		int idMagazinMax = tranzactie.getIdMadazin;
+		int idMagazinMax = tranzactie.getIdMagazin;
 		while (tranzactie != NULL){
 
 			int idMagazin  = bon.getIdMagazin();
@@ -85,8 +85,7 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 
 		//cate produse avem la magazin la inceput 
 		vectorProd[idProd][idMagazin] = cererePalet(idMagazin, palet);
-
-		
+		//inca lucrez la idee
 
 
 
@@ -114,8 +113,8 @@ void Task3_3(LinkedList<Bon> listaBonuri, ){
 			//verificare daca am ajuns la 10% dintr un produs	
 			if ( vectorProd[idProd][idMagazin] = 0.1 * nrProduseMax ) //trebuie lucrat la nrProduseMax
 
-					//daca comanda nu poate fi onorata se afiseaza contorul 
-					cererePalet(idMagazin, palet, nrProduseMax)
+					//daca comanda nu poate fi onorata se afiseaza contorul
+					cererePalet(idMagazin, palet, nrProduseMax);
 					
 			
 			bon = bon->getNext();
