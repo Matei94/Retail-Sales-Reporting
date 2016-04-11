@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-
+#include "Categorie.h"
 #include "Tranzactie.h"
 #include "LinkedList.h"
 #include "Bon.h"
@@ -24,9 +24,8 @@ int customHash(string key) {
 }*/
 
 /* Cauta in lista de bonuri un obiect al carui idBon == elem */
-Node<Bon>* cautareInBonuri( LinkedList<Bon>& listaBonuri, string elem ) {
+Node<Bon>* cautareInBonuri( Node<Bon> *p, LinkedList<Bon>& listaBonuri, string elem ) {
 	/* p = pointer la inceputul listei de bonuri */
-	Node<Bon> *p = listaBonuri.front( );
 	
 	/* Atat timp cat exista elemente in lista, se parcurge :)) */
 	while( p != NULL) {
@@ -86,7 +85,6 @@ void task1_1( int vanzariMagazine[], int length1, LinkedList<Tranzactie>& listaT
 	/* gasitBon, gasitProdus, gasitMagazin = obiectul listei pe care il cautam */
 	Node<Bon>* gasitBon;
 	Node<Produs>* gasitProdus;
-	Node<Magazin>* gasitMagazin;
 
 	/* Numele urmatoarelor variabile sunt suficient de sugestive... plm */
 	int idMagazin, idProdus, pret; 
@@ -105,22 +103,26 @@ void task1_1( int vanzariMagazine[], int length1, LinkedList<Tranzactie>& listaT
 		idBon = p->getValue( ).getIdBon( );
 		idMagazin = p->getValue( ).getIdMagazin( );
 
-		/* Cautam in lista de magazine, respectiv in lista de bonuri, obiecte care sa corespunda id-urilor extrase anterior */
-		gasitMagazin = cautareInMagazin( listaMagazine, idMagazin );
-		gasitBon = cautareInBonuri( listaBonuri, idBon );
+		/* Cautam in lista de bonuri, obiecte care sa corespunda id-ului Bon extras anterior*/
+		Node<Bon> *bonulet = listaBonuri.front( );
 
-		/* Extragem idProdus din obiectul gasitBon definit anterior */
-		idProdus = gasitBon->getValue( ).getIdProdus( );
+		/* Parcurgem lista de bonuri */
+		while( bonulet != NULL ) {
+				gasitBon = cautareInBonuri( bonulet, listaBonuri, idBon );
+
+				/* Extragem idProdus din obiectul gasitBon definit anterior */
+				idProdus = gasitBon->getValue( ).getIdProdus( );
 		
-		/* Cautam in lista de produse obiectul care sa aiba idProdus extras anterior */
-		gasitProdus = cautareInProduse( listaProduse, idProdus );
+				/* Cautam in lista de produse obiectul care sa aiba idProdus extras anterior */
+				gasitProdus = cautareInProduse( listaProduse, idProdus );
 
-		/* Extragem pretul obiectului respectiv */
-		pret = gasitProdus->getValue( ).getPrice( );
+				/* Extragem pretul obiectului respectiv */
+				pret = gasitProdus->getValue( ).getPrice( );
 
-		/* Adaugam pretul curent, pretului de pana acum */
-		vanzariMagazine[ idMagazin - 1 ] += pret;
-
+				/* Adaugam pretul curent, pretului de pana acum */
+				vanzariMagazine[ idMagazin - 1 ] += pret;
+				bonulet = bonulet->getNext( );
+		}
 		p = p->getNext( );
 	}
 
@@ -153,7 +155,7 @@ void task1_2( int vanzariProduse[], int length2, int &suma, LinkedList<Tranzacti
 
 	/* Initializam vanzariProduse */
 	while( k != NULL ) {
-		vanzariProduse[k->getValue( ).getIdProdus( ) - 1] = 0;
+		vanzariProduse[ k->getValue( ).getIdProdus( ) - 1 ] = 0;
 		k = k-> getNext( ); 	
 	}
 
@@ -163,23 +165,27 @@ void task1_2( int vanzariProduse[], int length2, int &suma, LinkedList<Tranzacti
 		idBon = p->getValue( ).getIdBon( );
 
 		/* Cautam in lista de bonuri un obiect care sa aiba un idBon corespunzator. aferent, asa cum ne place noua */
-		gasitBon = cautareInBonuri( listaBonuri, idBon );
+		Node<Bon> *bonulet = listaBonuri.front( );
+		while( bonulet != NULL ) {
+			gasitBon = cautareInBonuri( bonulet, listaBonuri, idBon );
 
-		/* Extragem idProdus din obiectul curent din lista de tranzactii */
-		idProdus = gasitBon->getValue( ).getIdProdus( );
+			/* Extragem idProdus din obiectul curent din lista de tranzactii */
+			idProdus = gasitBon->getValue( ).getIdProdus( );
 
-		/* Cautam in lista de produse un obiect care sa aiba un idProdus aferent, ca mai sus */
-		gasitProdus = cautareInProduse( listaProduse, idProdus );
+			/* Cautam in lista de produse un obiect care sa aiba un idProdus aferent, ca mai sus */
+			gasitProdus = cautareInProduse( listaProduse, idProdus );
 
-		/* Extragem pretul din obiectul gasit mai devreme */
-		pret = gasitProdus->getValue( ).getPrice( );
+			/* Extragem pretul din obiectul gasit mai devreme */
+			pret = gasitProdus->getValue( ).getPrice( );
 		//elemInfo<string, int> ceva;
 		//ceva.key = gasitProdus->info.getNumeProdus( );
 		//ceva.value = pret;
 		/* Adunam la pretul anterior, pretul corent, la produsul care este pe frecventa */
-		vanzariProduse[ idProdus -1 ] += pret;
-		p = p->getNext( );
-	} 
+			vanzariProduse[ idProdus -1 ] += pret;
+			p = p->getNext( );
+			bonulet = bonulet->getNext( );
+	}
+			
 	/* Afisare vanzariProduse, parcurgand listaProduse pornind de la k = pointer la inceputul listei */
 	k = listaProduse.front( );
 	while( k != NULL ) {
@@ -201,5 +207,51 @@ void task1_3( int suma, int length, LinkedList<Tranzactie> &listaTranzactii ) {
 	valoare_cos_mediu = double( suma )/double( length );
 
 	/* Afisare valoarea cosului mediu */
-	cout<<valoare_cos_mediu<<endl;
+	cout<<valoare_cos_mediu<<endl;	
+}
+
+void task1_4( LinkedList<Tranzactie> &listaTranzactii, LinkedList<Bon> &listaBonuri, LinkedList<Produs> &listaProduse,  LinkedList<Magazin> &listaMagazine, LinkedList<Categorie> listaCategorii, int nrMagazine, int nrCategorii ){
+	Node <Tranzactie> *tranzactie = listaTranzactii.front();
+	Node <Magazin> *magazin = listaMagazine.front();
+	Node <Categorie> *categorie = listaCategorie.front();
+
+	
+	int a[ nrMagazine ][ nrCategorii ] = { 0 };
+/* Conform celorlalte functii create pana acum, noi avem o lista cu fiecare chesie. O lista de produse, o lista 
+de tranzactii, etc*/
+	while( tranzactie != NULL ) {
+		//Retinem idMagazin si idBon aferente tranzactiei
+		int idMagazin = tranzactie->getValue().getIdMagazin();
+		string idBon = tranzactie->getValue().getIdBon();
+		/*O sa avem mai multe produse pe un bon...Deci trebuie sa cautam toate aparitiile lui bon 
+		  in bonuri si sa le prelucram*/
+		/* Incepem de la front */
+		Node<Bon> *p = listaBonuri.front( );
+		while( p != NULL ) {
+			/* BonCautat e un pointer la Bonul cu id-ul idbon */
+			Node<Bon> *BonCautat = cautareInBonuri( p, listaBonuri, idBon );
+			/* IdprodusCautat e id-ul produsului din bonul BonCautat cu care mergem in Produse sa ii vedem categoria*/
+			int IdProdusCautat = BonCautat->getValue().getIdProdus();
+			int IdCategorieProdusCautat = cautareInProduse( listaProduse, IdProdusCautat)->getValue( ).getIdCategorie( );
+			/* Incrementam in matricea a la linia si coloana corespunzatoare, aferenta, cum ne place noua */
+			a[ idMagazin ][ IdCategorieProdusCautat ] ++;
+			/* Il vacem pe p ca fiind BonCautat->Next pentru a afla urmatoarea aparitie a Bon */
+			p = BonCautat->getNext( );
+		}
+		/* Avansam in listaTranzactii */
+		tranzactie = tranzactie->getNext( );
+	}
+	/* Gasim maximul */
+	int CategorieMaxima = 0;
+	for( int i = 0; i < nrMagazine; ++i)
+		for( int j = 0; j < nrCategorii; ++j )
+			if( a[ i ][ j ] > max )
+				max = a[ i ][ j ];
+	
+	/* Afisam coordonatele tuturor elementelor egale cu maxim */
+	for( int i = 0; i < nrMagazine; ++i)
+		for( int j = 0; j < nrCategorii; ++j)
+			if( a[ i ][ j ] == max)
+				cout << "In magazinul "<<i<<" se vinde cel mai bine "<<j<<endl;
+
 }
