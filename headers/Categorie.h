@@ -1,6 +1,8 @@
 #ifndef __Categorie_H_
 #define __Categorie_H_
 
+using namespace std;
+
 class Categorie {
   private:
 	int idCategorie;

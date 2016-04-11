@@ -1,6 +1,8 @@
 #ifndef __MAGAZIN_H_
 #define __MAGAZIN_H_
 
+using namespace std;
+
 class Magazin {
   private:
 	int idMagazin;

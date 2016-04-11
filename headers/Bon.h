@@ -1,6 +1,7 @@
 #ifndef __BON_H_
 #define __BON_H_
 
+using namespace std;
 class Bon {
   private:
 	string idBon;

@@ -1,6 +1,8 @@
 #ifndef __PALET_H_
 #define __PALET_H_
 
+using namespace std;
+
 class Palet {
   private:
 	string idPalet;
