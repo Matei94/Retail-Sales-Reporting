@@ -43,7 +43,5 @@ void task2_3(LinkedList<Bon> listaBonuri, LinkedList<Produs> listaProduse, strin
 		}
 	}
 
-	delete[] produseCumparate;
-
 	output.close();
 }
