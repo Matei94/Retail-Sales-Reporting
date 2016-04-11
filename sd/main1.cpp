@@ -28,10 +28,23 @@ int main ( ) {
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
 
+	/* Calculez nr de magazine, tranzactii, produse, bonuri din fiecare lista aferenta */
+	int lengthProduse = listaProduse.numberOfNodes( );
+	int lengthMagazine = listaMagazine.numberOfNodes( );
+	int lengthTranzactii = listaTranzactii.numberOfNodes( );
+	int lengthBonuri = listaBonuri.numberOfNodes( );
 
-	task1_1 ( listaTranzactii, listaProduse, listaBonuri, listaMagazine );
+	/* Declar vectorii vanzariMagazine si Vanzari produse de lungimi lengthMagazine respectiv lengthProduse */
+	int vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
+
+	/* Taskul 1_1: */
+	task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
-	task1_2 ( listaTranzactii, listaProduse, listaBonuri);
+	/* Taskul 1.2 */
+	task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
+
+	/* Taskul 1.3 */
+	task1_3 ( suma, lengthTranzactii, listaTranzactii );
 
 	return 0;
 }
