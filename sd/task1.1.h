@@ -71,12 +71,12 @@ Node<Magazin>* cautareInMagazin( LinkedList<Magazin>& listaMagazine, int elem) {
 	}
 	return NULL;
 }
-/* Cauta in lista de Produse un obiect al carui idProdus == elem */
+/* Cauta in lista de Categorii un obiect al carui idCategorie == elem */
 Node<Categorie>* cautareInCategorii( LinkedList<Categorie>& listaCategorii, int elem) {
-	/* p = pointer la inceputul listei de produse */
+	/* p = pointer la inceputul listei de categorii */
 	Node<Categorie> *p = listaCategorii.front( );
 
-	/* Parcurgem lista de produse, pana nu mai putem, cum s-ar zice */
+	/* Parcurgem lista de categorii, pana nu mai putem, cum s-ar zice */
 	while( p != NULL) {
 		/* Daca se gaseste obiectul cautat, se returneaza pointerul aferent */
 		if( p->getValue( ).getIdCategorie( ) == elem ) {
