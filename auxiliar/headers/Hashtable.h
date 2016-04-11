@@ -16,6 +16,22 @@ Logica Hashtable-ului nostru este in principiu exacta cu cea de la site-ul de su
 
 using namespace std;
 
+struct Pereche {
+	int idSlot;
+	int indexSlot;
+
+	void operator= ( const Pereche &per) {
+		this->idSlot = per.idSlot;
+		this->indexSlot = per.indexSlot;
+	}
+
+	friend ostream& operator<< ( ostream& out, const Pereche& per ) {
+	out << "Perechea { idSlot, indexSlot }: { " << per.idSlot << ", " << per.indexSlot << " }"<<endl;
+	return out;
+}
+
+};
+
 template<typename Tkey, typename Tvalue>
 struct Hashnode {
 	Tkey key;
@@ -35,7 +51,7 @@ class Hashtable {
 
 		~Hashtable();
 
-		unsigned int Hash( Tkey key );
+		int Hash( Tkey key );
 
 		void Insert( Tkey key, Tvalue value );
 

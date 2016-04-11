@@ -8,21 +8,19 @@ Logica Hashtable-ului nostru este in principiu exacta cu cea de la site-ul de su
 
 */
 
-#include "Hashtable.h"
+#include "../headers/Hashtable.h"
 
 using namespace std;
 
 template<typename Tkey, typename Tvalue>
 Hashtable<Tkey,Tvalue>::Hashtable( int length){
 	size = length;
-	Bucket = new Hashnode<Tkey,Tvalue> *[ size ];
-/*	for (int i = 0; i < size; ++i)
+	Bucket = new Hashnode<Tkey,Tvalue> *[ size + 1 ];
+	for (int i = 0; i <= size; ++i)
 	{
 		Bucket[ i ] = new Hashnode<Tkey,Tvalue>;
-		Bucket[ i ]->key = "";
-		Bucket[ i ]->value = 0;
-		Bucket[ i ]->next = NULL;
-	}*/
+		Bucket[ i ] = NULL;
+	}
 }
 
 template<typename Tkey, typename Tvalue>
@@ -40,8 +38,8 @@ Hashtable<Tkey,Tvalue>::~Hashtable ( ) {
 }
 
 template<typename Tkey, typename Tvalue>
-unsigned int Hashtable<Tkey,Tvalue>::Hash( Tkey key ) {
-	return key.length();
+int Hashtable<Tkey,Tvalue>::Hash( Tkey key ) {
+	return key;
 }
 
 template<typename Tkey, typename Tvalue>
@@ -49,7 +47,7 @@ void Hashtable<Tkey,Tvalue>::Insert( Tkey key, Tvalue value ){
 	unsigned int index = Hash( key );
 	Hashnode<Tkey,Tvalue> *prev = NULL;
 	Hashnode<Tkey,Tvalue> *first = Bucket[ index ];
-	while( ( first != NULL ) && ( first->key != key ) ) {
+	while( ( first != NULL ) ) {
 		prev = first;
 		first = first->next;
 	}
@@ -57,16 +55,19 @@ void Hashtable<Tkey,Tvalue>::Insert( Tkey key, Tvalue value ){
 		first = new Hashnode<Tkey,Tvalue>;
 		first->key = key;
 		first->value = value;
-		if( prev == NULL )
+		first->next = NULL;
+		if( prev == NULL ){
 			//este primul nod din bucket
 			Bucket[ index ] = first;
-		else
+		}else
 			//se pune in continuarea listei
 			prev->next = first;
-	} else {
+	} else 
 		//in situatia aceasta inseamna ca facem update
-		first->value = value;
-	}
+		//first->value = value;
+		//am modificat ca sa nu dea refresh ci ca sa puna in contiunuare
+		prev->next = first;
+	
 }
 
 template<typename Tkey, typename Tvalue>
@@ -80,7 +81,7 @@ bool Hashtable<Tkey,Tvalue>::get( Tkey key, Tvalue& value ) {
 		}
 		first = first->next;
 	}
-	cout<<"Nu s-a gasit";
+	cout<<"Nu s-a gasit ";
 	return false;
 }
 
@@ -109,10 +110,16 @@ void Hashtable<Tkey,Tvalue>::remove( Tkey key ) {
 template<typename Tkey, typename Tvalue>
 void Hashtable<Tkey,Tvalue>::printTable( ) {
 	cout<<"Hashtable :"<<endl;
-	for( int i = 0; i < size; i++ ) {
-		if( Bucket[ i ] != NULL )
-			cout<<"Bucket "<< i <<": "<<Bucket[ i ]->value<<endl;
+	for( int i = 1; i <= size; i++ ) {
+	Hashnode<Tkey,Tvalue> *prev = NULL;
+	Hashnode<Tkey,Tvalue> *first = Bucket[ i ];
+		while( first != NULL ) {
+			cout<<"Bucket "<< i <<": "<<first->value;
+		prev = first;
+		first = first->next;
+		}
 	}
 }
 
-template class Hashtable<string,int>;
+template class Hashtable<int,Pereche>;
+//template class Hashtable<string,int>;
