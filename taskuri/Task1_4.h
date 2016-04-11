@@ -100,6 +100,7 @@ de tranzactii, etc*/
 		for (j = 0; j < nrCategorii; j++)
 			if (a[i][j] > max)
 				max = a[i][j];
+	
 	/* Afisam coordonatele tuturor elementelor egale cu maxim */
 	for (i = 0; i < nrMagazine; i++)
 		for (j = 0; j < nrCategorii; j++)
