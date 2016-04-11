@@ -31,7 +31,7 @@ class Magazin {
 	string getLocatieMagazin( );
 
 	/* Constructor pentru citire din fisier */
-	Tranzactie( string linieFisier );
+	Magazin( string linieFisier );
 
 };
 

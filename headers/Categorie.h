@@ -25,10 +25,10 @@ class Categorie {
 	void operator= ( const Categorie& obiectulCategorie );
 
 	/* Extrage idCategorie */
-	getIdCategorie( );
+	int getIdCategorie( );
 
 	/* Extrage numeCategorie */
-	getNumeCategorie( );
+	string getNumeCategorie( );
 
 	/* Constructor pentru citirea din fisier */
 	Categorie( string linieFisier );
