@@ -2,7 +2,7 @@
 #include<fstream>
 #include<string>
 
-#include "task1.1.h"
+//#include "task1.1.h"
 #include "citireTranzactii.h"
 #include "citireBonuri.h"
 /*#include "../headers/citirePaleti.h";*/
@@ -11,6 +11,11 @@
 #include "citireProduse.h"
 #include "citireCategorie.h"
 #include "LinkedList.h"
+
+#include "Task2_1.h"
+#include "Task2_2.h"
+#include "Task2_3.h"
+#include "Task2_4.h"
 using namespace std;
 
 int main ( ) {
@@ -41,15 +46,23 @@ int main ( ) {
 	unsigned long long vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
 
 	/* Taskul 1_1: */
-	task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
+	//task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
 	/* Taskul 1.2 */
-	task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
+	//task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
 
 	/* Taskul 1.3 */
-	task1_3 ( suma, lengthTranzactii, listaTranzactii );
+	//task1_3 ( suma, lengthTranzactii, listaTranzactii );
 
-	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
+	//task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
+
+	task2_1( listaTranzactii, listaMagazine, listaBonuri, 5);
+
+	task2_2( listaTranzactii,  listaMagazine, 5);
+
+	task2_3( listaBonuri,  listaProduse, "525943102504051");
+
+	task2_4( listaTranzactii, listaMagazine);
 
 	return 0;
 }
