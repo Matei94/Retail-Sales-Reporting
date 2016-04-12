@@ -7,8 +7,8 @@
 #include "headers/ArrayList.h"
 #include "headers/LinkedList.h"
 #include "headers/Hashtable.h"
-#include "headers/Task3_1.h"
-#include "headers/Task3_2.h"
+//#include "headers/Task3_1.h"
+//#include "headers/Task3_2.h"
 
 #define NR_SLOTS 30
 
@@ -36,33 +36,41 @@ void citireProduse( LinkedList<Produs>& listaProduse ){
 	produse.close();
 }
 
-void task3_1( LinkedList<Produs>& listaProduse, Hashtable<int,Pereche>& hashmap, ArrayList<Palet>& slots, string produs ) {
-/*	Node<Produs> *cautare = listaProduse.front();
+int getIdProdusAfterName( LinkedList<Produs>& listaProduse, string produs ){
+	Node<Produs> *cautare = listaProduse.front();
 
-	int idProdusGasit = 0;
-
-	while( cautare != NULL ){
-		cautare = cautare->getNext();
-		if( produs == cautare->numeProdus() ) {
-			idProdusGasit = cautare->getIdProdus();
-			break;
+		while( cautare != NULL ){
+		if( produs == cautare->getValue().getNumeProdus() ) {
+			return cautare->getValue().getIdProdus();
 		}
-	}
-*/
+		cautare = cautare->getNext();
+	}	
+}
+
+void task3_1( LinkedList<Produs>& listaProduse, Hashtable<int,Pereche>& hashmap, ArrayList<Palet>& slots, string produs ) {
+
+	cout << " " << getIdProdusAfterName( listaProduse, produs )<<endl;
+
 	Pereche pair;
-	Pereche *cpair = new Pereche [100];
-	int j = 0;
-		while(hashmap.get( 57, pair )){
-	cout<<pair<<endl;
-	j++;
-	cpair[j] = pair;
+	LinkedList<int> idSlot;
+	LinkedList<int> indexSlot;
+
+	while(hashmap.get( 57, pair )){
+	idSlot.addLast( pair.idSlot );
+	indexSlot.addLast( pair.indexSlot );
 	hashmap.remove(57);
 }
-	for (int i = 0; i < j; ++i)
-	{
-		cout<<cpair[i]<<endl; 
-	}
 
+	Node<int> *primulid = idSlot.front(); 
+	Node<int> *primulindex = indexSlot.front();
+
+	while( ( primulid != NULL ) && ( primulindex != NULL ) ){
+		pair.idSlot = primulid->getValue();
+		pair.indexSlot = primulindex->getValue();
+		hashmap.Insert( 57, pair );
+		primulid = primulid->getNext();
+		primulindex = primulindex->getNext();
+	}
 }
 
 
@@ -107,7 +115,7 @@ void task3 ( LinkedList<Produs>& listaProduse, LinkedList<Palet>& listaPaleti ){
 		/* Mutam pointerul asupra elementului urmator din lista */
 		parcurgere = parcurgere->getNext();
 	}
-	task3_1( listaProduse, hashmap, slots, "Ivan" );
+	task3_1( listaProduse, hashmap, slots, "swimming nose clips" );
 	hashmap.printTable();
 }
 
