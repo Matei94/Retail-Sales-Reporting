@@ -54,7 +54,6 @@ void task1_1( unsigned long long vanzariMagazine[], int length1, LinkedList<Tran
 
 	/* p, k = pointer la inceputul listei de tranzactii, respectiv magazin */
 	Node<Tranzactie> *p = listaTranzactii.front( );
-	Node<Magazin>* k = listaMagazine.front( );
 
 	/* gasitBon, gasitProdus, gasitMagazin = obiectul listei pe care il cautam */
 	Node<Bon> *gasitBon, *bonulet;
@@ -105,8 +104,13 @@ void task1_1( unsigned long long vanzariMagazine[], int length1, LinkedList<Tran
 
 	/* Afisare vanzariMagazine, parcurgand listaMagazine pornind de la magazinas = pointer la inceputul listei */
 	Node<Magazin> *magazinas = listaMagazine.front( );
+	string numeMagazin;
 	while( magazinas != NULL ) {
-		cout<<"Magazinul "<<magazinas->getValue( ).getLocatieMagazin( )<<" are totalul "<<vanzariMagazine[ magazinas->getValue( ).getIdMagazin( ) - 1 ]<<" de vanzari\n";
+		//numeMagazin = magazinas->getValue( ).getLocatieMagazin( );
+		cout<<"Magazinul ";
+		cout<<magazinas->getValue( ).getLocatieMagazin( );
+		cout<<"\n";
+		cout<<" are totalul "<<vanzariMagazine[ magazinas->getValue( ).getIdMagazin( ) - 1 ]<<" de vanzari\n";
 		magazinas = magazinas->getNext( );
 	}
 }

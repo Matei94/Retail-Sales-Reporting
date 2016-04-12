@@ -83,7 +83,7 @@ void task1_4( LinkedList<Tranzactie> &listaTranzactii, LinkedList<Bon> &listaBon
 	Node <Categorie> *categorie = listaCategorii.front();
 	Node <Bon> *p, *BonCautat;
 	Node <Categorie> *gasitCategorie;
-	int idMagazin ;
+	int idMagazin;
 	string idBon; 
 	/* Initializare matrice */
 	unsigned long long a[ nrMagazine ][ nrCategorii ];
@@ -112,10 +112,10 @@ void task1_4( LinkedList<Tranzactie> &listaTranzactii, LinkedList<Bon> &listaBon
 			
 				/* IdprodusCautat e id-ul produsului din bonul BonCautat cu care mergem in Produse sa ii vedem categoria*/
 				int IdProdusCautat = BonCautat->getValue().getIdProdus();
-				int IdCategorieProdusCautat = cautareInProduse4( listaProduse, IdProdusCautat)->getValue( ).getIdCategorie( );
-			
+				Node<Produs> *gasitProdus = cautareInProduse4( listaProduse, IdProdusCautat );
+				int idCategorieProdusCautat = gasitProdus->getValue( ).getIdCategorie( );
 				/* Incrementam in matricea a la linia si coloana corespunzatoare, aferenta, cum ne place noua */
-				a[ idMagazin - 1 ][ IdCategorieProdusCautat - 1 ] ++;
+				a[ idMagazin - 1 ][ idCategorieProdusCautat - 1 ] ++;
 			}
 			else {
 				break;
@@ -126,31 +126,24 @@ void task1_4( LinkedList<Tranzactie> &listaTranzactii, LinkedList<Bon> &listaBon
 		/* Avansam in listaTranzactii */
 		tranzactie = tranzactie->getNext( );
 	}
-	
-	for( i = 0 ; i < nrMagazine; ++i) {
-		for( j = 0; j < nrCategorii; ++j ) {
-			cout<<a[i][j]<<" ";
-		}
-		cout<<endl;
-	}		
+			
 	/* Gasim categoria cea mai vanduta pt fiecare magazin: calculam maximul pe fiecare linie din matricea a */
 	int CategorieMaxima;
 	unsigned long long maxim;
-	for( i = 0; i < nrMagazine; ++i) {
-		CategorieMaxima = 0;
+	for( i = 0; i < nrMagazine; ++i) {	
 		maxim = 0;
 		gasitMagazin = cautareInMagazin4( listaMagazine, i + 1 );
 		for( j = 0; j < nrCategorii; ++j ) {
 			if( a[ i ][ j ] > maxim ) {
-				CategorieMaxima = j;
 				maxim = a[ i ][ j ];
 
 			}
-
+		}	
+		for( j = 0; j < nrCategorii; ++j ) {
+			if( a[ i ][ j ] == maxim ) {
+				gasitCategorie = cautareInCategorii4( listaCategorii, j + 1 );
+				cout<< "Magazinul "<< gasitMagazin->getValue( ).getLocatieMagazin( )<<"\n are categoria cea mai vanduta "<<gasitCategorie->getValue( ).getNumeCategorie( )<<"\n";
+			}
 		}
-		gasitCategorie = cautareInCategorii4( listaCategorii, CategorieMaxima + 1 );
-
-		cout<< "magazinul "<< gasitMagazin->getValue( ).getLocatieMagazin( )<<" are categoria cea mai vanduta "<<gasitCategorie->getValue( ).getNumeCategorie( )<<endl;
-	}	
-
-}
+	}
+}	
