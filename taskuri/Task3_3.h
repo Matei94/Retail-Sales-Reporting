@@ -32,9 +32,9 @@ void sortareBonuri(){
 		//Momentan consideram lista sortata
 }
 
-
+// cate produse de un anume tip contine paletul 
 int cererePalet(int idMagazin,Palet* palet){
-		//cate produse erau la inceput
+		
 		while (palet != NULL){
 			
 			// idProd = palet.getProdType;  // Va fi apelat separat inainte de aceasta functie
@@ -84,7 +84,8 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 		int vectorProd = new int[idProdMax][idMagazinMax];
 
 		int contor = new int[idProdMax][idMagazinMax];
-			for (int i = 1; i <= idProdMax; i++){
+			
+		for (int i = 1; i <= idProdMax; i++){
 				for(int j = 1; j<= idMagazinMax; j++){
 
 					contor[i][j] = 0; // magazinul j nu a fost aprovizionat cu produsul i
@@ -135,6 +136,16 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 			bon = bon->getNext();
 		}
 
+		
+		// DEZALOCARE
+		for (int i = 1; i < idProdMax; ++i){
+    		delete [] vectorProd[i];
+    		delete [] contor[i];
+		}
+		
+		delete [] vectorProd;
+		delete [] contor;
+		
 		
 		
 		
