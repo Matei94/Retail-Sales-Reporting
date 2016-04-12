@@ -18,7 +18,7 @@ int rotunjire (float numar){
 	return floor(numar) + 1;
 }
 
-void task2_4(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMagazine){
+void task2_4(LinkedList<Tranzactie>& listaTranzactii, LinkedList<Magazin>& listaMagazine){
 	ofstream output ("Task2_4.out");
 	Node<Tranzactie>* tranzactie = listaTranzactii.front();
 	int nrMagazine = 0, i;

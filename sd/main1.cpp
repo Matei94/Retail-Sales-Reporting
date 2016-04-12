@@ -22,14 +22,24 @@ int main ( ) {
 	/* Parsare fisiere de input */
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
+	LinkedList<Tranzactie> listaTranzactii1;
+	citireTranzactii( listaTranzactii1 );
+	LinkedList<Tranzactie> listaTranzactii2;
+	citireTranzactii( listaTranzactii2 );
 
 	//listaTranzactii.printList();
 
 	LinkedList<Bon> listaBonuri;
 	citireBonuri( listaBonuri );
+	LinkedList<Bon> listaBonuri1;
+	citireBonuri( listaBonuri1 );
 
 	LinkedList<Magazin> listaMagazine;
+	LinkedList<Magazin> listaMagazine1;
 	citireMagazine( listaMagazine );
+	citireMagazine( listaMagazine1 );
+	LinkedList<Magazin> listaMagazine2;
+	citireMagazine( listaMagazine2 );
 
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
@@ -56,11 +66,23 @@ int main ( ) {
 
 	//task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
 
-	task2_1( listaTranzactii, listaMagazine, listaBonuri, 5);
+	int nrZile;
+	string idBon;
 
-	task2_2( listaTranzactii,  listaMagazine, 5);
+	cout << "Task2_1: Zilele cu cele mai multe produse vandute. Introduceti pentru primele cate zile doriti evidenta\n";
+	cin >> nrZile;
 
-	task2_3( listaBonuri,  listaProduse, "525943102504051");
+	task2_1( listaTranzactii, listaMagazine, listaBonuri, nrZile);
+
+	cout << "Task2_2: Zilele cu cei mai multi cumparatori. Introduceti pentru primele cate zile doriti evidenta\n";
+	cin >> nrZile;
+
+	task2_2( listaTranzactii,  listaMagazine, nrZile);
+
+	cout << "Task2_3: Continutul unui bon. Introduceti id-ul bonului\n";
+	cin >> idBon;
+
+	task2_3( listaBonuri,  listaProduse, idBon);
 
 	task2_4( listaTranzactii, listaMagazine);
 

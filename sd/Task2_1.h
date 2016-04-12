@@ -45,7 +45,7 @@ string transformaInString1 (int ziuaAnului){
 	return s;
 }
 
-void task2_1(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMagazine, LinkedList<Bon> listaBonuri, int nrZile){
+void task2_1(LinkedList<Tranzactie>& listaTranzactii, LinkedList<Magazin>& listaMagazine, LinkedList<Bon>& listaBonuri, int nrZile){
 	ofstream output ("Task2_1.out");
 	Node<Tranzactie>* tranzactie = listaTranzactii.front();
 	int nrMagazine = 0;

@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void task2_3(LinkedList<Bon> listaBonuri, LinkedList<Produs> listaProduse, string idBon){
+void task2_3(LinkedList<Bon>& listaBonuri, LinkedList<Produs>& listaProduse, string idBon){
 	ofstream output ("Task2_3.out");
 	int nrProduse = 0, i;
 	Node<Produs>* produs = listaProduse.front();

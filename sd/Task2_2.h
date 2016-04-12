@@ -46,7 +46,7 @@ string transformaInString (int ziuaAnului){
 }
 
 //Parametrul nrZile este citit de la tastatura in momentul rularii programului si arata primele cate zile vor fi afisate
-void task2_2(LinkedList<Tranzactie> listaTranzactii, LinkedList<Magazin> listaMagazine, int nrZile){
+void task2_2(LinkedList<Tranzactie>& listaTranzactii, LinkedList<Magazin>& listaMagazine, int nrZile){
 	ofstream output ("Task2_2.out");
 	Node<Tranzactie>* tranzactie = listaTranzactii.front();
 	int nrMagazine = 0;
