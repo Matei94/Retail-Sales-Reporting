@@ -18,7 +18,7 @@
 #include "task1_2.h"
 #include "task1_3.h"
 #include "task1_4.h"
-
+#include "task1_5.h"
 using namespace std;
 
 int main ( ) {
@@ -63,6 +63,7 @@ int main ( ) {
 	/* Taskul 1.4 */
 	cout<<"\n\nTask-ul 1_4:\n\n";
 	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
-
+	
+	task1_5 ( ListaProduse, ListaBonuri, ListaTranzactii);
 	return 0;
 }

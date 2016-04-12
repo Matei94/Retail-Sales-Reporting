@@ -4,13 +4,13 @@
 
 #include "headers/Produs.h"
 #include "headers/Palet.h"
-#include "headers/ArrayList.h"
 #include "headers/LinkedList.h"
 #include "headers/Hashtable.h"
 #include "Task3_1.h"
 #include "Task3_2.h"
 
 #define NR_SLOTS 30
+#define NR_MAGAZINE 5
 
 using namespace std;
 
@@ -49,6 +49,7 @@ void task3 ( LinkedList<Produs>& listaProduse, LinkedList<Palet>& listaPaleti ){
 	
 	/* hashmap - hashtable cu nrProduse bucketuri, avand cheia de tip int si valoarea de tip Pereche (simuleaza un vector de frecventa, de fapt)*/
 	Hashtable<int,Pereche> hashmap = Hashtable<int,Pereche>( nrProduse );
+	Hashtable<int,int> hashCantitati = Hashtable<int,int>( nrProduse );
 
 	/* slots - vector de NR_SLOTS LinkedList-uri */
 	//ArrayList<Palet> slots = ArrayList<Palet>( NR_SLOTS );
@@ -73,6 +74,7 @@ void task3 ( LinkedList<Produs>& listaProduse, LinkedList<Palet>& listaPaleti ){
 		/* Se retine si in elementul curent, indexul la care a fost inserat */
 		pair.indexSlot = contorIndex[ pair.idSlot ];
 		/* Se insereaza in hashtable, in bucketul "parcurgere->getValue().getProdType()", elementul "pair" */
+		hashCantitati.Insert( parcurgere->getValue().getProdType(), parcurgere->getValue().getNumberOfItems() );
 		hashmap.Insert( parcurgere->getValue().getProdType(), pair );
 		/* Mutam pointerul asupra elementului urmator din lista */
 		parcurgere = parcurgere->getNext();
@@ -80,8 +82,26 @@ void task3 ( LinkedList<Produs>& listaProduse, LinkedList<Palet>& listaPaleti ){
 	task3_1( listaProduse, hashmap, "bicycle" );
 
 	task3_2( listaProduse, hashmap, contorIndex, "bicycle" );
-
-	//hashmap.printTable();
+	hashCantitati.printTable();
+int macarena;
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+		hashCantitati.getLast( 57, macarena );
+	hashCantitati.getLast( 57, macarena );
+	hashCantitati.printTable();
+	hashmap.printTable();
 }
 
 int main (){
