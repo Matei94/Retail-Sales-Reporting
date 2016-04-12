@@ -1,8 +1,10 @@
 #include <cstddef>
 #include <iostream>
 #include <string>
+#include <stdio.h>
 #include <ostream>
 #include <fstream>
+
 #include "../headers/LinkedList.h"
 #include "../headers/SortedMerge.h"
 //#include "../headers/Palet.h"
