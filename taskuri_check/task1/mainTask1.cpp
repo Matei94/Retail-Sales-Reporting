@@ -54,7 +54,7 @@ int main ( ) {
 	
 	/* Taskul 1.2 */
 	cout<<"\n\nTask-ul 1_2:\n\n";
-	task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
+	task1_2 ( vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
 
 	/* Taskul 1.3 */
 	cout<<"\n\nTask-ul 1_3:\n\n";
@@ -64,6 +64,9 @@ int main ( ) {
 	cout<<"\n\nTask-ul 1_4:\n\n";
 	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
 	
-	task1_5 ( ListaProduse, ListaBonuri, ListaTranzactii);
+	/* Taskul 1_5 */
+	cout<<"\n\nTask-ul 1_5:\n\n";
+	task1_5 ( listaProduse, listaBonuri, listaTranzactii, lengthProduse, lengthBonuri );
+	cout<<"\n\n";
 	return 0;
 }
