@@ -118,6 +118,7 @@ int LinkedList<T>::numberOfNodes() {
   return count;
 }
 
+template class LinkedList<int>;
 template class LinkedList<string>;
 template class LinkedList<Palet>;
 template class LinkedList<Produs>;
