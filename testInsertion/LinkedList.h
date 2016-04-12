@@ -50,18 +50,20 @@ public:
   /* Intoarce true daca lista este vida, false altfel. */
   bool isEmpty();
 
-  /* Returneaza primul element */
+  /* Returneaza pointer la primul element */
   Node<T>* front();
+
+  /* Returneaza pointer la ultimul element */
+  Node<T>* last();
 
   /* Calculeaza numarul de noduri din lista. */
   int numberOfNodes();
 
+  /* Insereaza un element oriunde in lista */
+  void insertElement( T value, Node<T> *position );
 
-  /* Asta nu cred ca ramane */
-  void LeftRightSplit( Node<T>* head, Node<T>** left, Node<T>** right );
-  void SortedMerge( Node<T>* left, Node<T>* right );
-  Node<T>* MergeSort( );
-
+  /* Metoda de sortare bazata pe algoritmul de insertie */
+  void InsertionSort();
 
 };
 

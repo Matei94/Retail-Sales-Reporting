@@ -22,14 +22,68 @@ LinkedList<T>::LinkedList() {
 
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T>& l) {
-  this->pFirst = l.pFirst;
-  this->pLast  = l.pLast;
+  if (l.pFirst == NULL) {
+    this->pFirst = NULL;
+    this->pLast = NULL;
+    return;
+  }
+
+  // cu asta ne plimbam in l
+  Node<T> *iterator = l.pFirst;
+
+  // primul element din noua lista
+  this->pFirst = new Node<T>(*iterator);
+
+  // cu asta ne plimbam in lista noua;
+  Node<T> *current = this->pFirst;
+
+  // avansam
+  iterator = iterator->getNext();
+
+  // copia nodului la care pointeaza iterator
+  Node<T> *copy;
+  while (iterator != NULL) {
+    copy = new Node<T>(*iterator);
+    current->setNext(copy);
+    current = copy;
+    iterator = iterator->getNext();
+  }
+
+  // setam pLast
+  this->pLast = copy;
 }
 
 template <typename T>
 void LinkedList<T>::operator=(const LinkedList<T>& l) {
-  this->pFirst = l.pFirst;
-  this->pLast  = l.pLast;
+  if (l.pFirst == NULL) {
+    this->pFirst = NULL;
+    this->pLast = NULL;
+    return;
+  }
+
+  // cu asta ne plimbam in l
+  Node<T> *iterator = l.pFirst;
+
+  // primul element din noua lista
+  this->pFirst = new Node<T>(*iterator);
+
+  // cu asta ne plimbam in lista noua;
+  Node<T> *current = this->pFirst;
+
+  // avansam
+  iterator = iterator->getNext();
+
+  // copia nodului la care pointeaza iterator
+  Node<T> *copy;
+  while (iterator != NULL) {
+    copy = new Node<T>(*iterator);
+    current->setNext(copy);
+    current = copy;
+    iterator = iterator->getNext();
+  }
+
+  // setam pLast
+  this->pLast = copy;
 }
 
 template <typename T>
@@ -167,6 +221,7 @@ void LinkedList<T>::MergeSort( ) {
   if( (head == NULL) || (head->getNext() == NULL) )
     return;
 
+/*
   cout << "MergeSort\n";
 
   Node<T>* h_left = this->front();
@@ -176,6 +231,7 @@ void LinkedList<T>::MergeSort( ) {
     h_left = h_left->getNext();
   }
   cout << '\n';  
+*/
 
   /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( right ) */
   LeftRightSplit( this->front(), left, right );

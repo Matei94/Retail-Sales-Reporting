@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-#include "../headers/Node.h"
+#include "Node.h"
 
 using namespace std;
 
@@ -61,7 +61,7 @@ void Node<T>::setNext(Node<T>* nod) {
 //!!!!! AICI TREBUIE ADAUGAT CE O SA FOLOSIM, CE TIPURI DE DATE
 
 template class Node< int >;
-template class Node< string >;
-template class Node< Palet >;
-template class Node< Produs >;
+//template class Node< string >;
+//template class Node< Palet >;
+//template class Node< Produs >;
 //template class Node< struct elemInfo<string, int> >;

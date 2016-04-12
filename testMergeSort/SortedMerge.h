@@ -10,7 +10,7 @@ using namespace std;
 
 /* SortedMerge() */
 template <typename T>
-void SortedMerge( LinkedList<T>&left, LinkedList<T> right, LinkedList<T>& result ) {
+void SortedMerge( LinkedList<T>&left, LinkedList<T>& right, LinkedList<T>& result ) {
 
   /* Conditiile de oprire: una dintre cele doua subliste este goala */
   if ( left.front() == NULL ) {
