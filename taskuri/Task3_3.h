@@ -33,7 +33,7 @@ void sortareBonuri(){
 }
 
 
-int cererePalet(int idMagazin,Palet* palet,int* idProd){
+int cererePalet(int idMagazin,Palet* palet){
 		//cate produse erau la inceput
 		while (palet != NULL){
 			
