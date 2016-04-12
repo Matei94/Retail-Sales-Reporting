@@ -36,6 +36,36 @@ void citireProduse( LinkedList<Produs>& listaProduse ){
 	produse.close();
 }
 
+void task3_1( LinkedList<Produs>& listaProduse, Hashtable<int,Pereche>& hashmap, ArrayList<Palet>& slots, string produs ) {
+/*	Node<Produs> *cautare = listaProduse.front();
+
+	int idProdusGasit = 0;
+
+	while( cautare != NULL ){
+		cautare = cautare->getNext();
+		if( produs == cautare->numeProdus() ) {
+			idProdusGasit = cautare->getIdProdus();
+			break;
+		}
+	}
+*/
+	Pereche pair;
+	Pereche *cpair = new Pereche [100];
+	int j = 0;
+		while(hashmap.get( 57, pair )){
+	cout<<pair<<endl;
+	j++;
+	cpair[j] = pair;
+	hashmap.remove(57);
+}
+	for (int i = 0; i < j; ++i)
+	{
+		cout<<cpair[i]<<endl; 
+	}
+
+}
+
+
 /* task3 */
 void task3 ( LinkedList<Produs>& listaProduse, LinkedList<Palet>& listaPaleti ){
 	/* nrProduse = numarul de produse din listaProduse / citite din fisier */
@@ -77,20 +107,8 @@ void task3 ( LinkedList<Produs>& listaProduse, LinkedList<Palet>& listaPaleti ){
 		/* Mutam pointerul asupra elementului urmator din lista */
 		parcurgere = parcurgere->getNext();
 	}
-	/* Se afiseaza continutul hashtable-ului */
+	task3_1( listaProduse, hashmap, slots, "Ivan" );
 	hashmap.printTable();
-	
-	/* Se parcurg sloturile */
-	for( int i = 1; i <= NR_SLOTS; i++ ) {
-		cout<<"slotul "<<i<<": "<<endl;
-
-		/* Cat timp slotul curent nu este gol */
-		while( !slots.isEmpty(i) ){
-			/* Se extrage cate un obiect din LinkedListul aferent si se afiseaza "proprietatile" acestuia */
-			Palet prost = slots.pop(i);
-			cout<<prost.getIdPalet()<<" "<<prost.getProdType()<<" "<<prost.getNumberOfItems()<<' '<<prost.getIdSlot()<<endl;
-		}
-	}
 }
 
 int main (){

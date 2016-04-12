@@ -85,10 +85,8 @@ void LinkedList<T>::removeFirst() {
 /*
 template <typename T>
 T LinkedList<T>::removeLast(){}
-
 template <typename T>
 T LinkedList<T>::removeFirstOccurrence(T value){}
-
 template <typename T>
 T LinkedList<T>::removeLastOccurrence(T value){}
 */
@@ -97,7 +95,6 @@ T LinkedList<T>::removeLastOccurrence(T value){}
 template <typename T>
 void LinkedList<T>::printList() {
   Node<T> *aux = pFirst;
-
   while (aux != NULL) {
     cout << aux->getValue() << ", ";
     aux = aux->getNext();

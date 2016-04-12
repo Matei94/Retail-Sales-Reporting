@@ -32,12 +32,12 @@ void sortareBonuri(){
 		//Momentan consideram lista sortata
 }
 
-
+// cate produse de un anume tip contine paletul 
 int cererePalet(int idMagazin,Palet* palet){
-		//cate produse erau la inceput
+		
 		while (palet != NULL){
 			
-			idProd = palet.getProdType;
+			// idProd = palet.getProdType;  // Va fi apelat separat inainte de aceasta functie
 			int numarProdusePalet= palet.getNumberOfItems();
 			palet = palet->getNext();
 			return numarProdusePalet;
@@ -83,9 +83,25 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 
 		int vectorProd = new int[idProdMax][idMagazinMax];
 
+		int contor = new int[idProdMax][idMagazinMax];
+			
+		for (int i = 1; i <= idProdMax; i++){
+				for(int j = 1; j<= idMagazinMax; j++){
+
+					contor[i][j] = 0; // magazinul j nu a fost aprovizionat cu produsul i
+				}
+			}
+
 		//cate produse avem la magazin la inceput 
-		vectorProd[idProd][idMagazin] = cererePalet(idMagazin, palet);
-		//inca lucrez la idee
+		//prima aprovizionare
+		for (int i=1; i <= idMagazinMax; i++){
+
+			idProd = palet.getProdType;
+			if( contor[idProd][i] == 0  ){ // daca este neaprovizionat
+			
+				vectorProd[idProd][i] = cererePalet(idMagazin, palet);
+			}
+		}
 
 
 
@@ -113,13 +129,23 @@ void Task3_3(LinkedList<Bon> listaBonuri, LinkedList<Tranzactie> listaTranzactii
 			//verificare daca am ajuns la 10% dintr un produs	
 			if ( vectorProd[idProd][idMagazin] = 0.1 * nrProduseMax ) //trebuie lucrat la nrProduseMax
 
-					//daca comanda nu poate fi onorata se afiseaza contorul
-					cererePalet(idMagazin, palet, nrProduseMax);
+					//daca comanda nu poate fi onorata se afiseaza contorul , adaugat inca o conditie, inca nu m-am prins cum anume
+					vectorProd[idProd][idMagazin] = vectorProd[idProd][idMagazin] + cererePalet(idMagazin, palet); // la ceea ce mai ramasese in magazin se adauga noul palet
 					
 			
 			bon = bon->getNext();
 		}
 
+		
+		// DEZALOCARE
+		for (int i = 1; i < idProdMax; ++i){
+    		delete [] vectorProd[i];
+    		delete [] contor[i];
+		}
+		
+		delete [] vectorProd;
+		delete [] contor;
+		
 		
 		
 		
