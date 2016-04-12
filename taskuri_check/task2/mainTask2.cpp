@@ -2,11 +2,8 @@
 #include<fstream>
 #include<string>
 
-//#include "task1.1.h"
 #include "citireTranzactii.h"
 #include "citireBonuri.h"
-/*#include "../headers/citirePaleti.h";*/
-/*#include "../headers/citireCategorie.h";*/
 #include "citireMagazine.h"
 #include "citireProduse.h"
 #include "citireCategorie.h"
@@ -45,16 +42,6 @@ int main ( ) {
 	/* Declar vectorii vanzariMagazine si Vanzari produse de lungimi lengthMagazine respectiv lengthProduse */
 	unsigned long long vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
 
-	/* Taskul 1_1: */
-	//task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
-	
-	/* Taskul 1.2 */
-	//task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
-
-	/* Taskul 1.3 */
-	//task1_3 ( suma, lengthTranzactii, listaTranzactii );
-
-	//task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
 
 	int nrZile;
 	string idBon;
