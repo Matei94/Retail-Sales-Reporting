@@ -1,8 +1,10 @@
 #include <cstddef>
 #include <iostream>
 #include <string>
+#include <stdio.h>
 #include <ostream>
 #include <fstream>
+
 #include "../headers/LinkedList.h"
 #include "../headers/SortedMerge.h"
 //#include "../headers/Palet.h"
@@ -83,10 +85,8 @@ void LinkedList<T>::removeFirst() {
 /*
 template <typename T>
 T LinkedList<T>::removeLast(){}
-
 template <typename T>
 T LinkedList<T>::removeFirstOccurrence(T value){}
-
 template <typename T>
 T LinkedList<T>::removeLastOccurrence(T value){}
 */
@@ -95,7 +95,6 @@ T LinkedList<T>::removeLastOccurrence(T value){}
 template <typename T>
 void LinkedList<T>::printList() {
   Node<T> *aux = pFirst;
-
   while (aux != NULL) {
     cout << aux->getValue() << ", ";
     aux = aux->getNext();
