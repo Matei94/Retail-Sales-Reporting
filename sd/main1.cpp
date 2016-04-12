@@ -22,24 +22,14 @@ int main ( ) {
 	/* Parsare fisiere de input */
 	LinkedList<Tranzactie> listaTranzactii;
 	citireTranzactii( listaTranzactii );
-	LinkedList<Tranzactie> listaTranzactii1;
-	citireTranzactii( listaTranzactii1 );
-	LinkedList<Tranzactie> listaTranzactii2;
-	citireTranzactii( listaTranzactii2 );
 
 	//listaTranzactii.printList();
 
 	LinkedList<Bon> listaBonuri;
 	citireBonuri( listaBonuri );
-	LinkedList<Bon> listaBonuri1;
-	citireBonuri( listaBonuri1 );
 
 	LinkedList<Magazin> listaMagazine;
-	LinkedList<Magazin> listaMagazine1;
 	citireMagazine( listaMagazine );
-	citireMagazine( listaMagazine1 );
-	LinkedList<Magazin> listaMagazine2;
-	citireMagazine( listaMagazine2 );
 
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );	
