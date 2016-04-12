@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+
 #include "Categorie.h"
 #include "Tranzactie.h"
 #include "LinkedList.h"
@@ -10,6 +11,7 @@
 #include "Magazin.h"
 #include "Node.h"
 #include "functiiTask1.h"
+
 using namespace std;
 
 /* Cauta in lista de bonuri un obiect al carui idBon == elem */

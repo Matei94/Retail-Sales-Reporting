@@ -1,6 +1,6 @@
-#include<iostream>
-#include<fstream>
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <string>
 
 #include "citireTranzactii.h"
 #include "citireBonuri.h"
@@ -18,6 +18,7 @@
 #include "task1_2.h"
 #include "task1_3.h"
 #include "task1_4.h"
+
 using namespace std;
 
 int main ( ) {

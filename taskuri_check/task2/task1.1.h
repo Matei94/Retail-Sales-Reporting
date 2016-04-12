@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+
 #include "Categorie.h"
 #include "Tranzactie.h"
 #include "LinkedList.h"
