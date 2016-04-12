@@ -43,6 +43,28 @@ int Hashtable<Tkey,Tvalue>::Hash( Tkey key ) {
 }
 
 template<typename Tkey, typename Tvalue>
+bool Hashtable<Tkey,Tvalue>::getLast( Tkey key, Tvalue& value ) {
+	unsigned int index = Hash( key );
+	Hashnode<Tkey,Tvalue> *prev = NULL;
+	Hashnode<Tkey,Tvalue> *first = Bucket[ index ];
+	if( first == NULL )
+		return false;
+	if( first->next == NULL ){
+		value = first->value;
+		Bucket[ index ] = NULL;
+		return true;
+	}
+	while( ( first->next != NULL ) ) {
+		prev = first;
+		first = first->next;
+	}
+	value = first->value;
+	delete first;
+	prev->next = NULL;
+	return true;
+}
+
+template<typename Tkey, typename Tvalue>
 void Hashtable<Tkey,Tvalue>::Insert( Tkey key, Tvalue value ){
 	unsigned int index = Hash( key );
 	Hashnode<Tkey,Tvalue> *prev = NULL;
@@ -113,12 +135,13 @@ void Hashtable<Tkey,Tvalue>::printTable( ) {
 	Hashnode<Tkey,Tvalue> *prev = NULL;
 	Hashnode<Tkey,Tvalue> *first = Bucket[ i ];
 		while( first != NULL ) {
-			cout<<"Bucket "<< i <<": "<<first->value;
+			cout<<"Bucket "<< i <<": "<<first->value<<endl;
 		prev = first;
 		first = first->next;
 		}
 	}
 }
 
+template class Hashtable<int,int>;
 template class Hashtable<int,Pereche>;
 //template class Hashtable<string,int>;

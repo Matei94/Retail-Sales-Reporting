@@ -53,6 +53,8 @@ class Hashtable {
 
 		int Hash( Tkey key );
 
+		bool getLast( Tkey key, Tvalue& value );
+
 		void Insert( Tkey key, Tvalue value );
 
 		bool get ( Tkey key, Tvalue& value );
