@@ -5,8 +5,8 @@
 #include "LinkedList.h"
 #include "Tranzactie.h"
 #include "Bon.h"
-//#include "../headers/Palet.h"
-//#include "../headers/Produs.h"
+#include "Palet.h"
+#include "Produs.h"
 
 using namespace std;
 
@@ -191,8 +191,8 @@ void LinkedList<T>::insertElement( T value, Node<T> *position ) {
 
 //template class LinkedList<int>;
 //template class LinkedList<string>;
-//emplate class LinkedList<Palet>;
-//template class LinkedList<Produs>;
+template class LinkedList<Palet>;
+template class LinkedList<Produs>;
 template class LinkedList< Tranzactie >;
 template class LinkedList< Bon >;
 // template class LinkedList< Node<int> >;

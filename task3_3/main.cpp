@@ -4,8 +4,8 @@
 
 #include "Bon.h"
 #include "Tranzactie.h"
-#include "citirePaleti.h"
-#include "citireProduse.h"
+#include "citireBonuri.h"
+#include "citireTranzactii.h"
 #include "Produs.h"
 #include "Palet.h"
 #include "LinkedList.h"
@@ -130,7 +130,7 @@ int main (){
 	LinkedList<Produs> listaProduse;
 	citireProduse( listaProduse );
 
-	task3( listaProduse, listaPaleti, nrProduse,  );	
+	task3( listaProduse, listaPaleti );	
 /*
 	ArrayList<Palet> slots = ArrayList<Palet>( NR_SLOTS );
 	Node<Palet> *aux = listaPaleti.front();
