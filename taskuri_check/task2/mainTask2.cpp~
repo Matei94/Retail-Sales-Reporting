@@ -33,13 +33,31 @@ int main ( ) {
 
 	LinkedList<Categorie> listaCategorii;
 	citireCategorii( listaCategorii );
+	/* Calculez nr de magazine, tranzactii, produse, bonuri din fiecare lista aferenta */
+	int lengthProduse = listaProduse.numberOfNodes( );
+	int lengthMagazine = listaMagazine.numberOfNodes( );
+	int lengthTranzactii = listaTranzactii.numberOfNodes( );
+	int lengthBonuri = listaBonuri.numberOfNodes( );
+	int lengthCategorii = listaCategorii.numberOfNodes( );
+	/* Declar vectorii vanzariMagazine si Vanzari produse de lungimi lengthMagazine respectiv lengthProduse */
+	unsigned long long vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
 
-	int nrZile = 10;
-	string idBon = "525943102504051";
+
+	int nrZile;
+	string idBon;
+
+	cout << "Task2_1: Zilele cu cele mai multe produse vandute. Introduceti pentru primele cate zile doriti evidenta\n";
+	cin >> nrZile;
 
 	task2_1( listaTranzactii, listaMagazine, listaBonuri, nrZile);
 
+	cout << "Task2_2: Zilele cu cei mai multi cumparatori. Introduceti pentru primele cate zile doriti evidenta\n";
+	cin >> nrZile;
+
 	task2_2( listaTranzactii,  listaMagazine, nrZile);
+
+	cout << "Task2_3: Continutul unui bon. Introduceti id-ul bonului\n";
+	cin >> idBon;
 
 	task2_3( listaBonuri,  listaProduse, idBon);
 
