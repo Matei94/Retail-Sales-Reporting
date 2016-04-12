@@ -49,14 +49,19 @@ int main ( ) {
 	unsigned long long vanzariProduse[ lengthProduse ], vanzariMagazine[ lengthMagazine ], suma;
 
 	/* Taskul 1_1: */
+	cout<<"\n\nTask-ul 1_1:\n\n";
 	task1_1 ( vanzariMagazine, lengthMagazine, listaTranzactii, listaProduse, listaBonuri, listaMagazine );
 	
 	/* Taskul 1.2 */
+	cout<<"\n\nTask-ul 1_2:\n\n";
 	task1_2 (vanzariProduse, lengthProduse, suma, listaTranzactii, listaProduse, listaBonuri);
 
 	/* Taskul 1.3 */
+	cout<<"\n\nTask-ul 1_3:\n\n";
 	task1_3 ( suma, lengthTranzactii, listaTranzactii );
 
+	/* Taskul 1.4 */
+	cout<<"\n\nTask-ul 1_4:\n\n";
 	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
 
 	return 0;
