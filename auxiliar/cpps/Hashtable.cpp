@@ -71,12 +71,6 @@ void Hashtable<Tkey,Tvalue>::Insert( Tkey key, Tvalue value ){
 }
 
 template<typename Tkey, typename Tvalue>
-Hashnode<Tkey,Tvalue> Hashtable<Tkey,Tvalue>::getList( Tkey key ) {
-	unsigned int index = Hash( key );
-	return Bucket [ index ];
-}
-
-template<typename Tkey, typename Tvalue>
 bool Hashtable<Tkey,Tvalue>::get( Tkey key, Tvalue& value ) {
 	unsigned int index = Hash( key );
 	Hashnode<Tkey,Tvalue> *first = Bucket [ index ];
@@ -87,7 +81,6 @@ bool Hashtable<Tkey,Tvalue>::get( Tkey key, Tvalue& value ) {
 		}
 		first = first->next;
 	}
-	cout<<"Nu s-a gasit ";
 	return false;
 }
 
