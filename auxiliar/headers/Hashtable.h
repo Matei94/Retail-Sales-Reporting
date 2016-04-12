@@ -55,6 +55,8 @@ class Hashtable {
 
 		void Insert( Tkey key, Tvalue value );
 
+		Hashnode<Tkey,Tvalue> getList( Tkey key );
+
 		bool get ( Tkey key, Tvalue& value );
 
 		void remove( Tkey key );
