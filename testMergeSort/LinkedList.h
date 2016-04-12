@@ -58,7 +58,7 @@ public:
 
   /* Asta nu cred ca ramane */
   void reversePop( LinkedList<T>& result );
-  //void LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedList<T>& right );
+  void LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedList<T>& right );
   //LinkedList<T> SortedMerge( LinkedList<T> left, LinkedList<T> right );
   void MergeSort( );
 

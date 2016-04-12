@@ -1,26 +1,3 @@
-/* MergeSort() */
-template <typename T>
-Node<T>* LinkedList<T>::MergeSort( ) {
-  Node<T>* head = this->front();
-  LinkedList<T> left;
-  LinkedList<T> right;
-
-  /* Conditia de oprire: lista goala sau lista cu un singur element */
-  if( (head == NULL) || (head->getNext() == NULL) )
-    return;
-
-  /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( righ ) */
-  this->LeftRightSplit( head, left, right );
-
-  /* Sortam recursiv cele doua subliste rezultate */
-  left.MergeSort( );
-  right.MergeSort( );
-
-  /* Rezultatul va fi impreunarea celor doua subliste deja sortate */
-  this->pFirst = SortedMerge( left, right, result ).front();
-
-  return this;
-}
 
 
 /* SortedMerge() */

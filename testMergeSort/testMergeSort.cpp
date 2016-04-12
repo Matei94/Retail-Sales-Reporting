@@ -1,8 +1,9 @@
 #include <iostream>
 
 //#include "../headers/citireTranzactii.h"
-#include "../headers/LinkedList.h"
-#include "../headers/SortedMerge.h"
+#include "LinkedList.h"
+#include "SortedMerge.h"
+#include "LeftRightSplit.h"
 //#include "../headers/Tranzactie.h"
 
 using namespace std;
@@ -21,18 +22,10 @@ int main( ) {
 
 	listaTranzactii.addLast( 5 );
 	listaTranzactii.addLast( 4 );
-	//listaTranzactii.addLast( 3 );
-	//listaTranzactii.addLast( 2 );
-	//listaTranzactii.addLast( 1 );
-	//listaTranzactii.addLast( 0 ); 
-
-	Node<int> *aux = listaTranzactii.front();
-
-	while ( aux != NULL ) {
-		cout << aux->getValue() << " ";
-		aux = aux->getNext();
-	}
-	cout << '\n';
+	listaTranzactii.addLast( 3 );
+	listaTranzactii.addLast( 2 );
+	listaTranzactii.addLast( 1 );
+	listaTranzactii.addLast( 0 ); 
 
 
 	listaTranzactii.MergeSort();

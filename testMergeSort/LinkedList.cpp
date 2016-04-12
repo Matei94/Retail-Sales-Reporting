@@ -5,8 +5,9 @@
 #include <ostream>
 #include <fstream>
 
-#include "../headers/LinkedList.h"
-#include "../headers/SortedMerge.h"
+#include "LinkedList.h"
+#include "SortedMerge.h"
+#include "LeftRightSplit.h"
 //#include "../headers/Palet.h"
 //#include "../headers/Produs.h"
 //#include "../headers/Tranzactie.h"
@@ -145,7 +146,7 @@ void LinkedList<T>::reversePop( LinkedList<T>& result ) {
 
 }
 
-
+/* LeftRightSplit() -> imparte lista curenta in doua subliste echilibrate: left si right */
 template <typename T>
 void LinkedList<T>::LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedList<T>& right ) {
     int numberOfNodes = this->numberOfNodes();
@@ -161,7 +162,6 @@ void LinkedList<T>::LeftRightSplit( Node<T>* head, LinkedList<T>& left, LinkedLi
 
     right.pFirst = aux;
 }
-
 
 /* MergeSort() */
 template <typename T>
@@ -186,23 +186,7 @@ void LinkedList<T>::MergeSort( ) {
   cout << '\n';  
 
   /* Impartim listaCurenta in doua subliste: jumatatea stanga( left ) si jumatatea dreapta( right ) */
-  LeftRightSplit( head, left, right );
-
- // Node<T>* h_left = left.front();
-  Node<T>* h_right = right.front();
-
-  while ( h_left != NULL ) {
-    cout << h_left->getValue() << ' ';
-    h_left = h_left->getNext();
-  }
-  cout << '\n';
-
-
-  while ( h_right != NULL ) {
-    cout << h_right->getValue() << ' ';
-    h_right = h_right->getNext();
-  }
-  cout << '\n';
+  LeftRightSplit( this->front(), left, right );
 
 
   /* Sortam recursiv cele doua subliste rezultate */

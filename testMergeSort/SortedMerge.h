@@ -10,15 +10,13 @@ using namespace std;
 
 /* SortedMerge() */
 template <typename T>
-void SortedMerge( LinkedList<T> left, LinkedList<T> right, LinkedList<T>& result ) {
+void SortedMerge( LinkedList<T>&left, LinkedList<T> right, LinkedList<T>& result ) {
 
   /* Conditiile de oprire: una dintre cele doua subliste este goala */
   if ( left.front() == NULL ) {
     //Node<T> *aux = right.front();
  
     result = right;
-
-    cout << result.front()->getValue() << "\n";
 
  /*
     while ( right.front() != NULL ) {
@@ -34,8 +32,6 @@ void SortedMerge( LinkedList<T> left, LinkedList<T> right, LinkedList<T>& result
     //Node<T> *aux = left.front();
 
     result = left;
-
-    cout << result.front()->getValue() << "\n";
 
 /*
     while ( left.front() != NULL ) {
@@ -59,24 +55,18 @@ void SortedMerge( LinkedList<T> left, LinkedList<T> right, LinkedList<T>& result
     left.removeFirst();
     result.addLast( value );
 
-    cout << "plm_left_before\n";
-
     SortedMerge( left, right, result );
 
     //result.addFirst( value );
 
-    cout << "plm_left_after\n";
+    cout << "plm_left\n";
   } else {
     
     T value = right.front()->getValue();
     right.removeFirst();
     result.addLast( value );
     
-    cout << "plm_right_before\n";
-
     SortedMerge( left, right, result );
-
-    cout << "plm_right_after\n";
   }
 
 }
