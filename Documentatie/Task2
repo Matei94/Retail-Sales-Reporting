@@ -1,0 +1,23 @@
+Directorii de magazine doresc următoarele rapoarte:
+
+‐ zilele cu cele mai multe produse vândute
+
+Parcurgem lista de tranzactii. Pentru fiecare magazin, tinem un vector cu 366 de pozitii (pe cate zile avem evidenta tranzactiilor).
+Pentru fiecare tranzactie, verific de cate ori apare id-ul bonului in lista de bonuri, ceea ce reprezinta numarul de produse
+vandute la acea tranzactie. Apoi, sortam vectorii corespunzatori fiecarui magazin.
+
+‐ zilele cu cei mai mulți cumpărători
+
+Asemanator cu taskul anterior. Pentru fiecare tranzactie, verificam timestamp-ul si incrementam pozitia corespunzatoare zilei respective
+pentru magazinul respectiv.
+
+‐ să poată vedea rapid conținutul unui bon introducând idul acestuia
+
+Initializam cu 0 un vector cu lungimea egala cu numarul de produse disponibile in magazin. Cautam id-ul dat in lista de bonuri.
+Incrementam pozitia corespunzatoare cand gasim in lista id-ul cautat. Apoi, parcurgem vectorul si cautam in lista de produse
+denumirea fiecarui produs cumparat.
+
+‐ câți clienți ar beneficia de introducerea unei a doua case în magazin
+
+Pentru fiecare magazin, calculam numarul mediu de clienti pe saptamana. Consideram ca jumatate din clienti ar merge la a doua casa.
+Se observa totusi ca numarul de clienti pe saptamana este foarte mic, deci probabilitatea ca doi clienti sa ajunga la casa aproximativ in acelasi timp este foarte mica.
