@@ -18,7 +18,7 @@
 #include "task1_2.h"
 #include "task1_3.h"
 #include "task1_4.h"
-
+#include "task1_5.h"
 using namespace std;
 
 int main ( ) {
@@ -58,6 +58,7 @@ int main ( ) {
 	task1_3 ( suma, lengthTranzactii, listaTranzactii );
 
 	task1_4 ( listaTranzactii, listaBonuri, listaProduse, listaMagazine, listaCategorii, lengthMagazine, lengthCategorii );
-
+	
+	task1_5 ( ListaProduse, ListaBonuri, ListaTranzactii);
 	return 0;
 }
