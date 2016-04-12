@@ -1,16 +1,16 @@
 Directorii executivi ai companiei doresc urmatoarele rapoarte:
 
 * o lista cu toate magazinele si vanzarile totale facute de acestea
-	Parcurgem tranzactii.csv si retinem id_mag si id_bon. Cu id_bon mergem in bonuri.csv , 	luam id_produs, cu id_produs mergem in produse.csv si luam pretul. Acest pret il adunam la 	suma[id_mag]. HASHTABLE
+	Parcurgem lista de tranzactii, luam id_mag si id_bon. Cu id_bon parcurgem lista de bonuri, unde avem mai multe bonuri cu acelasi id (mai multe produse pe acelasi bon), luam toate id-urile produselor, pe rand, cu ele mergem in lista de produse si luam preturile pe care le adunam la vectorul vanzariMagazine cu indicele "id_magazin preluat la inceput din tranzactie -1", pt ca id-urile magazinelor sunt de la 1 la n, si indexarea vectorului se face de la 0.
 
 * o lista cu toate produsele si vanzarile totale facute de acestea
-	Parcurgem tranzactii.csv si retinem id_bon. Cu id_bon mergem in bonuri.csv, luam 	id_produs, cu id_produs mergem in produse.csv de unde luam pretul pentru id_produs si il 	adunam.
+	Parcurgem lista de tranzactii  si retinem id_bon. Procedam analog ca la task-ul precedent, singura diferenta este ca preturile le punem in vectorul vanzariProduse care are calculeaza numarul total de vanzari pt fiecare produs. 
 
 * valoarea cosului mediu
-	Se aduna sumele de la pct a si se imparte la numarul de linii – 1 din fisierul tranzactii.csv
+	Se aduna sumele de la pct b si se imparte la numarul de tranzactii (numarul elementelor din lista de tranzactii )
 
 * care sunt categoriile cele mai bine vandute pentru fiecare magazin
-	Se ia o matrice care are pe linii magazinele si pe coloana categoriile, si se initializeaza cu 0. 	Se parcurge tranzactii.csv, retinem id_mag si id_bon. Cu id_bon mergem in bonuri.csv de 	unde luam id_produs cu care mergem in produse de unde luam categoria si adunam la linia 	magazin si coloana categorie. Apoi cu categorile maxime pentru fiecare magazin mergem in categorii.csv de unde luam numele categoriei
+	Se ia o matrice care are pe linii magazinele si pe coloana categoriile, si se initializeaza cu 0. Se parcurge lista tranzactii, retinem id_mag si id_bon. Cu id_bon mergem in bonuri de unde luam id_produs cu care mergem in produse de unde luam categoria si adunam la linia magazin - 1 si coloana categorie -1  un 1. Calculam maximul pe fiecare linie si afisam categoria corespunzatoare coloanelor unde se afla elementul maxim.
 
 * care sunt perechile de produse care se vand cel mai bine impreuna
 	Parcurgem lista de tranzactii si pentru fiecare idBon parcurgem lista de bonuri si cautam 
@@ -20,6 +20,6 @@ Directorii executivi ai companiei doresc urmatoarele rapoarte:
 	iar intr-o matrice de numarProduse*numarProduse vom aduna 1 pe pozitiile corespunzatoare id-urilor
 	produselor din fiecare pereche ( Se cunoaste faptul ca id-urile produselor sunt numere intregi 
 	consecutive de la 1 la numarProduse). De fiecare data stergem produsele din vector. Pentru matricea
-	obtinuta, vom calcula maximul. Vom afisa de produse produsele care au id-urile corespunzatoare
+	obtinuta, vom calcula maximul. Vom afisa perechile de produse care au id-urile corespunzatoare
  	indicilor maximelor din matrice.
 
