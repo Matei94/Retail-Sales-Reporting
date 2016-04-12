@@ -5,6 +5,8 @@
 #include "Node.h"
 #include "Tranzactie.h"
 #include "Bon.h"
+#include "Produs.h"
+#include "Palet.h"
 
 using namespace std;
 
@@ -66,6 +68,6 @@ void Node<T>::setNext(Node<T>* nod) {
 template class Node< Tranzactie >;
 template class Node< Bon >;
 //template class Node< string >;
-//template class Node< Palet >;
-//template class Node< Produs >;
+template class Node< Palet >;
+template class Node< Produs >;
 //template class Node< struct elemInfo<string, int> >;
