@@ -1,6 +1,6 @@
 #include <string>
 
-#include "../headers/Categorie.h"
+#include "Categorie.h"
 
 using namespace std;
 
